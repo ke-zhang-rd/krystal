@@ -11,5 +11,3 @@ Krystal Documentation
 
    lambda
    super
-   release-history
-   min_versions
