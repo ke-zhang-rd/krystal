@@ -9,7 +9,7 @@ Krystal Documentation
 .. toctree::
    :maxdepth: 2
 
-   installation
+   lambda
    usage
    release-history
    min_versions
