@@ -10,6 +10,6 @@ Krystal Documentation
    :maxdepth: 2
 
    lambda
-   usage
+   super
    release-history
    min_versions
