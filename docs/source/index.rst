@@ -12,3 +12,6 @@ Krystal Documentation
    philosophy
    lambda
    super
+   BNF
+   expression
+   walrus
