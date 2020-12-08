@@ -9,5 +9,6 @@ Krystal Documentation
 .. toctree::
    :maxdepth: 2
 
+   philosophy
    lambda
    super
