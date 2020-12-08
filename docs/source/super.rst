@@ -1,5 +1,5 @@
 =====
-Super
+super
 =====
 
 .. code-block:: python

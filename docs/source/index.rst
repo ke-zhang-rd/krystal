@@ -16,3 +16,4 @@ Krystal Documentation
    walrus
    import
    zip
+   isvseq

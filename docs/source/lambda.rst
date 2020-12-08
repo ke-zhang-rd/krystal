@@ -1,8 +1,21 @@
 ======
-Lambda
+lambda
 ======
 
-Example:
+``lambda`` exapression is just a syntax suger for normal function definition.
+
+.. code-block:: python
+
+    lambda *args: op(args)
+
+could be translate to: 
+
+.. code-block:: python
+
+    def func(*args):
+        return op(args)
+
+**Example:** sorting
 
 .. code-block:: python
 
@@ -11,12 +24,22 @@ Example:
     >>> pairs
     [(4, 'four'), (1, 'one'), (3, 'three'), (2, 'two')]
 
-Example:
+**Example:** default argument
 
 .. code-block:: python
 
-    >>> out = lambda *x: print(list(map(str, x)))
+    >>> func = lambda a, b=3: (a, b)
+    >>> func(2)
+    (2, 3)
+
+**Example:** unpacking operator
+
+.. code-block:: python
+
+    >>> out = lambda *x: list(map(str, x))
     >>> out('abc', 124)                                                         
     ['abc', '124']
 
-In second example, you may notice that ``lambda`` also accept ``*x`` as arguments if you are not sure the number of arguments. Here ``x`` is a tuple.
+.. note:: 
+
+    In last example, as I said ``lambda`` is just a syntax suger. Like function, ``lambda`` also accept ``*x`` as arguments when you are not sure the number of arguments. Here ``x`` is unpacked to a tuple.
