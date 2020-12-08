@@ -15,3 +15,4 @@ Krystal Documentation
    expression
    walrus
    import
+   zip
