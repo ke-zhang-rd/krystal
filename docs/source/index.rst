@@ -13,7 +13,9 @@ Krystal Documentation
    lambda
    super
    expression
+   isvseq
+   copy
    walrus
    import
    zip
-   isvseq
+   singleton
