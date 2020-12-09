@@ -2,13 +2,16 @@
 walrus
 ======
 
-The reason why := it's called walrus
+The reason why := it's called walrus:
 
 .. image:: ../images/walrus.png
     :width: 400
     :align: center
 
-Naming the result of an expression is important. ``x := foo()`` could be desrcibed as naming the result of ``foo()`` as ``x``.
+The academic name of walrus is assignment expression. In computer science, an expression is a syntactic entity in a programming language that may be evaluated to determine its value. So the expression could be treated as a value. ``x := foo()`` has two effects:
+
+  * assign the result of ``foo()`` to ``x``.
+  * return the whole expression value which is ``x`` or ``foo()`` (they are equal).
 
 **Example:** if
 

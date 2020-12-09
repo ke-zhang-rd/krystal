@@ -12,10 +12,10 @@ Krystal Documentation
    philosophy
    lambda
    super
-   expression
    isvseq
    copy
    walrus
    import
    zip
+   dirvsdict
    singleton
