@@ -21,3 +21,4 @@ Krystal Documentation
    singleton
    mutabledefault
    try
+   rst
