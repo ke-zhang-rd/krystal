@@ -17,22 +17,23 @@ Example:
             print(self.p)
             self.a = 'a'
 
-.. code:: python
+.. code:: ipython
 
-    In [9]: c=C()
-    In [10]: dir(c)
-    Out[10]:
+    In [1]: c=C()
+    1
+    In [2]: dir(c)
+    Out[2]:
     [....
     ...
      'a',
      'p']
 
-    In [11]: c.__dict__
-    Out[11]: {'a': 'a'}
+    In [3]: c.__dict__
+    Out[3]: {'a': 'a'}
 
-    In [5]: c.p = 3
-    In [7]: c.__dict__
-    Out[7]: {'a': 'a', 'p': 3}
+    In [4]: c.p = 3
+    In [5]: c.__dict__
+    Out[5]: {'a': 'a', 'p': 3}
 
 
 .. note::
