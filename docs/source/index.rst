@@ -19,3 +19,4 @@ Krystal Documentation
    zip
    dirvsdict
    singleton
+   mutabledefault
