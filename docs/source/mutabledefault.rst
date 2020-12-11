@@ -77,6 +77,8 @@ Output
   {'foo': [1, 1]}
   [1, 1]
 
-So ``foo = []`` assignment will create a new variable instead of changing default ``foo``.
-``if foo == [] or foo == [1]:`` is checking default argument foo’s value.
-But ``foo = []`` created a new local foo variable.
+.. important::
+
+  ``foo = []`` assignment will create a new variable instead of changing default ``foo``.
+  ``if foo == [] or foo == [1]:`` is checking default argument foo’s value.
+  But ``foo = []`` created a new local foo variable.
