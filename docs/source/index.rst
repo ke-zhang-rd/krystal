@@ -20,3 +20,4 @@ Krystal Documentation
    dirvsdict
    singleton
    mutabledefault
+   try
