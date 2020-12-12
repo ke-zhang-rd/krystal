@@ -10,18 +10,18 @@ Krystal Documentation
    :maxdepth: 2
 
    philosophy
-   lambda
-   super
-   isvseq
    copy
-   walrus
-   import
-   zip
-   dirvsdict
-   singleton
-   mutabledefault
-   try
    create
+   dirvsdict
    forelse
+   import
+   isvseq
+   lambda
+   mutabledefault
    newvsinit
    rst
+   singleton
+   super
+   try
+   walrus
+   zip

@@ -2,7 +2,7 @@
 mutable default arguments
 =========================
 
-Python is so predictable which means the way you think might very close to the way it works.However, Mutable default arguments isn't one of them. Below is an example.
+Python is so duck-typing. However, Mutable default arguments of function call isn't one of them. Below is an example:
 
 .. code:: python
 
@@ -11,7 +11,7 @@ Python is so predictable which means the way you think might very close to the w
       patterns = ["a list based on"] + inputs
       return patterns
 
-My first feeling about this function is ``inputs`` will be initialized to empty list when lacking parameters. Expectation of this function call might be:
+My first feeling about this function is ``inputs`` will be initialized to an empty list when lacking parameters. Expectation of this function call:
 
 .. code:: python
 
@@ -31,7 +31,7 @@ Actually result:
   >>> compute()
   ["a list based on", "something", "something"]
 
-Keep two things in consideration:
+There are things under the hood. Keep two things in consideration:
 
   1. Default variable is an attribute of the function object. Yes, your function is just an object and your default variable is an attribute of that object. It's an attribute of the object for all function calls. 
   2. Assignment always creates a new local variable in the innermost scope. Consult `this <https://stackoverflow.com/a/1133375/10642305>`_ for more.
