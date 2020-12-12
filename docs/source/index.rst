@@ -23,5 +23,5 @@ Krystal Documentation
    try
    create
    forelse
+   newvsinit
    rst
-
