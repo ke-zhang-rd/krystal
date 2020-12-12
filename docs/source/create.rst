@@ -52,5 +52,4 @@ A diagram of how instances are constructed:
 
 .. image:: ../images/instance_creation.png
 
-If you prefer, you could check source code `here <https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Objects/typeobject.c#L978-L1044>`_
-https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Objects/typeobject.c#L978-L1044
+If you prefer, you could check cpython source code `here <https://github.com/python/cpython/blob/63298930fb531ba2bb4f23bc3b915dbf1e17e9e1/Objects/typeobject.c#L978-L1044>`_.

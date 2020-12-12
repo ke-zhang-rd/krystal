@@ -1,5 +1,5 @@
 =========
-singleton
+Singleton
 =========
 
 .. code-block:: python
@@ -47,3 +47,40 @@ singleton
     * The order of function call is deeply embedded in type’s call mentioned in section Python create sequence of this document and also in this C code.
     * The ``*args`` and ``**kwargs`` of Foo's ``__new__`` will unchangely pass to Foo’s ``__init__`` implicitly.
     * ``_instances = {}`` instead of ``_instances = None`` make Singleton available for multiple classes instead only one. Therefore, you could have Foo(metaclass=Singleton), Bar(metaclass=Singleton) … instead of only one.
+
+
+Another Singleton implementation by using ``__new__`` case and why it’s not work
+
+.. code:: python
+
+  class Singleton:
+      _ins = None
+      def __new__(cls, tmp, *args, **kwargs):
+          if not cls._ins:
+              cls._ins = super().__new__(cls,*args)
+              return cls._ins
+          else:
+              return cls._ins
+
+
+  class Earth(Singleton):
+      def __init__(self, partition):
+          if partition == 'north':
+              setattr(self, partition, 'N')
+          else:
+              setattr(self, partition, 'S')
+
+
+.. code:: python
+
+  >>> a = Earth('north')
+  >>> b = Earth('south')
+  >>> a is b
+  True
+
+But 
+print(a.north)
+print(a.south)
+N
+S
+
