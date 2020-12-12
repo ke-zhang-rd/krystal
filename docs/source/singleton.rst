@@ -62,25 +62,24 @@ Another Singleton implementation by using ``__new__`` case and why it’s not wo
           else:
               return cls._ins
 
-
-  class Earth(Singleton):
-      def __init__(self, partition):
-          if partition == 'north':
-              setattr(self, partition, 'N')
-          else:
-              setattr(self, partition, 'S')
-
+  class Foo(Singleton):
+      def __init__(self):
+          self.value = random.randint(0,10)
 
 .. code:: python
 
-  >>> a = Earth('north')
-  >>> b = Earth('south')
-  >>> a is b
+  a = Foo()
+  print(a.value)
+  print(a is b)
+  b = Foo()
+  print(b.value)
+
+Output:
+
+.. code:: python
+
+  0
   True
+  4
 
-But 
-print(a.north)
-print(a.south)
-N
-S
-
+The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult **Python Create Sequence** of this document.
