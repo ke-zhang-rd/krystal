@@ -1,5 +1,5 @@
 ========================
-deepcopy vs shallow copy
+Deepcopy vs shallow copy
 ========================
 
 Shallow copy is shallow which means something isn’t copied but changed together. Internal object(object contained in object) will change together.

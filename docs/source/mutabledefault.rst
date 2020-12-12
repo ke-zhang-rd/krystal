@@ -1,5 +1,5 @@
 =========================
-mutable default arguments
+Mutable default arguments
 =========================
 
 Python is so duck-typing. However, Mutable default arguments of function call isn't one of them. Below is an example:

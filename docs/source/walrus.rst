@@ -1,6 +1,6 @@
-======
-walrus
-======
+===============
+Walrus operator
+===============
 
 The reason why := it's called walrus:
 

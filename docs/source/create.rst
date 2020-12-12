@@ -1,6 +1,6 @@
-=============================
-Python Object Create Sequence
-=============================
+======================
+Object Create Sequence
+======================
 
 Python is doing a lot of thing secretly. There are some magic methods you may define in your class. Before every other things. Here I want to discuss what actually happen when you define a class and construct a object. Here is an example:
 
