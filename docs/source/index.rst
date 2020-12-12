@@ -21,4 +21,7 @@ Krystal Documentation
    singleton
    mutabledefault
    try
+   create
+   forelse
    rst
+
