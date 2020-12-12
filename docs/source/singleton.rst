@@ -82,4 +82,5 @@ Output:
   True
   4
 
-The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult **Python Create Sequence** of this document.
+The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult the diagram in :doc:`Python Object Create Sequence <create>`
+
