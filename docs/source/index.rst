@@ -14,7 +14,6 @@ Krystal Documentation
    comparision
    comprehension
    copy
-   create
    dirvsdict
    forelse
    inspect

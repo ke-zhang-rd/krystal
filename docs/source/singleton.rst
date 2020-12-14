@@ -82,5 +82,4 @@ Output:
   True
   4
 
-The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult the diagram in :doc:`Object Create Sequence <create>`
-
+The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult the diagram in :ref:`Object Create Sequence <object-create-sequence>`
