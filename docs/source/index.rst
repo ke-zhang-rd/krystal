@@ -10,17 +10,21 @@ Krystal Documentation
    :maxdepth: 2
 
    philosophy
+   annotation
    comprehension
    copy
    create
    dirvsdict
    forelse
+   inspect
    import
    lambda
+   map_filter_reduce
    mutabledefault
    newvsinit
    rst
    singleton
+   starred
    super
    try
    variables
