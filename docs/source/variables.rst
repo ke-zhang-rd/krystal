@@ -6,8 +6,7 @@ Even this section is called variables. Actually, in python they should be called
 
 * In python everything is object.
 * We assign an object to a name.
-* One object could have multiple names.
-* When you assign a name to a new name, the object get a new name(reference).
+* One object could have multiple names. When you assign a name to a new name, the object get a new name(reference).
 * List, dicts and set are called mutable objects.
 * Ints, strings, tuples etc are called immutable objects.
 * With mutable object, you could change object itself(change thing inside object, e.g. update a lement in list). This change could be observed by all names.
