@@ -10,6 +10,7 @@ Krystal Documentation
    :maxdepth: 2
 
    philosophy
+   comprehension
    copy
    create
    dirvsdict
