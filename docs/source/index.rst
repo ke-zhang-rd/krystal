@@ -11,6 +11,7 @@ Krystal Documentation
 
    philosophy
    annotation
+   comparision
    comprehension
    copy
    create
@@ -20,6 +21,7 @@ Krystal Documentation
    import
    lambda
    map_filter_reduce
+   meta
    mutabledefault
    newvsinit
    rst

@@ -1,5 +1,5 @@
 ========================
-Deepcopy vs shallow copy
+Deepcopy vs Shallow copy
 ========================
 
 **Compound objects** (objects that contain other objects, like lists or class instances)
