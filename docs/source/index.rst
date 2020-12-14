@@ -23,5 +23,6 @@ Krystal Documentation
    singleton
    super
    try
+   variables
    walrus
    zip

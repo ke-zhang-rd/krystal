@@ -1,6 +1,6 @@
-====================
-__new__ vs  __init__
-====================
+============
+new vs  init
+============
 
 * ``__new__`` is the true constructor of class. It need to return a obj.
 * ``__init__`` initializ object. It doesn't need to return. 
