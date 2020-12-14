@@ -15,7 +15,6 @@ Krystal Documentation
    dirvsdict
    forelse
    import
-   isvseq
    lambda
    mutabledefault
    newvsinit

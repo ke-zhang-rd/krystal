@@ -29,6 +29,10 @@ Example:
     >>> var_cp
     [{'a': 4}, 1, 2, 3]
     [{'a': 4}, 1, 2, 3]
+    >>> var is var_cp
+    False
+    >>> var == var_cp
+    True
 
 **Deepcopy** is just totally independent.
 
@@ -45,6 +49,10 @@ You could ``deepcopy`` by pkg ``copy``
 
   >>> var_dpcp
   [{'a': 1}, 1, 2, 3]
+  >>> var is var_dpcp
+  False
+  >>> var == var_dpcp
+  True
 
 
 **Reference** is taling about exactly same thing. Everything change together.
@@ -61,3 +69,19 @@ You could ``deepcopy`` by pkg ``copy``
   
   >>> var_ref
   [{'a': 2}, -1, 2, 3]
+  >>> var is var_ref
+  True
+
+.. tip::
+
+  +-------------+--------------------------+
+  | **operator**| **meaning**              |
+  +=============+==========================+
+  | ``==``      | equal                    |
+  +-------------+--------------------------+
+  | ``!=``      | not equal                |
+  +-------------+--------------------------+
+  | ``is``      | object identity          |
+  +-------------+--------------------------+
+  | ``is not``  | negative object identity |
+  +-------------+--------------------------+
