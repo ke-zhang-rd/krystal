@@ -26,6 +26,7 @@ Krystal Documentation
    mutabledefault
    newvsinit
    rst
+   scope
    singleton
    starred
    super
