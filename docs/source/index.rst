@@ -19,6 +19,7 @@ Krystal Documentation
    forelse
    inspect
    import
+   itertools
    lambda
    map_filter_reduce
    meta
