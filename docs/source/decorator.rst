@@ -2,23 +2,24 @@
 Decorator
 =========
 
-True meaning
-------------
+**True meaning**
 
-``@`` is a syntax sugar.
+The syntax of decorator:
 
 .. code:: python
   
   @dec
   foo()
+  
+  >>> foo()
 
-True meaning is:
+``@`` is a syntax sugar. The true meaning of syntax is: 
 
 .. code:: python
   
   foo = dec(foo)
 
-So the thing after ``@`` has to be a function which accepts a func and return a new func.
+So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**.
 
 .. code:: python
   
@@ -34,33 +35,35 @@ True meaning is:
   @tmp
   foo()
 
+  >>> foo()
+
 Need to calculate function call ``dec(a=something)`` first which returns the true decorator.
 
 Write a decorator
 -----------------
 
-When you try to write a decorator ``dec``, **it accepts a func and returns a func**. So initially, it should looks like:
+When you try to write a decorator ``dec``, Keep in mind: **it accepts a func and returns a func**. So initially, it should looks like:
 
 .. code:: python
 
   def dec(func):
     ...
-    return f
+    return newfunc
 
-``f`` is a function which needs to be defined inside dec. So it looks like:
+``newfunc`` is a function which needs to be defined inside ``dec``. So it looks like:
 
 .. code:: python
 
   def dec(func):
       ...
-      def f(...):
+      def newfunc(...):
           ...
-      return f
+      return newfunc
 
-Since we return ``f`` and ``f`` is the function we will use later, this reveal two considerations:
+Since we return ``newfunc`` and ``newfunc`` is the function we will use later, this reveal two considerations:
 
-1. ``f`` need to pass any arguments it accepts to ``func``. So ``*args`` and ``**kwargs`` should be used.
-2. ``f`` is a wrapper of ``func``, so ``func`` will be called inside ``f``.
+1. ``newfunc`` need to pass any arguments it accepts to ``func``. So ``*args`` and ``**kwargs`` should be used.
+2. ``newfunc`` is a wrapper of ``func``, so ``func`` will be called inside ``newfunc``.
 
 #1 will make it looks like:
 
@@ -68,9 +71,9 @@ Since we return ``f`` and ``f`` is the function we will use later, this reveal t
 
   def dec(func):
       ...
-      def f(*args, **kwargs):
+      def newfunc(*args, **kwargs):
           ...
-      return f
+      return newfunc
 
 #2 will make it looks like:
 
@@ -78,22 +81,22 @@ Since we return ``f`` and ``f`` is the function we will use later, this reveal t
 
   def dec(func):
       ...
-      def f(*args, **kwargs):
+      def newfunc(*args, **kwargs):
           ...
           func(*args, **kwargs)
           ...
-      return f
+      return newfunc
 
-Eventually, it becomes:
+Eventually, a runable decorator example shows below:
 
 .. code:: python
 
   def dec(func):
-      def f(*arg, **kwargs):
+      def newfunc(*arg, **kwargs):
           print('calling func')
           func(*arg, **kwargs)
           print('end func')
-      return f
+      return newfunc
 
   @dec
   def foo():
@@ -117,9 +120,9 @@ Class decorator is nothing more. If a function’s decorator is a function that 
       return newcls
 
   @dec
-  class X:
+  class C:
       pass
 
-  >>> x = X()
-  >>> X.attr
+  >>> obj = C()
+  >>> C.attr
   100
