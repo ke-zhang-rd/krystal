@@ -14,6 +14,7 @@ Krystal Documentation
    comparision
    comprehension
    conda
+   container
    copy
    decorator
    dirvsdict
@@ -21,12 +22,15 @@ Krystal Documentation
    generator
    inspect
    import
+   iter
    itertools
    lambda
    map_filter_reduce
    meta
    mutabledefault
    newvsinit
+   pdb
+   pytest
    rst
    scope
    singleton
