@@ -13,10 +13,12 @@ Krystal Documentation
    annotation
    comparision
    comprehension
+   conda
    copy
    decorator
    dirvsdict
    forelse
+   generator
    inspect
    import
    itertools
