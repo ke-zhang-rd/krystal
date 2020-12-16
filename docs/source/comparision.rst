@@ -2,6 +2,8 @@
 Chaining Comparison Operators
 =============================
 
+Formally, assuming ``a, b, c, …, y, z`` are expressions and ``op1, op2, …, opN`` are comparison operators, then ``a op1 b op2 c ... y opN z`` is equivalent to ``a op1 b and b op2 c and ... y opN z``.
+
 .. code:: python
 
   >>> x = 5 
@@ -17,9 +19,8 @@ Chaining Comparison Operators
   True
   >>> i < flag > j
 
-Formally, if ``a, b, c, …, y, z`` are expressions and ``op1, op2, …, opN`` are comparison operators, then ``a op1 b op2 c ... y opN z`` is equivalent to ``a op1 b and b op2 c and ... y opN z``, except that each expression is evaluated at most once.
 
-So the expression below is True
+So the expression below is legal.
 
 .. code:: python
 
