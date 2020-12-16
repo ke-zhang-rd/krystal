@@ -2,17 +2,22 @@
 Deepcopy vs Shallow copy
 ========================
 
-**Compound objects** (objects that contain other objects, like lists or class instances)
+Shallow copy
+------------
 
-.. code:: python
-
-  interanl = {'a': 3}
-  ls = [internal, 1, 2, 3]
-
-Here ``internal`` is a compound object.
-
-**Shallow** copy is shallow which means internal compound object isn’t copied and both in old container and new container will change together.
+Shallow copy, means not deep enough, means internal object isn't copied. Object in both old container and new container will change together.
 ``obj`` will change together in ``obj``, ``var`` and ``var_cp`` in below example.
+
+.. tip::
+
+  *Internal objects* (objects that contain other objects, like lists or class instances)
+
+  .. code:: python
+
+    interanl = {'a': 3}
+    ls = [internal, 1, 2, 3]
+
+  Here ``internal`` is an internal object.
 
 Example:
 
@@ -34,18 +39,20 @@ Example:
     >>> var == var_cp
     True
 
-**Deepcopy** is just totally independent.
+Deep copy
+---------
 
-You could ``deepcopy`` by pkg ``copy``
+Deepcopy create totally independent object from top to bottom.
+
+You could do ``deepcopy`` by builtin module ``copy``.
 
 .. code:: python
-
+  
+  from copy import deepcopy
   obj = {'a':1}
   var = [obj, 1, 2, 3]
-  var_dpcp = deepcopy(ls)
+  var_dpcp = deepcopy(var)
   var[0]['a'] = 2
-
-.. code:: python
 
   >>> var_dpcp
   [{'a': 1}, 1, 2, 3]
@@ -55,7 +62,10 @@ You could ``deepcopy`` by pkg ``copy``
   True
 
 
-**Reference** is taling about exactly same thing. Everything change together.
+Reference
+---------
+
+Reference is just a alternative name of orignal object. Assignment create a reference.
 
 .. code:: python
 
