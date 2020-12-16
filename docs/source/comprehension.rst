@@ -2,7 +2,20 @@
 Comprehension
 =============
 
+List comprehension
+------------------
+
+.. code:: python
+
+  >>> [i for i in range(5)}]                           
+  [0, 1, 2, 3, 4]
+
+.. tip::
+   
+   There is a shortcut for constructing a list in :ref:`Construct Iterable <construct-iterable>`.
+
 Nested list comprehension
+-------------------------
 
 .. code:: python
 
@@ -34,6 +47,7 @@ Key point to remember here (which took me a long time to realize) is that the or
 
 
 Dict comprehension
+------------------
 
 .. code:: python
 
@@ -41,6 +55,7 @@ Dict comprehension
   d = {i: i+1 for i in ls}
 
 Set comprehension
+-----------------
 
 .. code:: python
 
@@ -53,6 +68,7 @@ Set comprehension
   {1, 2, 3}
 
 Generator comprehension
+-----------------------
 
 .. code:: python
 

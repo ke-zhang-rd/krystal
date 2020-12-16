@@ -21,14 +21,7 @@ You may see ``*args``, ``**kwargs`` in many places and was wondering what ``args
 Here inside foo, ``args`` is a tuple and ``kwargs`` is a dict.
 Here when you use a starred expression in a function call, t has to be a iterable and d has to be a dictionary.
 
-**Extract from iterable:**
-
-.. code:: python
-
-  *(a, *b), c = 'this'
-
-This is kind of tricky to find out which is which. It's clear ``c = 's'``.
-Then ``a, *b = "thi"``. Then ``a = 't'`` and ``b = "hi"``.
+.. _construct-iterable:
 
 **Construct iterable:**
 
@@ -42,3 +35,11 @@ Then ``a, *b = "thi"``. Then ``a = 't'`` and ``b = "hi"``.
 
   The comma ``,`` after ``ls`` is necessary.
 
+**Extract from iterable:**
+
+.. code:: python
+
+  *(a, *b), c = 'this'
+
+This is kind of tricky to find out which is which. It's clear ``c = 's'``.
+Then ``a, *b = "thi"``. Then ``a = 't'`` and ``b = "hi"``.
