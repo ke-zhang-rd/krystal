@@ -4,7 +4,8 @@ Decorator
 
 **True meaning**
 
-The syntax of decorator:
+Syntax
+======
 
 .. code:: python
   
@@ -13,7 +14,7 @@ The syntax of decorator:
   
   >>> foo()
 
-``@`` is a syntax sugar. The true meaning of syntax is: 
+``@`` is a syntax sugar. The **true meaning** of syntax is: 
 
 .. code:: python
   
