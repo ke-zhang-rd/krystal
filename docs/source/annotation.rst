@@ -2,14 +2,15 @@
 Typing and annotation
 =====================
 
-Clearly any ``var`` could be annotated by ``:`` operator like
+Clearly, any ``var`` could be annotated by ``:`` operator like:
   
 .. code:: python
   
   var = value
   var: str = value
 
-So in a function, this means
+Function
+--------
   
 .. code:: python
   
@@ -23,11 +24,19 @@ will become
   def foo(a: int, b: str, c: bool = False, d: None = None) -> str:
       ...
 
-Class annotation
+Class
+-----
+  
+.. code:: python
+  
+  class C:
+      id
+      counter
+
+will become
   
 .. code:: python
   
   class C:
       id: int                     
       counter: ClassVar[int] = 0 
-
