@@ -2,12 +2,12 @@
 for else
 ========
 
-for else clause could be useful when you go through iterable for searching purpose.
+for/else clause could be useful when you go through iterable for searching purpose.
 
-* If ``break`` is called in ``for loop, ``else`` clause won't be execute.
+* If ``break`` is called in ``for`` loop, skip ``else`` clause.
 * If ``break`` isn't called in ``for`` loop, ``else`` caluse will be execute.
 
-Example:
+**Example:**
 
 .. code:: python
 
@@ -16,10 +16,32 @@ Example:
   for i in ls:
     print(i)
   else:
-    print('in else')
+    print("Excute else")
+
+Output:
+
+.. code:: python
+
+  1
+  2
+  3
+  Excute else
+
+.. code:: python
 
   for i in ls:
+    print(i)
     if i == 3:
+      print("Execute break")
       break
   else:
-    print('in else')
+    print("Excute else")
+
+Output:
+
+.. code:: python
+
+  1
+  2
+  3
+  Execute break
