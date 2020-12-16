@@ -51,20 +51,19 @@ Dict comprehension
 
 .. code:: python
 
-  ls = [1,2,3]
-  d = {i: i+1 for i in ls}
+  >>> ls = [1,2,3]
+  >>> d = {i: i+1 for i in ls}
+  >>> d
+  {1: 2, 2: 3, 3: 4}
 
 Set comprehension
 -----------------
 
 .. code:: python
 
-  ls = [1, 2, 2, 3]
-  s = {i for i in ls}
-  s
-
-.. code:: python
-
+  >>> ls = [1, 2, 2, 3]
+  >>> s = {i for i in ls}
+  >>> s
   {1, 2, 3}
 
 Generator comprehension
@@ -72,11 +71,8 @@ Generator comprehension
 
 .. code:: python
 
-  ls = [1, 2, 2, 3]
-  s = {i for i in ls}
-  s
-
-.. code:: python
-
-  {1, 2, 3}
+  >>> ls = [1, 2, 2, 3]
+  >>> s = (i for i in ls)
+  >>> list(s)
+  [1, 2, 3]
 
