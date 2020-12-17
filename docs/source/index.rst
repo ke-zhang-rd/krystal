@@ -18,6 +18,7 @@ Krystal Documentation
    copy
    decorator
    dataclass
+   functools
    dirvsdict
    forelse
    generator
