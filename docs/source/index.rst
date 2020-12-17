@@ -39,6 +39,7 @@ Krystal Documentation
    singleton
    starred
    super
+   findmethod
    try
    variables
    walrus
