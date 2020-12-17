@@ -2,8 +2,6 @@
 Decorator
 =========
 
-**True meaning**
-
 Syntax
 ======
 
@@ -20,7 +18,7 @@ Syntax
   
   foo = dec(foo)
 
-So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**.
+Decorator doesn't mean change function name. So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**. Decorator also accept arguments.
 
 .. code:: python
   
@@ -38,7 +36,7 @@ True meaning is:
 
   >>> foo()
 
-Need to calculate function call ``dec(a=something)`` first which returns the true decorator.
+It reveal the logic under the hood is calculating function call ``dec(a=something)`` first which returns the true decorator.
 
 Write a decorator
 -----------------
