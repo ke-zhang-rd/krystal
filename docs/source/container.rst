@@ -2,8 +2,26 @@
 High performance container 
 ==========================
 
-counter
--------
+OrderedDict
+-----------
+
+It is a dict and it has order.
+
+.. code:: python
+
+  from collections import OrderedDict
+  od = OrderedDict({i: j for i, j in zip(['a', 'b','c'], [1,2,3])})
+  od
+  OrderedDict([('a', 1), ('b', 2), ('c', 3)])
+
+change value doesn’t influence order
+Insert a new value at the end.
+Access by index
+
+.. code:: python
+
+  >>> list(od.items())[0]
+  (‘a’, 1)
 
 queue
 -----
@@ -24,7 +42,7 @@ PriorityQueue is a good container for min heap.
   p.get()
   >>>1
 
-The priorityqueue get() method returns min value. To get a maxheap, use put((priority, value))
+The priorityqueue get() method returns min value. To get a maxheap, use put((-value, value))
 Here is a conventional pattern for max
 
 .. code:: python
@@ -37,7 +55,7 @@ Here is a conventional pattern for max
   p.get()
   >>> (-2, 2)
 
-Class based API of PriorityQueue
+Store data with priority number in PriorityQueue
 
 .. code:: python
 
@@ -102,3 +120,56 @@ Class based API of Queue
 
 deque
 -----
+
+.. code:: python
+
+  >>> from collections import deque
+  >>> d = deque('ghi')                 # make a new deque with three items
+  >>> for elem in d:                   # iterate over the deque's elements
+  ...     print(elem.upper())
+  G
+  H
+  I
+
+  >>> d.append('j')                    # add a new entry to the right side
+  >>> d.appendleft('f')                # add a new entry to the left side
+  >>> d                                # show the representation of the deque
+  deque(['f', 'g', 'h', 'i', 'j'])
+
+  >>> d.pop()                          # return and remove the rightmost item
+  'j'
+  >>> d.popleft()                      # return and remove the leftmost item
+  'f'
+  >>> list(d)                          # list the contents of the deque
+  ['g', 'h', 'i']
+  >>> d[0]                             # peek at leftmost item
+  'g'
+  >>> d[-1]                            # peek at rightmost item
+  'i'
+
+  >>> list(reversed(d))                # list the contents of a deque in reverse
+  ['i', 'h', 'g']
+  >>> 'h' in d                         # search the deque
+  True
+  >>> d.extend('jkl')                  # add multiple elements at once
+  >>> d
+  deque(['g', 'h', 'i', 'j', 'k', 'l'])
+  >>> d.rotate(1)                      # right rotation
+  >>> d
+  deque(['l', 'g', 'h', 'i', 'j', 'k'])
+  >>> d.rotate(-1)                     # left rotation
+  >>> d
+  deque(['g', 'h', 'i', 'j', 'k', 'l'])
+
+  >>> deque(reversed(d))               # make a new deque in reverse order
+  deque(['l', 'k', 'j', 'i', 'h', 'g'])
+  >>> d.clear()                        # empty the deque
+  >>> d.pop()                          # cannot pop from an empty deque
+  Traceback (most recent call last):
+      File "<pyshell#6>", line 1, in -toplevel-
+          d.pop()
+  IndexError: pop from an empty deque
+
+  >>> d.extendleft('abc')              # extendleft() reverses the input order
+  >>> d
+  deque(['c', 'b', 'a'])
