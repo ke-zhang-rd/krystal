@@ -2,8 +2,7 @@
 dataclass
 =========
 
-This module provides a decorator and functions for automatically adding generated special methods such as ``__init__()`` and ``__repr__()`` to user-defined classes. It was originally described in PEP 557.
-The member variables to use in these generated methods are defined using PEP 526 type annotations. For example this code:
+This module provides a decorator and functions for automatically adding generated special methods such as ``__init__()`` and ``__repr__()`` to user-defined classes.
 
 .. code:: python
 
