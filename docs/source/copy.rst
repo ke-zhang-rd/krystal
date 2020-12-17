@@ -5,7 +5,7 @@ Deepcopy vs Shallow copy
 Shallow copy
 ------------
 
-Shallow copy, means not deep enough, means internal object isn't copied. Object in both old container and new container will change together.
+Shallow copy, means not deep enough, means *internal object* isn't copied. Object in both old container and new container will change together.
 ``obj`` will change together in ``obj``, ``var`` and ``var_cp`` in below example.
 
 .. tip::
@@ -19,7 +19,7 @@ Shallow copy, means not deep enough, means internal object isn't copied. Object 
 
   Here ``internal`` is an internal object.
 
-Example:
+**Example**
 
 .. code:: python
     
@@ -42,9 +42,7 @@ Example:
 Deep copy
 ---------
 
-Deepcopy create totally independent object from top to bottom.
-
-You could do ``deepcopy`` by builtin module ``copy``.
+Deepcopy create totally independent object from top to bottom. You could do ``deepcopy`` by builtin module ``copy``.
 
 .. code:: python
   
