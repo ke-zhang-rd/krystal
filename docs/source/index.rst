@@ -17,6 +17,7 @@ Krystal Documentation
    container
    copy
    decorator
+   dataclass
    dirvsdict
    forelse
    generator
@@ -27,6 +28,7 @@ Krystal Documentation
    lambda
    map_filter_reduce
    meta
+   abstractmethod
    mutabledefault
    newvsinit
    pdb
