@@ -5,17 +5,15 @@ High performance container
 OrderedDict
 -----------
 
-It is a dict and it has order.
+It is a ``dict`` and it has order. It could be constructed by ``dict``.
 
 .. code:: python
 
   from collections import OrderedDict
   od = OrderedDict({i: j for i, j in zip(['a', 'b','c'], [1,2,3])})
-  od
+  >>> od
   OrderedDict([('a', 1), ('b', 2), ('c', 3)])
 
-change value doesn’t influence order
-Insert a new value at the end.
 Access by index
 
 .. code:: python
@@ -23,13 +21,28 @@ Access by index
   >>> list(od.items())[0]
   (‘a’, 1)
 
+Change value doesn’t influence order
+
+.. code:: python
+
+  >>> od['a'] = 0
+  >>> od
+  OrderedDict([('a', 0), ('b', 2), ('c', 3)])
+
+Inserting a new value will beat the end.
+
+.. code:: python
+
+  >>> od['d'] = 4
+  >>> od
+  OrderedDict([('a', 0), ('b', 2), ('c', 3), ('d', 4)])
+
 queue
 -----
 
-PriorityQueue
-^^^^^^^^^^^^^
+**PriorityQueue**
 
-PriorityQueue is a good container for min heap.
+PriorityQueue is a container for min heap.
 
 .. code:: python
 
@@ -42,7 +55,7 @@ PriorityQueue is a good container for min heap.
   p.get()
   >>>1
 
-The priorityqueue get() method returns min value. To get a maxheap, use put((-value, value))
+The ``PriorityQueue`` ``get()`` method returns **min** value. To get a maxheap, use put((-value, value))
 Here is a conventional pattern for max
 
 .. code:: python
@@ -75,8 +88,7 @@ Store data with priority number in PriorityQueue
   #   (2, 'code')
   #   (3, 'sleep')
 
-Function based API of heapq
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Function based API of heapq**
 
 .. code:: python
 
@@ -96,8 +108,7 @@ Function based API of heapq
   #   (2, 'code')
   #   (3, 'sleep')
 
-Class based API of Queue
-^^^^^^^^^^^^^^^^^^^^^^^^
+**Class based API of Queue**
 
 .. code:: python
 

@@ -5,7 +5,7 @@ dir vs __dict__
   * ``dir``: return a list including instance and class attributes
   * ``__dict__``: return a dictionary which are instance attributes and its value.
 
-Example:
+**Example**
 
 .. code:: python
 
