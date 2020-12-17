@@ -2,40 +2,38 @@
 dir vs __dict__
 ===============
 
-``dir`` looks at your class attributes and instance attributes while ``__dict__`` only check your instance available attributes.
-
-  * ``dir``: instance and class attributes
-  * ``__dict__``: instance attributes
+  * ``dir``: return a list including instance and class attributes
+  * ``__dict__``: return a dictionary which are instance attributes and its value.
 
 Example:
 
 .. code:: python
 
     class C:
-        p = 1
+        var = 1
         def __init__(self):
-            print(self.p)
-            self.a = 'a'
+            print(self.var)
+            self.attr = "value"
 
-.. code:: ipython
+.. code:: python
 
-    In [1]: c=C()
+    >>> obj=C()
     1
-    In [2]: dir(c)
-    Out[2]:
+    
+    >>> dir(obj)
     [....
     ...
-     'a',
-     'p']
+     'var',
+     'attr']
 
-    In [3]: c.__dict__
-    Out[3]: {'a': 'a'}
+    >>> obj.__dict__
+    {'attr': 'value'}
 
-    In [4]: c.p = 3
-    In [5]: c.__dict__
-    Out[5]: {'a': 'a', 'p': 3}
+    >>> obj.var = 3
+    >>> obj.__dict__
+    {'a': 'a', 'p': 3}
 
 
 .. note::
 
-    Here ``c.p`` assignment make ``p`` becomes an instance attribute.
+    Here ``obj.var`` assignment make ``var`` becomes an instance attribute.
