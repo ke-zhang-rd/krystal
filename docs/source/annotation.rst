@@ -2,7 +2,7 @@
 Typing and annotation
 =====================
 
-Clearly, any ``var`` could be annotated by ``:`` operator like:
+Any variable could be annotated by ``:`` operator like:
   
 .. code:: python
   
