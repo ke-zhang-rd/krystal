@@ -32,9 +32,6 @@ Krystal Documentation
    abstractmethod
    mutabledefault
    newvsinit
-   pdb
-   pytest
-   rst
    scope
    singleton
    starred
@@ -44,3 +41,6 @@ Krystal Documentation
    variables
    walrus
    zip
+   pdb
+   pytest
+   rst
