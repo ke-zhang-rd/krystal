@@ -18,14 +18,13 @@ for/else clause could be useful when you go through iterable for searching purpo
   else:
     print("Excute else")
 
-Output:
-
-.. code:: python
-
+  # Output:
   1
   2
   3
   Excute else
+
+**Example:**
 
 .. code:: python
 
@@ -37,10 +36,7 @@ Output:
   else:
     print("Excute else")
 
-Output:
-
-.. code:: python
-
+  # Output:
   1
   2
   3
