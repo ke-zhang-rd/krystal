@@ -2,11 +2,16 @@
 Map, Filter and Reduce
 ======================
 
+All those three functions has similar syntax as shown below.
+
+.. code:: python
+
+  map(function_to_apply, list_of_inputs)
+
 map
 ---
-.. code-block:: python
+.. code:: python
 
-  # map(function_to_apply, list_of_inputs)
   numbers = [1, 2, 3, 4]
   result = map(lambda x: x + x, numbers) 
   
