@@ -15,6 +15,8 @@ could be translate to:
     def func(n):
         return op(n)
 
+Packing exapression is legal in lambda expression.
+
 .. code:: python
 
     lambda *args: op(args)
