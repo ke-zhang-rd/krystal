@@ -22,7 +22,9 @@ You write a function ``func()`` and coorperate with popular package in the way t
     # f_back go up one in the stack 
     print(inspect.getsource(inspect.currentframe().f_back))
     # Other part...
- 
+
+When you try this popular package methods.
+
 .. code:: python
 
   >>> caller()
