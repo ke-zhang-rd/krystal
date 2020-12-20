@@ -2,6 +2,8 @@
 import
 ======
 
+import wtf
+----------
 
 When you use ``import``, python first checks ``sys.modules`` to see if the module/pkg has been imported already.
 
@@ -38,10 +40,41 @@ Let’s say you have the following directory structure:
 
   from package1 import module1       
   # There isn’t __init__.py file, so skip it. This will run whole module1.py.
+  
   from package1.module2 import function1
   # This will run package1(__init__.py) and whole module2.py
+  
   from package2 import class1
   # This will run package2’s __init__.py
+
   from package2.subpackage1.module5 import function2
   # This will skip package2’s __init__.py since it has been imported. It could be verified by sys.modules. It will run subpackage2’s __init__.py and then whole module5.py
+
+
+__name__ == "__main__"
+----------------------
+
+Assuming we have files below.
+
+.. code:: python
+
+  # foo.py
+  import bar
+  print("foo.__name__ set to ", __name__)
+
+.. code:: python
+
+  # bar.py
+  print("bar.__name__ set to ", __name__)
+
+.. code:: python
+
+  >>> python bar.py
+  # Output: 
+  # bar.__name__ set to __main__
+
+  >>> python foo.py
+  # Output:
+  # bar.__name__ set to bar
+  # foo.__name__ set to __main__
 
