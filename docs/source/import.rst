@@ -5,15 +5,14 @@ import
 
 When you use ``import``, python first checks ``sys.modules`` to see if the module/pkg has been imported already.
 
-If not, it will try import based on the directories of ``sys.path``.
+If not, it will try to import based on the directories of ``sys.path``.
 
-* If it’s a **pkg**, it will run the ``__init__.py``.
-* If it’s a **module**, it will run the whole file.
+* If ``import`` line includes **pkg**, it will run the ``__init__.py``.
+* If ``import`` line includes **module**, it will run the whole file.
 
 if yes, it won’t re-run the file no matter it is pkg(``__init__.py``) or module file.
 
 Let’s say you have the following directory structure:
-
 
 .. code-block:: none
  
@@ -31,9 +30,9 @@ Let’s say you have the following directory structure:
 
 | Let’s assume the following:
 
-* package1/module2.py contains a function, function1.
-* package2/__init__.py contains a class, class1.
-* package2/subpackage1/module5.py contains a function, function2.
+* package1/module2.py contains a function, *function1*.
+* package2/__init__.py contains a class, *class1*.
+* package2/subpackage1/module5.py contains another function, *function2*.
 
 .. code-block:: python
 
