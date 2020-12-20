@@ -5,12 +5,17 @@ Generator, yield and yield from
 yield
 -----
 
-variable = yield value
+**Syntax**
+
+.. code:: python
+
+  variable = yield value
 
 variable is assigned by gen.send()
 
 yield expression
 ----------------
+
 A generator expression is a compact generator notation in parentheses:
 generator_expression = (expression comp_for)
 A generator expression yields a new generator object. Its syntax is the same as for comprehensions, except that it is enclosed in parentheses instead of brackets or curly braces.
