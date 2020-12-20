@@ -6,19 +6,25 @@ You write a function ``func()`` and coorperate with popular package in the way t
 
 .. code:: python
 
-  import inspect
-  
+  # This part happen in popular package. 
   def caller():
     a = 1
     b = a + 1
-    func()
+    func() # This function could be called implicitly.
     c = b + 1
     d = c + 1
   
+.. code:: python
+
+  # This is your own function.
+  import inspect
   def func():
-    print(inspect.getsource(inspect.currentframe().f_back))
     # f_back go up one in the stack 
-  
+    print(inspect.getsource(inspect.currentframe().f_back))
+    # Other part...
+ 
+.. code:: python
+
   >>> caller()
 
 Output:
