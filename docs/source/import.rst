@@ -4,12 +4,13 @@ import
 
 
 When you use ``import``, python first checks ``sys.modules`` to see if the module/pkg has been imported already.
+
 If not, it will try import based on the directories of ``sys.path``.
 
 * If it’s a **pkg**, it will run the ``__init__.py``.
 * If it’s a **module**, it will run the whole file.
 
-if yes, it won’t rerun the file no matter it is ``__init__.py`` or module file.
+if yes, it won’t re-run the file no matter it is pkg(``__init__.py``) or module file.
 
 Let’s say you have the following directory structure:
 
