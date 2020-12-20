@@ -14,4 +14,10 @@ Asyncio
   async def main():
     await asyncio.gather(worker(), worker(), worker())
 
-  asyncio.run(main())
+  >>> asyncio.run(main())
+  One
+  One
+  One
+  Two
+  Two
+  Two
