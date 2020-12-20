@@ -39,4 +39,4 @@ will become
   
   class C:
       id: int                     
-      counter: ClassVar[int] = 0 
+      name: str = 'Picard'
