@@ -41,6 +41,7 @@ Krystal Python Documentation
    variables
    walrus
    zip
+   asyncio
    pdb
    pytest
    rst
