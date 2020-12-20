@@ -11,7 +11,7 @@ yield
 
   variable = yield value
 
-variable is assigned by gen.send()
+variable is assigned by ``gen.send()``
 
 yield expression
 ----------------
@@ -23,7 +23,7 @@ A generator expression yields a new generator object. Its syntax is the same as 
 yield from
 ----------
 
-The true name of yield from is loop/for. It allows the user to delegate tasks to another generator. Additionally, the subgenerator is allowed to return with a value, and the value is made available to the delegating generator. example:
+The true name of ``yield from`` is ``for`` loop. It allows the user to delegate tasks to another generator. Additionally, the subgenerator is allowed to return with a value, and the value is made available to the delegating generator. example:
 
 .. code:: python
   
