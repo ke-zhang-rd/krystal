@@ -5,6 +5,18 @@ Asyncio
 When you use asyncio
 --------------------
 
+Solutions choice of CPU bound and IO bound problem.
+
++----------+--------------------------+--------------------------------------------+---------------+
+|          || preemptive multitasking || event driven cooperative multitasking aka || multiprocess |
+|          || aka multi-threading     || asyncio(single thread, single process)    |               |
++==========+==========================+============================================+===============+
+| CPU Bound|not good                  | not good                                   | best          |
++----------+--------------------------+--------------------------------------------+---------------+
+| IO Bound || Ok if some event refuse | Best                                       | not good      |
+|          || to release event loop   |                                            |               |
++----------+--------------------------+--------------------------------------------+---------------+
+
 A minimum example
 -----------------
 
