@@ -14,8 +14,6 @@ Krystal Python Documentation
    comparision
    zip
    comprehension
-   conda
-   container
    copy
    decorator
    dataclass
@@ -23,26 +21,28 @@ Krystal Python Documentation
    dirvsdict
    forelse
    import
-   iter
-   itertools
    lambda
-   map_filter_reduce
-   meta
-   abstractmethod
-   mutabledefault
-   newvsinit
    scope
-   singleton
    starred
-   super
-   findmethod
    try
    variables
    walrus
+   iter
+   itertools
+   map_filter_reduce
+   container
+   mutabledefault
+   newvsinit
+   super
+   meta
+   abstractmethod
+   singleton
    generator
    asyncio
    argparse
+   conda
    pdb
+   findmethod
    inspect
    pytest
    setuptools
