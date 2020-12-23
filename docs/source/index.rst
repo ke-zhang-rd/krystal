@@ -45,4 +45,6 @@ Krystal Python Documentation
    pdb
    inspect
    pytest
+   setuptools
+   vscode
    rst
