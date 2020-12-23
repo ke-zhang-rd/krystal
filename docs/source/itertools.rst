@@ -41,7 +41,6 @@ itertools.compress
 ------------------
 
 ``compress()`` is a data selector, maybe the true name is mask.
-compress('ABCDEF', [1,0,1,0,1,1]) --> A C E F
 
 Example:
 
