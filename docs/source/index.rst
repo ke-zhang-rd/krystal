@@ -12,6 +12,7 @@ Krystal Python Documentation
    philosophy
    annotation
    comparision
+   zip
    comprehension
    conda
    container
@@ -21,8 +22,6 @@ Krystal Python Documentation
    functools
    dirvsdict
    forelse
-   generator
-   inspect
    import
    iter
    itertools
@@ -40,8 +39,10 @@ Krystal Python Documentation
    try
    variables
    walrus
-   zip
+   generator
    asyncio
+   argparse
    pdb
+   inspect
    pytest
    rst
