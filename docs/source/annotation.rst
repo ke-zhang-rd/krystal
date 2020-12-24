@@ -5,9 +5,12 @@ Typing and annotation
 Any variable could be annotated by ``:`` operator like:
   
 .. code:: python
-  
+ 
+  # Original
   var = value
-  var: str = value
+
+  # Annotation
+  var: TYPE = value
 
 Function
 --------

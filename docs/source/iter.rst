@@ -1,22 +1,27 @@
 ====
-Iter
+iter
 ====
 
-iter(object, sentinel)
+Syntax
+------
+
+.. code:: python
+
+  iter(object, sentinel)
 
 iter() Parameters
 -----------------
 
-| The iter() function takes two parameters:
-| object - object whose iterator has to be created (can be sets, tuples, etc.)
-| sentinel (optional) - special value that is used to represent the end of a sequence
+| The ``iter()`` function takes two arguments:
+| *object* - object whose iterator has to be created (can be sets, tuples, etc.)
+| *sentinel* (optional) - special value that is used to represent the end of a sequence
 
 | Return value from iter()
-| The iter() function returns an iterator object for the given object.
-| If the user-defined object doesn't implement __iter__(), and __next__() or __getitem()__, the TypeError exception is raised.
-| If the sentinel parameter is also provided, iter() returns an iterator until the sentinel character isn't found.
+| The ``iter()`` function returns an iterator object for the given object.
+| If the user-defined *object* doesn't implement ``__iter__()``, and ``__next__()`` or ``__getitem()__``, the TypeError exception is raised.
+| If the sentinel parameter is also provided, ``iter()`` returns an iterator until the *sentinel* character isn't found.
 
-Example
+Example: next
 
 .. code:: python
 
@@ -34,15 +39,43 @@ Example
           self.num += 1
           return self.num
 
-  print_num = PrintNumber(3)
-
-  print_num_iter = iter(print_num)    # Call __iter__
-  print(next(print_num_iter))  # 1      Call __next__
-  print(next(print_num_iter))  # 2
-  print(next(print_num_iter))  # 3
-
+  >>> print_num = PrintNumber(3)
+  >>> print_num_iter = iter(print_num) # Call __iter__
+  
+  >>> print(next(print_num_iter))  # Call __next__
+  1
+  >>> print(next(print_num_iter))
+  2
+  >>> print(next(print_num_iter))
+  3
+  >>> print(next(print_num_iter))
   # raises StopIteration
-  print(next(print_num_iter))
+  # ---------------------------------------------------------------------------
+  # StopIteration                             Traceback (most recent call last)
+
+Example: for loop
+
+.. code:: python
+
+  print_num = PrintNumber(3)
+  for i in print_num:
+      print(i)
+  
+  # Output
+  1
+  2
+  3
+
+
+  print_num = PrintNumber(3)
+  >>> print_num_iter = iter(print_num) # Call __iter__
+  for i in print_num:
+      print(i)
+  
+  # Output
+  1
+  2
+  3
 
 Example: iter() with sentinel parameter
 
