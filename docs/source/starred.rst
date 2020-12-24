@@ -3,10 +3,10 @@ Starred expression
 ==================
 
 
-You may see ``*args``, ``**kwargs`` in many places and was wondering what ``args`` and  ``kwargs`` were.
+You may see ``*args`` and ``**kwargs`` in many places and was wondering what ``args`` and  ``kwargs`` were.
 ``args`` is always a iterable and ``kwargs`` is always a dict. 
 
-**Packing uncertain arguments:**
+**Example: Packing uncertain arguments:**
 
 .. code:: python
 
@@ -23,7 +23,7 @@ Here when you use a starred expression in a function call, t has to be a iterabl
 
 .. _construct-iterable:
 
-**Construct iterable:**
+**Example: Construct iterable:**
 
 .. code:: python
 
@@ -35,7 +35,7 @@ Here when you use a starred expression in a function call, t has to be a iterabl
 
   The comma ``,`` after ``ls`` is necessary.
 
-**Extract from iterable:**
+**Example: Extract from iterable:**
 
 .. code:: python
 

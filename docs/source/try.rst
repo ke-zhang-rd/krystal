@@ -2,7 +2,7 @@
 try, except, else and finally
 =============================
 
-**The basic syntax**
+**Syntax**
 
 .. code:: python
 
