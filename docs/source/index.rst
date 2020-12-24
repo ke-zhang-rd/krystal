@@ -11,32 +11,32 @@ Krystal Python Documentation
 
    philosophy
    annotation
+   lambda
    comparision
    zip
    comprehension
+   variables
+   walrus
    copy
-   decorator
-   dataclass
+   mutabledefault
    functools
    dirvsdict
    forelse
    import
-   lambda
    scope
    starred
    try
-   variables
-   walrus
    iter
    itertools
    map_filter_reduce
    container
-   mutabledefault
+   decorator
+   dataclass
    newvsinit
    super
    meta
-   abstractmethod
    singleton
+   abstractmethod
    generator
    asyncio
    argparse
