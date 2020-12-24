@@ -12,6 +12,7 @@ Krystal Python Documentation
    philosophy
    annotation
    lambda
+   dunder
    comparision
    zip
    comprehension
@@ -38,8 +39,12 @@ Krystal Python Documentation
    singleton
    abstractmethod
    classmethod
+   descriptor
+   lookup
    generator
    asyncio
+   curio
+   trio
    argparse
    conda
    pdb
