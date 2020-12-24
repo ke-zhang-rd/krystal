@@ -20,7 +20,7 @@ Parameters
 | If the user-defined *object* doesn't implement ``__iter__``, and ``__next__`` or ``__getitem__``, the TypeError exception is raised.
 | If the sentinel parameter is also provided, ``iter`` returns an iterator until the *sentinel* character isn't found.
 
-Example: next
+**Example: next**
 
 .. code:: python
 
@@ -52,7 +52,7 @@ Example: next
   # ---------------------------------------------------------------------------
   # StopIteration                             Traceback (most recent call last)
 
-Example: for loop
+**Example: for loop**
 
 .. code:: python
 
@@ -76,7 +76,7 @@ Example: for loop
   2
   3
 
-Example: iter() with sentinel parameter
+**Example: iter() with sentinel parameter**
 
 .. code:: python
 
