@@ -45,12 +45,13 @@ Krystal Python Documentation
    asyncio
    curio
    trio
-   argparse
    conda
    pdb
    findmethod
    inspect
    pytest
    setuptools
+   argparse
+   click
    vscode
    rst
