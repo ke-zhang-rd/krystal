@@ -3,7 +3,7 @@ Decorator
 =========
 
 Syntax
-======
+------
 
 .. code:: python
   
