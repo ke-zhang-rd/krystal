@@ -37,6 +37,7 @@ Krystal Python Documentation
    meta
    singleton
    abstractmethod
+   classmethod
    generator
    asyncio
    argparse
