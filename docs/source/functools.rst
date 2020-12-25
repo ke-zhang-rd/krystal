@@ -2,12 +2,120 @@
 functools
 =========
 
+
 @functools.lru_cache
+--------------------
+
+.. code:: python
+
+  lru_cache(maxsize=128, type=False)
+
+This decorator cached function call result in a dictionary based on lru(least recent use). In next function call, it lookup the dictionary first and return result directly if it find same key. ``maxsize`` control the size of this dictionary. If maxsize is None, it's keep growing up. ``typed`` control whether type should be used to sperated different function call.
+
+.. code:: python
+   
+  from functools import lru_cache
+  import time
+
+
+  # Function that computes Fibonacci
+  # numbers without lru_cache
+  def fib_without_cache(n):
+    if n < 2:
+      return n
+    return fib_without_cache(n-1) + fib_without_cache(n-2)
+
+  # Execution start time
+  begin = time.time()
+  fib_without_cache(30)
+
+  # Execution end time
+  end = time.time()
+
+  print("Time taken to execute the\
+  function without lru_cache is", end-begin)
+
+  # Function that computes Fibonacci
+  # numbers with lru_cache
+  @lru_cache(maxsize = 128)
+  def fib_with_cache(n):
+    if n < 2:
+      return n
+    return fib_with_cache(n-1) + fib_with_cache(n-2)
+
+  begin = time.time()
+  fib_with_cache(30)
+  end = time.time()
+
+  print("Time taken to execute the \
+  function with lru_cache is", end-begin)
+
+.. code:: python
+   
+  Time taken to execute the function without lru_cache is 0.4448213577270508
+  Time taken to execute the function with lru_cache is 2.8371810913085938e-05
+
 @functools.cache
+----------------
+
+.. code:: python
+
+  @functools.cache(user_function)
+
+cache is lru_cache(maxsize=None)
+
 @functools.cached_property
-https://docs.python.org/3/library/functools.html
-functools.partial
-functools.reduce
+--------------------------
+
+.. code:: python
+
+  @functools.cached_property(func)
+
+Transform a method of a class into a property whose value is computed once and then cached as a normal attribute for the life of the instance.
+
+@functools.wraps
+----------------
+
+.. code:: python
+
+  from functools import wraps
+  def my_decorator(f):
+      @wraps(f)
+      def wrapper(*args, **kwds):
+          print('Calling decorated function')
+          return f(*args, **kwds)
+      return wrapper
+
+  @my_decorator
+  def example():
+      """Docstring"""
+      print('Called example function')
+
+  example()
+  example.__name__
+  example.__doc__
+
+wraps manipulate __name__ and __doc__.
+
+@functools.partial
+------------------
+
+.. code:: python
+
+  from functools import partial
+
+  def multiply(x,y):
+          print('x', x)
+          print('y', y)
+          return x * y
+
+  # create a new function that multiplies by 2
+  dbl = partial(multiply,2)
+  print(dbl(4))
+
+@functools.reduce
+-----------------
+
 It’s definition roughly equivalent to:
 
 .. code:: python

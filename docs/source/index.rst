@@ -20,7 +20,6 @@ Krystal Python Documentation
    walrus
    copy
    mutabledefault
-   functools
    dirvsdict
    forelse
    import
@@ -33,6 +32,7 @@ Krystal Python Documentation
    container
    decorator
    dataclass
+   functools
    newvsinit
    super
    meta
