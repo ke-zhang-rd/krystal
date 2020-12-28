@@ -5,8 +5,6 @@ Generator, yield and yield from
 yield
 -----
 
-**Syntax**
-
 .. code:: python
 
   variable = yield value
