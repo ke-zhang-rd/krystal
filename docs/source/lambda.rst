@@ -6,7 +6,7 @@ lambda
 
 .. code:: python
 
-    lambda n: op(n)
+    func = lambda n: op(n)
 
 could be translate to: 
 
