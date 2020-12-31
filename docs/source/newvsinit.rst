@@ -3,9 +3,9 @@ new vs  init
 ============
 
 * ``__new__`` is the true constructor of class. It need to return a obj.
-* ``__init__`` initializ object. It doesn't need to return. 
+* ``__init__`` initializes object. It doesn't need to return anything. 
 
-Think they are two channels one by one called by Cls(). Your arguments will be passed separately to both functions.
+Think ``__new__`` and ``__init__`` are two channels one by one called. Your arguments is passed separately to both functions.
 
 * If ``__init__`` lacking, it will run default ``__init__`` which runs its parent ``__init__``. This logic is embedded in ``type``'s ``__call__``. There is more talk in Python Create Sequence section.
 * If ``__init__`` is implemented and your class inherits from a base class, conventionally, you may still want to put parents ``__init__`` which by ``super().__init__()`` inside child's ``__init__``. It’s conventional since you may want to invoke initialization of parent ``__init__``. However, if you choose not to include ``super().__init__()``, that’s fine.
