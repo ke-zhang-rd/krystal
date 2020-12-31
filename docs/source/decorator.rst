@@ -33,6 +33,7 @@ Decorator doesn't mean change function name. So the thing after ``@`` has to be 
   func()
   
   >>> func()
+
 True meaning is:
 
 .. code:: python
