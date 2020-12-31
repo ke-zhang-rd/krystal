@@ -9,7 +9,8 @@ Syntax
   
   @dec
   foo()
-  
+ 
+  # Still called by
   >>> foo()
 
 ``@`` is a syntax sugar. The **true meaning** of syntax is: 
@@ -17,6 +18,8 @@ Syntax
 .. code:: python
   
   foo = dec(foo)
+
+  >>> foo()
 
 .. attention::
 
@@ -26,21 +29,36 @@ Decorator doesn't mean change function name. So the thing after ``@`` has to be 
 
 .. code:: python
   
-  @dec(a=something)
-  foo()
-
+  @dec(param=something)
+  func()
+  
+  >>> func()
 True meaning is:
 
 .. code:: python
-  
-  tmp = dec(a=something)
 
-  @tmp
-  foo()
+  newdec = dec(param=something)
+  func = newdec(func)
 
-  >>> foo()
+  >>> func()
 
-It reveal the logic under the hood is calculating function call ``dec(a=something)`` first which returns the true decorator.
+It reveals the logic under the hood is calculating function call ``dec(a=something)`` first which returns the true decorator.
+
+Nested decorators
+-----------------
+
+.. code:: python
+
+  @outside
+  @inside
+  def func(...):
+    ...
+
+Again, this will translate to thing below during ``func()`` call. So intuitively, the rule is parsing the inside decorator first and then outside.
+
+.. code:: python
+
+  func = outside(inside(func))
 
 Write a decorator
 -----------------
@@ -112,10 +130,35 @@ Eventually, a runable decorator example shows below:
   abc
   end func
 
-decorator with parameters
--------------------------
+Write a decorator with parameters
+---------------------------------
 
+Again, It runs the function with parameters first and return true decorator. So the defination looks like
 
+.. code:: python
+
+  def dec(param):
+    
+    # Write a decorator defination inside and return as shown in above.
+
+    return newdec
+
+So it will looks like.(``...`` might involve using ``param``).
+
+.. code:: python
+
+  def dec(param):
+    ...
+    def newdec(func) 
+      ...
+      def newfunc(*arg, **kwargs)
+        ...
+        func(*arg, **kwargs)
+        ...
+      return newfunc
+      ...
+    ...
+    return newdec
 
 Class decorator
 ---------------
