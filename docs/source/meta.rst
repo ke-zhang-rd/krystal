@@ -13,17 +13,17 @@ Metaclass
 
     *"This sentence contains thirty-six letters."*
 
-  is an example of **meta-sentences** referencing themselves in this way.
+  is an example of **meta-sentence** referencing themselves in this way.
 
 
 Everything is Object
 --------------------
 
-In python, everything is object. So, classes are objects. The question is who is class of class. The answer is metaclass. Object is an instance of class. Class is an instance of metaclass. Moreover, class is first-class object in python. When we try to control the construction and initializion of object, we define ``__new__`` and ``__init__`` in class. Therefore, to control classes, we need those two methods in metaclass. 
+In python, everything is object. So, classes are objects. The question is who is the class of class. The answer is *metaclass*. Object is an instance of class. Class is an instance of metaclass. Moreover, class is first-class object in python. When we try to control the construction and initializion of object, we define ``__new__`` and ``__init__`` in class. Therefore, to control classes, we need those two methods in metaclass.
 
 By default, type’s __new__ and __call__ should be called. If keyword metaclass was used, then metaclasses __new__ and __call__ will be used. Usually, metaclass also inherits from type so if some methods are lacking, it’s ok.
 
-Here we create a Meta as metaclass which inherits from type. In __new__ function which actually creates the instance of Meta(an actual class), It creates a class, sets an attr with value and returns it.
+Here we create a ``Meta`` as metaclass which inherits from type. In ``__new__`` function which actually creates the instance of Meta(an actual class), It creates a class, sets an ``attr`` with value and returns it.
 
 .. code:: python
 
@@ -45,7 +45,6 @@ Classes Construction and Initializion
 -------------------------------------
 
 Most real-life metaclasses will probably override just one of them. ``__new__`` should be implemented when you want to control the creation of a new object (class in our case), ``__init__`` should be implemented when you want to control the initialization of the new object(class in our case) after it has been created.
-So when the call to MyMeta is done above, what happens under the hood is this:
  
 Here's a more concrete example that should demonstrate what's going on. Let's write down this definition for a metaclass:
 
@@ -96,6 +95,13 @@ Output:
   {'barattr': 2, '__module__': '__main__',
    'foo': <function foo at 0x00B502F0>,
    '__metaclass__': <class '__main__.MyMeta'>}
+
+So when the call to MyMeta is done above, what happens under the hood is this:
+
+.. code:: none
+
+  MyKlass = MyMeta.__new__(MyMeta, name, bases, dct)
+  MyMeta.__init__(MyKlass, name, bases, dct)
 
 Study and understand this example and you'll grasp most of what one needs to know about writing metaclasses.
 It's important to note here that these print-outs are actually done at class **creation** time. 
