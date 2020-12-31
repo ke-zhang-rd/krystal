@@ -4,7 +4,7 @@ Metaclass
 
 .. attention::
    
-   In this section, we use name class if we refer to non-metaclass. We use metaclass refer to metaclass.
+   In this section, we use name *class* if we refer to non-metaclass. We use *metaclass* for metaclass.
 
 .. hint::
 
