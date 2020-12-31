@@ -2,18 +2,18 @@
 super
 =====
 
-.. code-block:: python
+.. code:: python
 
     super(type, object-or-type)
 
 | The true meaning of ``super`` and its argument is:
-| Lineriz(by ``mro``) inherent architecture from ``object-or-type`` then search the class from ``type`` (right after type).
+| Lineriz(by ``mro``) inherent architecture from ``object-or-type`` then get the class right after ``type``.
 
-For example, if ``__mro__`` of ``object-or-type`` is **D -> B -> C -> A -> object** and the value of ``type`` is **B**, then ``super()`` searches **C -> A -> object**.
+For example, if ``__mro__`` of ``object-or-type`` is **D -> B -> C -> A -> object** and the value of ``type`` is **B**, then ``super()`` searches **C**.
 
 A typical super call:
 
-.. code-block:: python
+.. code:: python
 
   class C(B):
       def method(self, arg):
@@ -22,10 +22,8 @@ A typical super call:
 
 .. note:: 
 
-   ``C`` and ``self`` are the default arguments:
-
-   * The default argument of ``type`` is class name.
-   * The default argument of ``object-or_type`` is first argument of calling method.
+   * The default argument of ``type`` is class name, ``C`` here
+   * The default argument of ``object-or_type`` is first argument of calling method, ``self`` here.
 
    Consult the `PEP3135 New Super <https://www.python.org/dev/peps/pep-3135/>`_
    for more.
