@@ -7,7 +7,7 @@ super
     super(type, object-or-type)
 
 | The true meaning of ``super`` and its argument is:
-| Lineriz(by ``mro``) inherent architecture from ``object-or-type`` then search the class from ``type`` (right after type) then call whatever the function after it.
+| Lineriz(by ``mro``) inherent architecture from ``object-or-type`` then search the class from ``type`` (right after type).
 
 For example, if ``__mro__`` of ``object-or-type`` is **D -> B -> C -> A -> object** and the value of ``type`` is **B**, then ``super()`` searches **C -> A -> object**.
 

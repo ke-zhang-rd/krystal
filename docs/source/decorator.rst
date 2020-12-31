@@ -18,6 +18,10 @@ Syntax
   
   foo = dec(foo)
 
+.. attention::
+
+  This is executed during function call not on decorated position.
+
 Decorator doesn't mean change function name. So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**. Decorator also accept arguments.
 
 .. code:: python
@@ -61,8 +65,8 @@ When you try to write a decorator ``dec``, Keep in mind: **it accepts a func and
 
 Since we return ``newfunc`` and ``newfunc`` is the function we will use later, this reveal two considerations:
 
-1. ``newfunc`` need to pass any arguments it accepts to ``func``. So ``*args`` and ``**kwargs`` should be used.
-2. ``newfunc`` is a wrapper of ``func``, so ``func`` will be called inside ``newfunc``.
+1. ``newfunc`` is a wrapper of ``func``, so ``func`` will be called inside ``newfunc``.
+2. ``newfunc`` need to pass any arguments it accepts to ``func``. So ``*args`` and ``**kwargs`` should be used.
 
 #1 will make it looks like:
 
@@ -70,7 +74,9 @@ Since we return ``newfunc`` and ``newfunc`` is the function we will use later, t
 
   def dec(func):
       ...
-      def newfunc(*args, **kwargs):
+      def newfunc(...):
+          ...
+          func(...)
           ...
       return newfunc
 
