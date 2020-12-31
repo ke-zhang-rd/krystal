@@ -142,7 +142,7 @@ Again, It runs the function with parameters first and return true decorator. So 
 
   def dec(param):
     
-    # Write a decorator defination inside and return as shown in above.
+    # Write a decorator defination inside and return it.
 
     return newdec
 
