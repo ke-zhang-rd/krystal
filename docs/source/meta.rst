@@ -19,11 +19,11 @@ Metaclass
 Everything is Object
 --------------------
 
-In python, everything is object. So, classes are objects. The question is who is the class of class. The answer is *metaclass*. Object is an instance of class. Class is an instance of metaclass. Moreover, class is first-class object in python. When we try to control the construction and initializion of object, we define ``__new__`` and ``__init__`` in class. Therefore, to control classes, we need those two methods in metaclass.
+In python, everything is object. So, classes are objects. The question is what is the class of class. The answer is *metaclass*. Object is an instance of class. Class is an instance of metaclass. Moreover, class is first-class object in python. When we try to control the construction and initializion of object, we define ``__new__`` and ``__init__`` in class. Therefore, to control classes construction and initializion, we need those two methods in metaclass.
 
-By default, type’s __new__ and __call__ should be called. If keyword metaclass was used, then metaclasses __new__ and __call__ will be used. Usually, metaclass also inherits from type so if some methods are lacking, it’s ok.
+By default, `type` is the metaclass of all. When construct class, ``type``’s ``__new__`` and ``__init__`` should be called. If keyword ``metaclass`` is used, then metaclasses ``__new__`` and ``__init__`` will be used. Usually, metaclass also inherits from ``type`` so if some methods are lacking, it’s ok.
 
-Here we create a ``Meta`` as metaclass which inherits from type. In ``__new__`` function which actually creates the instance of Meta(an actual class), It creates a class, sets an ``attr`` with value and returns it.
+Here we create a ``Meta`` as metaclass which inherits from ``type``. In ``__new__`` function which actually creates the instance of Meta(an actual class), It creates a class, sets an ``attr`` with value and returns it.
 
 .. code:: python
 
@@ -44,9 +44,9 @@ Here we create a ``Meta`` as metaclass which inherits from type. In ``__new__`` 
 Classes Construction and Initializion
 -------------------------------------
 
-Most real-life metaclasses will probably override just one of them. ``__new__`` should be implemented when you want to control the creation of a new object (class in our case), ``__init__`` should be implemented when you want to control the initialization of the new object(class in our case) after it has been created.
+Most real-life metaclasses will probably override just one of ``__new__`` and ``__init__``. ``__new__`` should be implemented when you want to control the creation of a new object (class in our case), ``__init__`` should be implemented when you want to control the initialization of the new object(class in our case) after it has been created.
  
-Here's a more concrete example that should demonstrate what's going on. Let's write down this definition for a metaclass:
+Here's a more concrete example that should demonstrate what's going on:
 
 .. code:: python
 
@@ -77,7 +77,7 @@ When Python executes the following class **definition**:
 
       barattr = 2
 
-Output:
+**Output:**
 
 .. code:: none
 
@@ -108,7 +108,7 @@ It's important to note here that these print-outs are actually done at class **c
 
 .. attention::
    
-  When the module containing the class is being imported for the first time. Keep this detail in mind for later.
+  When the module containing the class is being imported for the first time. Keep this detail in mind, since it only running once.
 
 Classes Call
 ------------
@@ -139,15 +139,14 @@ Output:
   __call__ *args= (1, 2)
   MyKlass object with a=1, b=2
 
-Here MyMeta.__call__ just notifies us of the arguments and delegates to type.__call__. But it can also interfere in the process, affecting the way objects of the class are created. In a way, this is not unlike overriding the __new__ method of the class itself, although there are some differences.
+Here ``MyMeta.__call__`` just notifies us of the arguments and delegates to ``type.__call__``. But it can also interfere in the process, affecting the way objects of the class are created.
 
 Comparision between __new__/__init__ with __call__
 --------------------------------------------------
 
-* Metaclass __call__: Reorganize, keep or delete result of Class __new__ and __init__. E,g Singleton implementation. If you need a singleton object which is an instance of class. You need some control when doing Class() which call __call__ in metaclass.
-* Metaclass __new__ __init__: Add methods to Class definition. Popular methods are get, set del etc.
+* ``__call__``: Reorganize, keep or delete result of instance. E,g Singleton implementation. If you need a singleton object which is an instance of class. You need some control when doing Class() which call ``__call__`` in metaclass.
+* ``__new__`` or ``__init__``: Add methods to Class definition. Popular methods are get, set del etc.
 
-The reason I'm discussing it separately from __new__ and __init__ is that unlike those two that get called at class creation time, __call__ is called when the already-created class is "called" to instantiate a new object. Here's some code to clarify this:
 
 Complete Example
 ----------------
