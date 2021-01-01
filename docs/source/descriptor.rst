@@ -76,4 +76,4 @@ All tricky is in code below:
       obj.__dict__[self.name] = self.function(obj)
       return obj.__dict__[self.name]
 
-At the beginning, obj's __dict__ doesn't have ``meaning_of_life``. ``__dict__`` only have instance attributes not class attributes. However, after first run, inside ``__get__``, __dict__ is manipulated and ``meaning_of_life`` is added to __dict__. So next time when ``meaning_of_life`` is called, it will get the result from cached __dict__ directly instead of invode ``__get__``.
+At the beginning, obj's __dict__ doesn't have ``meaning_of_life``. ``__dict__`` only have instance attributes not class attributes, see :doc:`dir vs __dict__ <dirvsdict>`. However, after first run, inside ``__get__``, __dict__ is manipulated and ``meaning_of_life`` is added to __dict__. So next time when ``meaning_of_life`` is called, it will get the result from cached __dict__ directly instead of invode ``__get__``.
