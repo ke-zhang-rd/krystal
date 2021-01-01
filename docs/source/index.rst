@@ -50,6 +50,5 @@ Krystal Python Documentation
    pytest
    setuptools
    argparse
-   click
    vscode
    rst
