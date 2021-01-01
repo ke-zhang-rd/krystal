@@ -43,7 +43,6 @@ Krystal Python Documentation
    lookup
    generator
    asyncio
-   trio
    pytest
    pdb
    findmethod
