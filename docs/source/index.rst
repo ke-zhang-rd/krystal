@@ -43,8 +43,6 @@ Krystal Python Documentation
    lookup
    generator
    asyncio
-   curio
-   trio
    conda
    pdb
    findmethod
