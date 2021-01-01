@@ -185,7 +185,7 @@ Complete Example
 
 .. code:: python
   
-   class Foo(Baseclass, metaclass=Singleton):
+  class Foo(Baseclass, metaclass=Singleton):
       def __new__(cls, *args, **kwargs):
           print('Foo new')
           return super().__new__(cls, *args, **kwargs)
@@ -194,9 +194,9 @@ Complete Example
           print('Foo init')
           super().__init__(*args, **kwargs)
       
-      # Output:
-      # Metaclass __new__
-      # Metaclass __init__
+  # Output:
+  # Metaclass __new__
+  # Metaclass __init__
 
 .. code:: python
 
@@ -233,7 +233,7 @@ Output:
 Object Create Sequence
 ----------------------
 
-The ``super`` in ``metaclass`` called ``__call__`` of ``type``. The code above reveals what it actually does:
+In above example, when running ``b = Foo()``. The ``super`` in ``metaclass`` called ``__call__`` of ``type``. The code above reveals what it actually does:
 
 .. code:: python
 
@@ -249,6 +249,9 @@ The ``super`` in ``metaclass`` called ``__call__`` of ``type``. The code above r
           # then we return obj 
           return obj
 
+
+* ``obj = cls.__new__(cls, *args, **kwargs)`` is actually calling ``__new__`` of ``Foo``. ``__new__`` of ``Base`` is called inside by ``super``. 
+* ``obj.__init__(*args, **kwargs)`` is actually calling ``__init__`` of ``Foo``. ``__init__`` of ``Base`` is called inside by ``super``. 
 
 A diagram of how instances are constructed:
 
