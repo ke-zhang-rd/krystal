@@ -76,4 +76,11 @@ All tricky is in code below:
       obj.__dict__[self.name] = self.function(obj)
       return obj.__dict__[self.name]
 
+.. note::
+
+  When you implement the protocol, keep these things in mind:
+    
+    * self is the instance of the descriptor you’re writing.
+    * obj is the instance of the object your descriptor is attached to.
+
 At the beginning, obj's __dict__ doesn't have ``meaning_of_life``. ``__dict__`` only have instance attributes not class attributes, see :doc:`dir vs __dict__ <dirvsdict>`. However, after first run, inside ``__get__``, __dict__ is manipulated and ``meaning_of_life`` is added to __dict__. So next time when ``meaning_of_life`` is called, it will get the result from cached __dict__ directly instead of invode ``__get__``.
