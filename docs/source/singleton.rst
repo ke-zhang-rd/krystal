@@ -2,8 +2,12 @@
 Singleton
 =========
 
+Singleton implementation
+------------------------
+
 .. code-block:: python
 
+    import random
     class Singleton(type):
         _instances = {}
         def __call__(cls, *args, **kwargs):
@@ -29,6 +33,7 @@ Singleton
 
         def __init__(self, *args, **kwargs):
             print('Foo init')
+            self.value = random.randint(0,10)
             super().__init__(*args, **kwargs)
 
     a = Foo()
@@ -53,6 +58,7 @@ Another Singleton implementation by using ``__new__`` case and why it’s not wo
 
 .. code:: python
 
+  import random
   class Singleton:
       _ins = None
       def __new__(cls, tmp, *args, **kwargs):
@@ -70,8 +76,8 @@ Another Singleton implementation by using ``__new__`` case and why it’s not wo
 
   a = Foo()
   print(a.value)
-  print(a is b)
   b = Foo()
+  print(a is b)
   print(b.value)
 
 Output:
@@ -83,3 +89,7 @@ Output:
   4
 
 The reason is ``__new__`` and ``__init__`` are two seperated channels. Consult the diagram in :ref:`Object Create Sequence <object-create-sequence>`
+
+So the ``__init__`` of ``Foo`` is executed no mattar what ``__new__`` of ``Singleton`` returned. This make ``value`` reassigned. 
+
+The approach to avoid ``__init__`` get called is finding where the ``__init__`` is executed and try to avoid it. Obviously, the logic of ``__init__`` is embedded in ``__call__`` of metaclass, ``type`` in this case, as shown in :ref:`Object Create Sequence <object-create-sequence>`. So eventually, we need a new metaclass and a different logic of ``__call__`` implementation. The new logic return the cached instance if there is an instance cached in ``_instances``and avoid calling ``__new__`` and ``__init__`` totally. This is exactly what we do in correct implementation as shown in beginning part of this section. 
