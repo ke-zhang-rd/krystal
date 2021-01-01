@@ -43,12 +43,13 @@ Krystal Python Documentation
    lookup
    generator
    asyncio
-   conda
+   trio
+   pytest
    pdb
    findmethod
    inspect
-   pytest
    setuptools
+   conda
    argparse
    vscode
    rst
