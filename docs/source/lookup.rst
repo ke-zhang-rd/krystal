@@ -1,5 +1,5 @@
 =============
-method lookup
+Method lookup
 =============
 
 Object attribute lookup
