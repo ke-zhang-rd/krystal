@@ -11,13 +11,18 @@ fixture is a method to construct shared data for all tests. You may want put fix
 
   # conftest.py
   import pytest
+
   @pytest.fixture(scope="module", params=[10, 20])
   def data(request):
       return request.param
 
+.. code:: python
+
   # test_ten.py
   def test_ten(data):
-      assert data%10 == 0
+      assert data % 10 == 0
+
+Pytest will load data one by one. It collects two tests for ``data = 10`` and then ``data = 20``.
 
 fixture scopes
 --------------
@@ -32,12 +37,13 @@ session: the fixture is destroyed at the end of the test session.
 parametrize
 -----------
 
-# test_expectation.py
 
 .. code:: python
 
+  # test_expectation.py
   import pytest
-  @pytest.mark.parametrize("test_input,expected", [("3+5", 8), ("2+4", 6), ("6*9", 42)])
+
+  @pytest.mark.parametrize("test_input, expected", [("3+5", 8), ("2+4", 6), ("6*9", 42)])
   def test_eval(test_input, expected):
       assert eval(test_input) == expected
 
@@ -46,3 +52,6 @@ parametrize
   def test_foo(x, y):
       print(x, y)
 
+  # x, y will be (0, 2), (0, 3), (1, 2), (1, 3)
+
+In second example, pytest collects four tests which matach four combination of ``x, y``.

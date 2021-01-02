@@ -47,8 +47,8 @@ True meaning is:
 
 It reveals the logic under the hood is calculating function call ``dec(a=something)`` first which returns the true decorator.
 
-Nested decorators
------------------
+Chained decorators
+------------------
 
 .. code:: python
 
