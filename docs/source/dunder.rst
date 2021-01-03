@@ -26,6 +26,7 @@ __doc__
 ``obj.__doc__`` show the docstring inside triple quotes ``"""``.
 
 .. code:: python
+
   # mymodule.py
   """This is the module docstring."""
 

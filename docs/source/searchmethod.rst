@@ -29,9 +29,5 @@ Example:
   >>> c = C()
   >>> c.func()
   >>> print(list(cls for cls in type(c).mro() if 'func' in cls.__dict__))
-
-Output:
-
-.. code:: python
-
-  [<class '__main__.A'>]
+  # Output
+  # [<class '__main__.A'>]
