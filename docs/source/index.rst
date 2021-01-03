@@ -45,7 +45,7 @@ Krystal Python Documentation
    asyncio
    pytest
    pdb
-   findmethod
+   searchmethod
    inspect
    setuptools
    conda

@@ -23,10 +23,22 @@ __init_subclass__
 __doc__
 -------
 
-obj.__doc__ show the docstring inside triple quotes 
-'''
-... 
-'''
+``obj.__doc__`` show the docstring inside triple quotes ``"""``.
+
+.. code:: python
+  # mymodule.py
+  """This is the module docstring."""
+
+  def f(x):
+      """This is the function docstring."""
+      return 2 * x
+
+  
+  >>> import mymodule
+  >>> mymodule.__doc__
+  'This is the module docstring.'
+  >>> mymodule.f.__doc__
+  'This is the function docstring.'
 
 __str__ and __repr__
 --------------------
