@@ -5,9 +5,9 @@ classmethod, staticmethod and property
 
 Both classmethod and staticmethod are implemented by the descriptor.
 
-``classmethod`` is another way to create instances.
-``staticmethod`` is a util function of class but the first argument isn’t self.
-``property`` make function become a attribute.
+* ``classmethod`` is another way to create instances.
+* ``staticmethod`` is a util function of class but the first argument isn’t self.
+* ``property`` make function become a attribute.
 
 classmethod
 -----------
@@ -31,11 +31,6 @@ classmethod
           # parse json...
           return student
 
-      @classmethod
-      def from_pickle(cls, pickle_file):
-          # load pickle file...
-          return student
-  
   >>> scott = Student('Scott',  'Robinson')
   >>> scott = Student.from_string('Scott Robinson')
 

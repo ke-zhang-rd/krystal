@@ -7,23 +7,10 @@ __slot__
 
 https://towardsdatascience.com/understand-slots-in-python-e3081ef5196d
 
-__hash__
---------
-
-Called by built-in function hash() and for object comparison. Usually it defined with __eq__ together.
-
-__contains__
-__subclasshook__
-__format__
-__reduce__
-__reduce_ex__
-__class__
-__init_subclass__
-
 __doc__
 -------
 
-``obj.__doc__`` show the docstring inside triple quotes ``"""``.
+Show the docstring inside triple quotes ``"""..."""``.
 
 .. code:: python
 
@@ -79,8 +66,16 @@ Point(x=3, y=4) from __str__
  
 eval and repr are conjugate. repr shows the argument’s type info(quote of str).
 
+Attributs related
+-----------------
+
+__getattribute__
+----------------
+
+Check lookup chain on this document. All attribute/attr related dunder methods(__getattribute__, __setattr__, __getattr__ and __delattr__) are related to attributes lookup by ``.`` convention not ``[]``.
+
 __setattr__
------------
+^^^^^^^^^^^
 
 >>> # this example uses __setattr__ to dynamically change attribute value to uppercase
 >>> class Frob:
@@ -92,13 +87,25 @@ __setattr__
 >>> f.bamf
 'BAMF'
 
-__getattribute__
-----------------
+__getattr__
+-----------
 
-Check lookup chain on this document
+Gets called when the item is not found via __getattribute__
+
+
+__delattr__
+-----------
+
+class foo():
+    def __delattr__(self, name): 
+        print(name)
+        super().__delattr__(name)
+    
 
 __getitem__
 -----------
+
+Get called when look up by [] like a dict.
 
 Three dots(Ellipsis)
 
@@ -112,14 +119,6 @@ Three dots(Ellipsis)
   >>> f = foo()
   >>> f[...]
   abc
-
-__delattr__
------------
-
-class foo():
-    def __delattr__(self, name): 
-        print(name)
-        super().__delattr__(name)
 
 
 f = foo()
@@ -164,14 +163,33 @@ Example:
 
 
 
+__contains__
+
+__subclasshook__
+
+__format__
+
+__reduce__
+
+__reduce_ex__
+
+__class__
+
+__init_subclass__
+
 
 
 Comparison methods
 ------------------
 
+__hash__
+^^^^^^^^
+
+Called by built-in function hash() and for object comparison. Usually it defined with __eq__ together.
+
+object.__eq__(self, other)
 object.__lt__(self, other)
 object.__le__(self, other)
-object.__eq__(self, other)
 object.__ne__(self, other)
 object.__gt__(self, other)
 object.__ge__(self, other)
