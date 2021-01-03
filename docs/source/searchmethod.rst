@@ -1,6 +1,6 @@
-===========================
-Search methods’s host class
-===========================
+==========================
+Search methods’ host class
+==========================
 
 If you have a pretty complicated inheritance relationship and you would like to search where your object methods or attributes is defined. Here is a shortcut for this purpose.
 
