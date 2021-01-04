@@ -29,7 +29,7 @@ Change value doesn’t influence order
   >>> od
   OrderedDict([('a', 0), ('b', 2), ('c', 3)])
 
-Inserting a new value will beat the end.
+Inserting a new value will append to the end.
 
 .. code:: python
 
@@ -40,33 +40,38 @@ Inserting a new value will beat the end.
 queue
 -----
 
-**PriorityQueue**
+PriorityQueue
+^^^^^^^^^^^^^
 
 PriorityQueue is a container for min heap.
 
 .. code:: python
 
   from queue import PriorityQueue
-  p = PriorityQueue()
-  p.put(3)
-  p.put(1)
-  p.put(2)
+  q = PriorityQueue()
+  q.put(3)
+  q.put(1)
+  q.put(2)
 
-  p.get()
-  >>>1
+  >>> q.get()
+  1
+  >>> q.get()
+  2
 
-The ``PriorityQueue`` ``get()`` method returns **min** value. To get a maxheap, use put((-value, value))
-Here is a conventional pattern for max
+The ``PriorityQueue`` ``get()`` method returns **min** value. To get a maxheap, use ``put((-value, value))``.
 
 .. code:: python
+  
+  from queue import PriorityQueue
+  q = PriorityQueue()
+  
+  # Your original value is 3, 1, 2.
+  q.put((-3, 3))
+  q.put((-1, 1))
+  q.put((-2, 2))
 
-  p.put((-value, value))
-  p.put((-3, 3))
-  p.put((-1, 1))
-  p.put((-2, 2))
-
-  p.get()
-  >>> (-2, 2)
+  q.get()
+  >>> (-3, 3)
 
 Store data with priority number in PriorityQueue
 
@@ -88,7 +93,8 @@ Store data with priority number in PriorityQueue
   #   (2, 'code')
   #   (3, 'sleep')
 
-**Function based API of heapq**
+Function based API of heapq
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
@@ -108,7 +114,8 @@ Store data with priority number in PriorityQueue
   #   (2, 'code')
   #   (3, 'sleep')
 
-**Class based API of Queue**
+Class based API of Queue
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code:: python
 
