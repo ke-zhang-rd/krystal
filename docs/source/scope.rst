@@ -75,8 +75,7 @@ How to assgin var to another var which has different scope
 
 I want to have a local var in inner instead of using nonlocal var. Question: How to assign a nonlocal ``var`` to local ``var``.
 
-**Solution 1**
-Just have some variable name with init “l”, short of local:
+**Solution 1**: Just have some variable name with init “l”, short of local:
 
 .. code:: python
 
@@ -87,8 +86,7 @@ Just have some variable name with init “l”, short of local:
            return var
       return inner
 
-**Solution 2**
-Assignment will automatically create local variables in default argument assignment.
+**Solution 2**: Assignment will automatically create local variables in default argument assignment.
 
 .. code:: python
 

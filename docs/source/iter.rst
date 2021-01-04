@@ -13,12 +13,16 @@ Parameters
 ----------
 
 * *object* - object whose iterator has to be created (can be sets, tuples, etc.)
-* *sentinel* (optional) - special value that is used to represent the end of a sequence
+* *sentinel* (optional) - special value that is used to represent the end of a sequence. If the sentinel parameter is also provided, ``iter`` returns an iterator until the *sentinel* character isn't found.
 
-| Return value from ``iter``
-| The ``iter`` function returns an iterator object for the given object.
-| If the user-defined *object* doesn't implement ``__iter__``, and ``__next__`` or ``__getitem__``, the TypeError exception is raised.
-| If the sentinel parameter is also provided, ``iter`` returns an iterator until the *sentinel* character isn't found.
+Return
+------
+
+The ``iter`` function returns an iterator object for the given object. If the user-defined *object* doesn't implement ``__iter__``, and ``__next__`` or ``__getitem__``, the TypeError exception is raised. 
+
+.. tip::
+
+  The most **important** thing to remember is ``__iter__`` return a iterable object while ``__next__`` return one element.
 
 **Example: next**
 
@@ -86,4 +90,3 @@ Parameters
 
 When you run the program, it will open the mydata.txt file in reading mode.
 Then, the iter(fp.readline, '') in the for loop calls readline (which reads each line in the text file) until the sentinel character, '' (empty string), is reached.
-
