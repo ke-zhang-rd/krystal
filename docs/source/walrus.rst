@@ -13,7 +13,7 @@ The academic name of walrus is *assignment expression*. In computer science, an 
   * assign the result of ``foo()`` to ``x``.
   * return the whole expression value which is ``x`` or ``foo()`` (they are equal).
 
-**Example:** if
+**Example: if**
 
 .. code:: python
 
@@ -28,7 +28,7 @@ could be improved to
     if res := foo():
         something
 
-**Example:** while
+**Example: while**
 
 .. code:: python
 
@@ -45,7 +45,7 @@ could be improved to
     while line := fp.readline():
         something
 
-**Example:** list comprehension
+**Example: list comprehension**
 
 .. code:: python
 

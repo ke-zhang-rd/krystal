@@ -4,8 +4,8 @@ for else
 
 for/else clause could be useful when you go through iterable for searching purpose.
 
-* If ``break`` is called in ``for`` loop, skip ``else`` clause.
-* If ``break`` isn't called in ``for`` loop, ``else`` caluse will be execute.
+* If ``break`` isn't called inside ``for`` loop, ``else`` caluse will be execute.
+* If ``break`` is called inside ``for`` loop, skip ``else`` clause.
 
 **Example:**
 

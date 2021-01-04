@@ -5,14 +5,14 @@ import
 import wtf
 ----------
 
-When you use ``import``, python first checks ``sys.modules`` to see if the module/pkg has been imported already.
+When you use ``import``, python first checks ``sys.modules`` to see if the *module/pkg* has been imported already. 
 
-If not, it will try to import based on the directories of ``sys.path``.
+If **not**, it will try to import based on the directories of ``sys.path``.
 
 * If ``import`` line includes **pkg**, it will run the ``__init__.py``.
 * If ``import`` line includes **module**, it will run the whole file.
 
-if yes, it won’t re-run the file no matter it is pkg(``__init__.py``) or module file.
+if **yes**, it won’t re-run the file no matter it is pkg(``__init__.py``) or module file.
 
 Let’s say you have the following directory structure:
 
@@ -78,3 +78,4 @@ Assuming we have files below.
   # bar.__name__ set to bar
   # foo.__name__ set to __main__
 
+So if your module is first argument after ``python``, ``__name__`` will be set to ``__main__``. If module ran by ``import``, ``__name__`` is set to module name.

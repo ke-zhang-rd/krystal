@@ -7,12 +7,12 @@ Python has three scopes: local, closure/nonlocal/outer, global. This section wil
 Is variables a local, nonlocal or global?
 
   * If no ``nonlocal`` and ``global`` used, variables defined inside function are local variables.
-  * When discuss in inner funcitoin, nonlocal varialbes are variables defined in outer function.
-  * global variables are variables outside of functions.
+  * When there is a function defined inside another function, in inner funcitoin, nonlocal varialbes are variables defined in outer function.
+  * global variables are variables outside of functions, aka in module level
 
-Rule
+**Rule**
 
-* You could use a closure variable by using nonlocal and you could use a global variable by global. If nonlocal or global are used, then both lookup and store refer to nonlocal or global.
+* You could use a closure variable by using ``nonlocal`` and you could use a global variable by global. If nonlocal or global are used, then **both lookup and store** refer to nonlocal or global. e.g.:
 
 .. code:: none
 
@@ -25,28 +25,58 @@ In this case, two ``var`` in both sides of “=” are **nonlocal** ``var``.
 
 * If there isn't nonlocal or global used, the way python search variable is in order local, closure/nonlocal/outer, global.
 
+Using local
+
 .. code:: python
 
-  var = 5
+  var = "global"
   def outer():
-      var = 3
+      var = "nonlocal"
       def inner():
-          var = 1
+          var = "local"
           print(var)
       return inner
   
   >>> outer()()
-  1
+  local
 
+Using nonlocal
 
+.. code:: python
 
+  var = "global"
+  def outer():
+      var = "nonlocal"
+      def inner():
+          # var = "local"
+          print(var)
+      return inner
+  
+  >>> outer()()
+  nonlocal
 
-How to assgin this var to another var which has different scope
----------------------------------------------------------------
+Using global
 
-I want to have a local var in inner instead of using nonlocal var. How to assign a nonlocal ``var`` to local ``var``.
+.. code:: python
 
-Assignment will automatically create local variables in default argument assignment.
+  var = "global"
+  def outer():
+      # var = "nonlocal"
+      def inner():
+          # var = "local"
+          print(var)
+      return inner
+  
+  >>> outer()()
+  global
+
+How to assgin var to another var which has different scope
+----------------------------------------------------------
+
+I want to have a local var in inner instead of using nonlocal var. Question: How to assign a nonlocal ``var`` to local ``var``.
+
+**Solution 1**
+Just have some variable name with init “l”, short of local:
 
 .. code:: python
 
@@ -57,7 +87,8 @@ Assignment will automatically create local variables in default argument assignm
            return var
       return inner
 
-OR people might want to have some variable name with init “l”, short of local:
+**Solution 2**
+Assignment will automatically create local variables in default argument assignment.
 
 .. code:: python
 
@@ -72,9 +103,9 @@ OR people might want to have some variable name with init “l”, short of loca
 What tool could be used to check scope
 --------------------------------------
 
-The read of three type could be check by python -mdis xxx.py
+The type of three scopes could be check by python -mdis xxx.py
 
-The meaning in isassembly:
+The meaning in disassembly:
 
   +-------------------+------------+-------------+--------------+
   | Scope             | local      | nonlocal    | global       |
@@ -84,9 +115,9 @@ The meaning in isassembly:
   | Disassembly STORE | STORE_FAST | STORE_DEREF | STORE_GLOBAL |
   +-------------------+------------+-------------+--------------+
 
-If you find LOAD_DEREF in inner function. You may find LOAD_CLOSURE for def inner(...) line
+If you find *LOAD_DEREF* in inner function which means using nonlocal variable. You may also find *LOAD_CLOSURE* in def inner(...) line.
 
-You could check by:
+You could check closure by:
 
 .. code:: python
 
