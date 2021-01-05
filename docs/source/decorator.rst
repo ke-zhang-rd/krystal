@@ -24,7 +24,7 @@ Syntax
 
 .. attention::
 
-  This syntax sugar assignment is executed during function call not on decorated position.
+  This syntax sugar assignment is executed during decorated function definition not on function call.
 
 Decorator doesn't mean to change function name. So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**. Decorator also accept arguments.
 
