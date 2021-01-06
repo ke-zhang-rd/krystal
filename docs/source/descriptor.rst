@@ -2,6 +2,21 @@
 Descriptor
 ==========
 
+What is descriptor
+------------------
+
+Object attribute lookup
+-----------------------
+
+.. image:: ../images/object-attribute-lookup-v3.png
+    :align: center
+
+When you need descriptor
+------------------------
+
+How to write a descriptor
+-------------------------
+
 .. code:: python
 
   # lazy_properties.py
@@ -20,6 +35,7 @@ Descriptor
           return obj.__dict__[self.name]
 
   class DeepThought:
+
       @LazyProperty
       def meaning_of_life(self):
           print("func")
@@ -85,8 +101,3 @@ All tricky is in code below:
 
 At the beginning, obj's __dict__ doesn't have ``meaning_of_life``. ``__dict__`` only have instance attributes not class attributes, see :doc:`dir vs __dict__ <dirvsdict>`. However, after first run, inside ``__get__``, __dict__ is manipulated and ``meaning_of_life`` is added to __dict__. So next time when ``meaning_of_life`` is called, it will get the result from cached __dict__ directly instead of invode ``__get__``.
 
-Object attribute lookup
------------------------
-
-.. image:: ../images/object-attribute-lookup-v3.png
-    :align: center
