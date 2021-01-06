@@ -33,7 +33,6 @@ Krystal Python Documentation
    decorator
    dataclass
    descriptor
-   lookup
    classmethod
    functools
    newvsinit
