@@ -32,15 +32,15 @@ Krystal Python Documentation
    container
    decorator
    dataclass
+   descriptor
+   lookup
+   classmethod
    functools
    newvsinit
    super
    meta
    singleton
    abstractmethod
-   classmethod
-   descriptor
-   lookup
    generator
    asyncio
    pytest
