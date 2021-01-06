@@ -41,6 +41,8 @@ Krystal Python Documentation
    meta
    singleton
    abstractmethod
+   threading
+   processing
    generator
    asyncio
    pytest
