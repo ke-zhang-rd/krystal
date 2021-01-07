@@ -31,6 +31,9 @@ filter
 
 reduce
 ------
+
+**Example 1:**
+
 .. code:: python
 
   from functools import reduce
@@ -39,3 +42,26 @@ reduce
   >>> product
   24
 
+**Example 2:**
+
+.. code:: python
+
+  from functools import reduce                                           
+  func = lambda s, t: s.replace(*t)                                      
+  
+  >>> reduce(func, [('a','b'), ('c', 'd')], 'abc')                           
+  'bbd'
+
+It’s definition roughly equivalent to:
+
+.. code:: python
+
+  def reduce(function, iterable, initializer=None):
+      it = iter(iterable)
+      if initializer is None:
+          value = next(it)
+      else:
+          value = initializer
+      for element in it:
+          value = function(value, element)
+      return value

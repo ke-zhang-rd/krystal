@@ -64,7 +64,7 @@ cache
 
   @functools.cache(user_function)
 
-``cache`` is ``lru_cache(maxsize=None)``
+``cache`` returns the same as ``lru_cache(maxsize=None)``.
 
 cached_property
 ---------------
@@ -73,7 +73,7 @@ cached_property
 
   @functools.cached_property(func)
 
-Transform a method of a class into a property whose value is computed once and then cached as a normal attribute for the life of the instance.
+It's ``@cache`` + ``@property``. Transform a method of class into a property whose value is computed once and then cached as a normal attribute for the life of the instance.
 
 wraps
 -----
@@ -95,14 +95,19 @@ wraps
       """Docstring"""
       print('Called example function')
 
-  example()
-  example.__name__
-  example.__doc__
+  
+  >>> example()
+  Calling decorated function
+  Called example function
+  >>> example.__name__
+  'example'
+  >>> example.__doc__
+  'Docstring'
 
-wraps manipulate __name__ and __doc__.
+``wraps`` manipulate ``__name__`` and ``__doc__`` for function(``example`` here).
 
-@functools.partial
-------------------
+partial
+-------
 
 .. code:: python
 
@@ -116,28 +121,4 @@ wraps manipulate __name__ and __doc__.
   # create a new function that multiplies by 2
   dbl = partial(multiply,2)
   print(dbl(4))
-
-@functools.reduce
------------------
-
-It’s definition roughly equivalent to:
-
-.. code:: python
-
-  def reduce(function, iterable, initializer=None):
-      it = iter(iterable)
-      if initializer is None:
-          value = next(it)
-      else:
-          value = initializer
-      for element in it:
-          value = function(value, element)
-      return value
-
-.. code:: python
-
-  In [14]: from functools import reduce                                           
-  In [15]: func = lambda s, t: s.replace(*t)                                      
-  In [16]: reduce(func, [('a','b'), ('c', 'd')], 'abc')                           
-  Out[16]: 'bbd'
 
