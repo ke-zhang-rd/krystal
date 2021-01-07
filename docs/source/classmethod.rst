@@ -2,15 +2,13 @@
 classmethod, staticmethod and property
 ======================================
 
-
-Both classmethod and staticmethod are implemented by the descriptor.
-
-* ``classmethod`` is another way to create instances.
-* ``staticmethod`` is a util function of class but the first argument isn’t self.
-* ``property`` make function become a attribute.
+``classmethod``, ``staticmethod`` and ``property`` are all decorator implemented by the descriptor. 
 
 classmethod
 -----------
+
+``classmethod`` is another way to create instances.
+Notice the first parameter of function of classmethod decorated is CLASS name(Student here) which passed by python internal logic.
 
 .. code:: python
 
@@ -36,10 +34,11 @@ classmethod
   >>> scott = Student.from_string('Scott Robinson')
   # cls:  <class '__main__.Student'>
 
-Notice the first parameter of function of classmethod decorated is CLASS name(Student here) which passed by python internal logic.
 
 staticmethod
 ------------
+
+``staticmethod`` is a util function of class but the first argument isn’t self. Notice the function decorated by staticmethodis doesn't need use ``self`` to accept instance.
 
 .. code:: python
 
@@ -57,10 +56,11 @@ staticmethod
   Student.is_full_name('Scott Robinson')   # True
   Student.is_full_name('Scott')            # False
 
-Notice the function decorated by staticmethodis doesn't need use ``self`` to accept instance.
 
 property
 --------
+
+``property`` make function become a attribute. ``property`` make function call become a attribute.
 
 .. code:: python
 
@@ -77,4 +77,3 @@ property
   >>> scott = Student('Scott',  'Robinson')
   >>> scott.name_str
 
-``property`` make function call become a attribute.

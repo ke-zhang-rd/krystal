@@ -3,12 +3,12 @@ functools
 =========
 
 
-@functools.lru_cache
---------------------
+lru_cache
+---------
 
 .. code:: python
 
-  lru_cache(maxsize=128, type=False)
+  @functools.lru_cache(maxsize=128, type=False)
 
 This decorator cached function call result in a dictionary based on lru(least recent use). In next function call, it lookup the dictionary first and return result directly if it find same key. ``maxsize`` control the size of this dictionary. If maxsize is None, it's keep growing up. ``typed`` control whether type should be used to sperated different function call.
 
@@ -55,8 +55,8 @@ This decorator cached function call result in a dictionary based on lru(least re
   Time taken to execute the function without lru_cache is 0.4448213577270508
   Time taken to execute the function with lru_cache is 2.8371810913085938e-05
 
-@functools.cache
-----------------
+cache
+-----
 
 .. code:: python
 
@@ -64,8 +64,8 @@ This decorator cached function call result in a dictionary based on lru(least re
 
 cache is lru_cache(maxsize=None)
 
-@functools.cached_property
---------------------------
+cached_property
+---------------
 
 .. code:: python
 
@@ -73,13 +73,15 @@ cache is lru_cache(maxsize=None)
 
 Transform a method of a class into a property whose value is computed once and then cached as a normal attribute for the life of the instance.
 
-@functools.wraps
-----------------
+wraps
+-----
 
 .. code:: python
 
   from functools import wraps
+  
   def my_decorator(f):
+      
       @wraps(f)
       def wrapper(*args, **kwds):
           print('Calling decorated function')
