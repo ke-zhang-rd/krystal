@@ -10,13 +10,15 @@ lru_cache
 
   @functools.lru_cache(maxsize=128, type=False)
 
-This decorator cached function call result in a dictionary based on lru(least recent use). In next function call, it lookup the dictionary first and return result directly if it find same key. ``maxsize`` control the size of this dictionary. If maxsize is None, it's keep growing up. ``typed`` control whether type should be used to sperated different function call.
+This decorator cached function call result in a dictionary based on LRU(least recent use). In next function call, it lookup the dictionary first and return result directly if it finds the key. 
+
+  * ``maxsize`` control the size of the dictionary. If ``maxsize`` is None, it's keep growing up. 
+  * ``typed`` controls whether type should be used to sperated different function call. If ``type=False``, e.g. ``1`` and ``1.0`` are treat as same parameters.
 
 .. code:: python
    
   from functools import lru_cache
   import time
-
 
   # Function that computes Fibonacci
   # numbers without lru_cache
@@ -62,7 +64,7 @@ cache
 
   @functools.cache(user_function)
 
-cache is lru_cache(maxsize=None)
+``cache`` is ``lru_cache(maxsize=None)``
 
 cached_property
 ---------------
