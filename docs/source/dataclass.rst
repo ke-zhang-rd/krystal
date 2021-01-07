@@ -2,7 +2,7 @@
 Case Study: dataclass
 =====================
 
-``dataclass`` provides a decorator and functions for automatically adding generated special methods such as ``__init__()`` and ``__repr__()`` to user-defined classes.
+``dataclass`` provides a class decorator and functions for automatically adding generated special methods such as ``__init__()`` and ``__repr__()`` to user-defined classes.
 
 **Example:**
 
@@ -77,13 +77,13 @@ So, how does ``dataclass`` make parens optional. Below are source code of datacl
 
       # See if we're being called as @dataclass or @dataclass().
       if cls is None:
-          # We're called with parens.
+          # We're called with parens. So return true decorator.
           return wrap
 
-      # We're called as @dataclass without parens.
+      # We're called as @dataclass without parens. So return class.
       return wrap(cls)
 
-Of course, the interesting part is conditional part. If ``cls is None`` means this case come with parameters and parens. So we need to return a true decorator configured by parameters. And parameters is reflected by closure. ``_process_class`` is function actually return the new cls. If ``cls`` is not ``None``, ideally this means no parameters and parens are used. we just need call wrap(cls) which return a new cls.
+Of course, the interesting part is conditional part. If ``cls is None`` means this case come with parameters and parens. So we need to return a true decorator configured by parameters. And parameters is reflected by closure. ``_process_class`` is function actually return the manipulated cls. If ``cls`` is not ``None``, this means no parameters and parens are used. we just need call ``wrap(cls)`` which return manipulated cls directly.
 
 However, this implementation doesn't block user use a position parameter fail decorator as shown below:
 

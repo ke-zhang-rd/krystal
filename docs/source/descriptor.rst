@@ -5,7 +5,7 @@ Descriptor
 What is descriptor
 ------------------
 
-Descriptor is a instance of certain class with specific methods. There are two kind of descriptor.
+Descriptor is a instance of class with certain methods. There are two kind of descriptor.
 
 * non-data descriptor: Only ``__get__`` is defined in class.
 * data descriptor: ``__get__`` and one of ``__set__`` or ``__del__`` is defined in class.
@@ -82,8 +82,6 @@ decorator is just a syntax suger. It could be translated to:
 
       meaning_of_life = LazyProperty(meaning_of_life)
   ...
-
-
 
 The things we keep in mind is a order of lookup attribute:
 
