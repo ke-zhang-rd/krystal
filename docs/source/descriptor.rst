@@ -5,6 +5,11 @@ Descriptor
 What is descriptor
 ------------------
 
+Descriptor is a instance of certain class. here are two kind of descriptor.
+
+* non-data descriptor: Only ``__get__`` is defined in class.
+* data descriptor: ``__get__`` and one of ``__set__`` or ``__del__`` is defined in class
+
 Object attribute lookup
 -----------------------
 
@@ -13,6 +18,8 @@ Object attribute lookup
 
 When you need descriptor
 ------------------------
+
+Based on loopup figure, when you need extra operation when you do ``obj.attr``, you could use descriptor.
 
 How to write a descriptor
 -------------------------
