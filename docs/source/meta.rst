@@ -238,7 +238,7 @@ In above example, when running ``b = Foo()``. The ``super`` in ``metaclass`` cal
 .. code:: python
 
   class type: 
-      def __call__(cls, *args, **kwarg): 
+      def __call__(cls, *args, **kwargs): 
           # ... a few things could possibly be done to cls here
           # then we call cls.__new__() to get a new object 
           obj = cls.__new__(cls, *args, **kwargs) 
