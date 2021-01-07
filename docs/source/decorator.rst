@@ -136,17 +136,17 @@ Eventually, a runable decorator example shows below:
 Write a decorator with parameters
 ---------------------------------
 
-Again, It runs the function with parameters first and return true decorator. So the defination looks like
+Again, It runs the function with parameters first and return true decorator. So the definition looks like:
 
 .. code:: python
 
   def dec(param):
     
-    # Write a decorator defination inside and return it.
+    # Write a decorator definition inside and return it.
 
     return newdec
 
-So it will looks like.(``...`` might involve using ``param``).
+So it will looks like. (``...`` might involve using ``param``).
 
 .. code:: python
 
