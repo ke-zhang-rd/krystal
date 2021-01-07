@@ -136,7 +136,7 @@ Eventually, a runable decorator example shows below:
 Write a decorator with parameters
 ---------------------------------
 
-Again, It runs the function with parameters first and return true decorator. So the definition looks like:
+Again, It runs the function with parameters first which return true decorator. So the definition looks like:
 
 .. code:: python
 
@@ -146,7 +146,7 @@ Again, It runs the function with parameters first and return true decorator. So 
 
     return newdec
 
-So it will looks like. (``...`` might involve using ``param``).
+If we put true decorator definition inside, it will looks like. (``...`` might involve using ``param``).
 
 .. code:: python
 
@@ -183,10 +183,10 @@ Class decorator is nothing more. If a function’s decorator is a function that 
   >>> C.attr
   100
 
-Make callable become a decorator
---------------------------------
+Make any callable become a decorator
+------------------------------------
 
-Let's go back to the beginning of decorator syntax, ``func = dec(func)``. Here ``dec`` has to be callable, clearly function is callable, so later I mentioned which is not 100% accurate statements, decorator is a *function* that accepts X and return a new-X. However, pure function is not only callable thing. When you construct a instance, CLASS is callable.
+Let's go back to the beginning of decorator syntax, ``func = dec(func)``. Here ``dec`` has to be callable, clearly function is callable, so in above example decorator is a *function*/*class* that accepts X and return a new-X. However, pure function is not the only callable thing. When construct a instance, You use *CLASS* in a callable way.
 
 .. code:: python
 
@@ -202,17 +202,17 @@ Let's go back to the beginning of decorator syntax, ``func = dec(func)``. Here `
 
   
   @Dec1
-  def callable1(a, b):
-      print('callable1', a, b)
+  def foo(a, b):
+      print('foo', a, b)
 
-  >>> callable1(2, 3)
+  >>> foo(2, 3)
   # __init__
   # __call__
-  # callable1 2 3
+  # foo 2 3
 
-In this example, we implicit have callable1 = Dec1(callable1) in global level. callable1 is a function.
+In this example, we implicit have ``foo = Dec1(foo)`` on global level. ``foo`` become a instance of ``Dec1``.
 
-If ``func = dec(func)`` happend inside Class, when you use func, instead of call ``func()`` directly, you need ``obj.func``. This give us a chance to sneak true function object inside return value of ``__get__``, aka **non-data descriptor**. This is exactly logic under the hood of ``staticmethod``.
+If ``func = dec(func)`` happend inside Class, on the left hand side, ``func`` become a class attribute. When you use func, instead of call ``func()``, you need ``obj.func``. This gives us a chance to sneak true function object inside return value of ``__get__``, aka **non-data descriptor**. This is exactly logic under the hood of ``staticmethod``.
 
 .. code:: python
 
@@ -236,9 +236,9 @@ If ``func = dec(func)`` happend inside Class, when you use func, instead of call
   >>> obj = C()
   >>> obj.func2(2, 3)
 
-In this example, we implicit have func2 = Dec2(func2) inside class C. func2 is a class attribute in C. And most important func2 is a non-data descriptor defined by ``__get__`` method in class Dec2.
+In this example, we implicit have func2 = Dec2(func2) inside class C. func2 is a class attribute in C. And most important func2 is a *non-data descriptor* defined by ``__get__`` method in class ``Dec2``.
 
-When you write a decorator, it has to be **callable** to achive ``Dec(...)``. But what is returned and how to use returned value is depend on you. If I want, I could have this (btw, ```...``` below isn't emoji, but it kind of reflect correct feeling):
+When you write a decorator e.g. ``Dec``, ``Dec`` has to be **callable** to achive ``Dec(...)``. But what is returned and how to use returned value is depend on you. If you want, you could have this(btw, ```...``` below isn't emoji, but it kind of reflect correct feeling):
 
 .. code:: python
 
@@ -271,4 +271,4 @@ Finally, I put simplest decorator here for comparasion.
   # newfunc
   # func3 2 3
 
-I hope you already understand the very beginning statement, decorator is just a syntax suger of ``X = dec(X)``.
+I hope you already understand the very beginning statement, decorator is nothing more than ``X = dec(X)``.
