@@ -22,6 +22,7 @@ classmethod
 
       @classmethod
       def from_string(cls, name_str):
+          print("cls: ", cls)
           first_name, last_name = map(str, name_str.split(' '))
           student = cls(first_name, last_name)
           return student
@@ -33,6 +34,9 @@ classmethod
 
   >>> scott = Student('Scott',  'Robinson')
   >>> scott = Student.from_string('Scott Robinson')
+  # cls:  <class '__main__.Student'>
+
+Notice the first parameter of function of classmethod decorated is CLASS name(Student here) which passed by python internal logic.
 
 staticmethod
 ------------
@@ -53,6 +57,8 @@ staticmethod
   Student.is_full_name('Scott Robinson')   # True
   Student.is_full_name('Scott')            # False
 
+Notice the function decorated by staticmethodis doesn't need use ``self`` to accept instance.
+
 property
 --------
 
@@ -70,3 +76,5 @@ property
 
   >>> scott = Student('Scott',  'Robinson')
   >>> scott.name_str
+
+``property`` make function call become a attribute.
