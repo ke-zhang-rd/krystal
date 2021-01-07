@@ -66,7 +66,7 @@ Again, this will translate to thing below during ``func()`` definition. So intui
 Write a decorator
 -----------------
 
-When you try to write a decorator ``dec``, Keep in mind: **it accepts a func and returns a func**. So initially, it should looks like:
+When you try to write a decorator ``dec``, Let's assume: **it accepts a func and returns a func**. So initially, it should looks like:
 
 .. code:: python
 
