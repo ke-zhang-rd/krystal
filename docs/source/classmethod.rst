@@ -2,7 +2,7 @@
 classmethod, staticmethod and property
 ======================================
 
-``classmethod``, ``staticmethod`` and ``property`` are all decorator implemented by the descriptor. 
+``classmethod``, ``staticmethod`` and ``property`` are decorators implemented by the descriptor. 
 
 classmethod
 -----------

@@ -26,7 +26,7 @@ Syntax
 
   This syntax sugar assignment is executed during decorated function definition not on function call.
 
-Decorator doesn't mean to change function name. So the thing after ``@`` has to be a function which accepts a **func** and return a **new func**. Decorator also accept arguments.
+Decorator doesn't mean to change name, ``foo`` is still ``foo``. So the thing after ``@`` is the input of decorator. In above example, it accepts a **func** and return a **new func**. Decorator also accept arguments.
 
 .. code:: python
   
@@ -40,8 +40,8 @@ True meaning is:
 
 .. code:: python
 
-  newdec = dec(param=something)
-  func = newdec(func)
+  true_dec = dec(param=something)
+  func = true_dec(func)
 
   >>> func()
 
@@ -57,7 +57,7 @@ Chained decorators
   def func(...):
     ...
 
-Again, this will translate to thing below during ``func()`` call. So intuitively, the rule is parsing the inside decorator first and then outside.
+Again, this will translate to thing below during ``func()`` definition. So intuitively, the rule is parsing the inside decorator first and then outside.
 
 .. code:: python
 
