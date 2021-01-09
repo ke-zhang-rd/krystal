@@ -52,4 +52,5 @@ Krystal Python Documentation
    conda
    argparse
    vscode
+   pythontutor
    rst
