@@ -9,7 +9,6 @@ new vs  init
 
 
 * Think ``__new__`` and ``__init__`` are two channels. ``__new__`` get called first and then ``__init__``. Your arguments are passed separately to both functions except first one. This logic is embedded in ``type``'s ``__call__``. This is same for ``__new__``.
-
 * If ``__init__`` is implemented and your class inherits from a base class, conventionally, you may still want to put parents ``__init__`` which by ``super().__init__()`` inside child's ``__init__``. It’s conventional since you may want to invoke initialization of parent ``__init__``. However, if you choose not to include ``super().__init__()``, that’s fine. This is same for ``__new__``.
 
 Example:
@@ -44,8 +43,9 @@ Example:
   this is foo __init__
   this is Foo __init__
 
-* If ``__new__`` get called by **class**(in metaclass's __call__), since it's a staticmethod, it will call class's __new__. This will go to class attribute lookup. In default, it will run ``__new__`` by looking class.__dict__ which includes its parent ``__new__`` if necessary. 
-* If ``__init__`` get called by **instance**(in metaclass's __call__), since it's not a staticmethod. it will call upper level __init__ which is defined in class. This will go to instance attribute lookup. In default, it will run ``__init__`` by looking Class.__dict__ which includes parent ``__init__`` if necessary.
+* If ``__new__`` get called by **class** (in metaclass's __call__), since it's a staticmethod, it will call class's __new__. This will go to class attribute lookup. In default, it will run ``__new__`` by looking class.__dict__ which includes its parent ``__new__`` if necessary.
+* If ``__init__`` get called by **instance** (in metaclass's __call__), since it's not a staticmethod. it will call upper level __init__ which is defined in class. This will go to instance attribute lookup. In default, it will run ``__init__`` by looking Class.__dict__ which includes parent ``__init__`` if necessary.
+
 .. caution::
 
   ``Class.__dict__`` is not a real dict but a special dict proxy that will also look in all the base classes.
