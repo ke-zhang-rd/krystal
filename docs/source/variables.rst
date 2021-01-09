@@ -5,7 +5,7 @@ Variables
 Even this section is called variables. Actually, in python they should be called names or tags.
 
 * In python everything is object.
-* We assign an object to a name:
+* We give a name to an object:
 
 .. code:: python
   
@@ -17,7 +17,7 @@ Even this section is called variables. Actually, in python they should be called
   
   b = a
 
-* List, dicts and set are called mutable objects. With mutable object, you could assign its name to a new name(create a reference of object). **AND** you could change object itself(change stuff inside object, e.g. update a element in list). This change could be observed by all names. 
+* Lists, dicts and sets are called *mutable* objects. With mutable object, you could assign its name to a new name(create a reference of object). **AND** you could change object itself(change stuff inside object, e.g. update a element in list). This change could be observed by all names. 
 
 .. code:: python
   
@@ -27,7 +27,7 @@ Even this section is called variables. Actually, in python they should be called
   [-1, 2, 3]
   [-1, 2, 3]
   
-* Ints, strings, tuples etc are called immutable objects. With immutable object, you could **ONLY** assign its name to a new name(reference). There isn't anyway to manipulate object itself.
+* Ints, strings, tuples etc are called *immutable* objects. With immutable object, you could **ONLY** assign its name to a new name(reference). There isn't anyway to manipulate object itself.
 
 .. code:: python
   

@@ -16,6 +16,13 @@ Object attribute lookup
 .. image:: ../images/object-attribute-lookup-v3.png
     :align: center
 
+
+
+``Class.__dict__`` is not a real dict but a special dict proxy that will also look in all the base classes.
+
+For clarity I've simplified things to Class.__dict__['foobar'] but in reality the __dict__ proxy object is not used, but instead all the logic is inlined: attributes are looked up on the class of the object in the order of the __mro__ via typeobject.c:_PyType_Lookup (called from object.c: _PyObject_GenericGetAttrWithDict).
+
+
 When you need descriptor
 ------------------------
 
