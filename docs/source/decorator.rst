@@ -276,7 +276,7 @@ I hope you already understand the very beginning statement, decorator is nothing
 How to drive your boss crazy
 ----------------------------
 
-This is **LEGAL**:
+This is **LEGAL** in Python 3.9:
 
 .. code:: python
 
