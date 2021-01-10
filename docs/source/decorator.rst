@@ -272,3 +272,17 @@ Finally, I put simplest decorator here for comparasion.
   # func3 2 3
 
 I hope you already understand the very beginning statement, decorator is nothing more than ``X = dec(X)``.
+
+How to drive your boss crazy
+----------------------------
+
+This is **LEGAL**:
+
+.. code:: python
+
+  @(lambda call: lambda func: (lambda *args, **kwargs: getattr(func(*args, **kwargs), call)()))('upper')
+  def greet():
+    return 'hello world'
+
+  >>> greet()
+  'HELLO WORLD'
