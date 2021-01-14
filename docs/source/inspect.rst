@@ -44,3 +44,66 @@ package
 -------
 
 I wrote a package called ``ambush`` to do this. https://github.com/ke-zhang-rd/ambush 
+
+**Example:**
+
+.. code-block:: python
+  :caption: main.py
+  :linenos:
+
+  from sub import Member
+
+
+  class Primary:
+
+      def foo(self):
+          a = 1
+          a = a + 1
+          m = Member()
+          m.bar()
+          a = a + 1
+          a = a + 1
+
+
+  p = Primary()
+  p.foo()
+
+.. code-block:: python
+  :caption: sub.py
+  :linenos:
+
+  class Member:
+
+
+      def bar(self):
+          from ambush import detector
+          detector()
+
+**Output:**
+
+.. code:: none
+
+  Who is calling current function
+  =========================================================
+  In file:
+  /Users/kz2249/tmp/main.py
+
+  class Primary:
+      # by caller function:
+      def foo in line 6
+          ...
+          # actually call:
+          m.bar() # in line 10
+          ...
+
+  Peek:
+  ---------------------------------------------------------
+      def foo(self):
+          a = 1
+          a = a + 1
+          m = Member()
+          m.bar()
+          a = a + 1
+          a = a + 1
+
+  =========================================================
