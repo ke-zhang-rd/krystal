@@ -39,3 +39,8 @@ Output:
     func()
     c = b + 1
     d = c + 1
+
+package
+-------
+
+I wrote a package called ``ambush`` to do this. https://github.com/ke-zhang-rd/ambush 
