@@ -26,7 +26,7 @@ Syntax
 
   This syntax sugar assignment is executed during decorated function definition not on function call.
 
-Decorator doesn't mean to change name, ``foo`` is still ``foo``. So the thing after ``@`` is the input of decorator. In above example, it accepts a **func** and return a **new func**. Decorator also accept arguments.
+Decorator doesn't mean to change name, ``foo`` is still ``foo``. So the thing below ``@dec`` is the input of decorator. In above example, it accepts a **func** and return a **new func**. Decorator also accept arguments.
 
 .. code:: python
   
