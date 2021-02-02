@@ -11,6 +11,7 @@ Krystal Python Documentation
 
    philosophy
    annotation
+   ass
    lambda
    dunder
    comparision
@@ -32,6 +33,7 @@ Krystal Python Documentation
    container
    decorator
    dataclass
+   decoratormethod
    descriptor
    classmethod
    functools
