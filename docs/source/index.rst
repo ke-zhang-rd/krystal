@@ -11,7 +11,7 @@ Krystal Python Documentation
 
    philosophy
    annotation
-   ass
+   assert
    lambda
    dunder
    comparision
@@ -46,6 +46,8 @@ Krystal Python Documentation
    processing
    generator
    asyncio
+   future
+   concurrentfuture
    pytest
    pdb
    searchmethod
