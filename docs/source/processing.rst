@@ -5,7 +5,7 @@ Process
 Pool
 ----
 
-Process Pool the most common way to use multiprocessing. Here is a example:
+Pool is the most common way to in using multiprocessing. Here is a example:
 
 .. code:: python
 
@@ -18,37 +18,47 @@ Process Pool the most common way to use multiprocessing. Here is a example:
       with Pool(5) as p:
           print(p.map(f, [1, 2, 3]))
 
-There are several things worth to consider:
-* ``Pool()`` return a context manager.
-* ``Pool()`` has a method ``map`` to achieve multiprocessing map.
-* You need use ``if __name__ == '__main__':`` to protect you main multiprocessings logic.
+There are several things worth to mention:
 
+* ``Pool()`` return a context manager. This is the most usual way to use ``Pool``. ``__enter__()`` return a Pool object and ``__exit__()`` calls ``terminate()`` method.
+* ``Pool()`` uses a method ``map`` to achieve multiprocessing map.
+* You need use ``if __name__ == '__main__':`` to protect you main multiprocessings logic. There are more details about this later.
 
 Process
 -------
 
-from multiprocessing import Process
+Process is the raw approach to spawn a process.
 
-def f(name):
-    print('hello', name)
+.. code:: python
 
-if __name__ == '__main__':
-    p = Process(target=f, args=('bob',))
-    p.start()
-    p.join()
+  from multiprocessing import Process
+
+  def f(name):
+      print('hello', name)
+
+  if __name__ == '__main__':
+      p = Process(target=f, args=('bob',))
+      p.start()
+      p.join()
+
+Clearly, you need use ``start()`` to start a process and ``join()`` make process in which ``join()`` get called wait caller finish, e.g. main process need to wait ``p`` finish here.
 
 Why if __name__ == '__main__':
 ------------------------------
 
-There are two basic new process start methods: ``spawn`` and ``fork``. The relationship is sample:
+Python multiprocessing supports two basic ways to start a process: ``spawn`` and ``fork``. Their relationship is sample:
 
-spawn = fork + execve
+.. code:: python
 
-fork:
+  spawn = fork + execve
+
+**fork:**
+
   * The child process, when it begins, is effectively identical to the parent process.
   * All resources of the parent are independent and identical in child process.
 
-spawn:
+**spawn:**
+
   * Basically, it's rerun code including import module at start of each child process	
   * run ``execve(path)`` which construct a new process based on path. ``path`` is copied pickable process. 
   * So spawn method need lots of things pickable.
@@ -68,8 +78,7 @@ spawn:
 
 .. Caution::
 
-  Neither method copies running threads into the child processes.
-
+  Neither method copies running threads into the child processes. So multithreaded process isn't friendly.
 
 Process Communication
 ---------------------
