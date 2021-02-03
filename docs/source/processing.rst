@@ -91,6 +91,17 @@ Queue
 Pipe
 ^^^^
 
+.. code:: python
+
+  out, in = Pipe()
+
+You could think ``out`` and ``in`` as two physical location in memory. You build a bridge between them. So if there is a copy ``out_cp`` and ``in_cp``, you still could use ``in.send()`` and get by ``out_cp.rec()``.
+
+Socket
+^^^^^^
+
+Sharing state
+^^^^^^^^^^^^^
 
 Synchronization
 ---------------
@@ -119,7 +130,3 @@ By Lock
           p.join()
 
 This example is basically a serial running one by one. ``p.join()`` make main process with ``p`` finish``.
-
-Sharing state
--------------
-
