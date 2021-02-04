@@ -43,6 +43,12 @@ Process is the raw approach to spawn a process.
 
 Clearly, you need use ``start()`` to start a process and ``join()`` make process in which ``join()`` get called wait caller finish, e.g. main process need to wait ``p`` finish here.
 
+join() and daemon
+
+If in your main process, you call:
+  ``p.join()`` make main process wait ``p`` finished.
+  ``p.daemon = True``: if main process is closed, also go to close daemoned subprocess ``p``. 
+
 Why if __name__ == '__main__':
 ------------------------------
 
@@ -86,6 +92,19 @@ Process Communication
 Queue
 ^^^^^
 
+.. code:: python
+
+  from multiprocessing import Process, Queue
+
+  def f(q):
+      q.put([42, None, 'hello'])
+
+  if __name__ == '__main__':
+      q = Queue()
+      p = Process(target=f, args=(q,))
+      p.start()
+      print(q.get())    # prints "[42, None, 'hello']"
+      p.join()
 
 
 Pipe
@@ -97,11 +116,46 @@ Pipe
 
 You could think ``out`` and ``in`` as two physical location in memory. You build a bridge between them. So if there is a copy ``out_cp`` and ``in_cp``, you still could use ``in.send()`` and get by ``out_cp.rec()``.
 
-Socket
-^^^^^^
+Here is a example:
 
-Sharing state
-^^^^^^^^^^^^^
+.. code:: python
+
+  from multiprocessing import Process, Pipe
+  import time
+
+  def reader_proc(pipe):
+      ## Read from the pipe; this will be spawned as a separate Process
+      p_output, p_input = pipe
+      p_input.close()    # We are only reading
+      while True:
+          msg = p_output.recv()    # Read from the output pipe and do nothing
+          if msg=='DONE':
+              break
+
+  def writer(count, p_input):
+      for ii in range(0, count):
+          p_input.send(ii)             # Write 'count' numbers into the input pipe
+      p_input.send('DONE')
+
+  if __name__=='__main__':
+      for count in [10**4, 10**5, 10**6]:
+          # Pipes are unidirectional with two endpoints:  p_input ------> p_output
+          p_output, p_input = Pipe()  # writer() writes to p_input from _this_ process
+          reader_p = Process(target=reader_proc, args=((p_output, p_input),))
+          reader_p.daemon = True
+          reader_p.start()     # Launch the reader process
+
+          p_output.close()       # We no longer need this part of the Pipe()
+          _start = time.time()
+          writer(count, p_input) # Send a lot of stuff to reader_proc()
+          p_input.close()
+          reader_p.join()
+          print("Sending {0} numbers to Pipe() took {1} seconds".format(count,
+              (time.time() - _start)))
+
+In this example, we put pipe as args while construct Process. You may notice p_output is closed by main process but in ``reader_proc``, p_output.recv() is called. If we print the id of those two ``p_output``, you will find they are different. However, p_input in ``writer`` still could send to a copied ``p_output``. 
+Put pipe as args of Process will make subprocess have a builtin communication bridge. It's pretty common to see pipe or one end appearing in args of Process.
+The object sent must be picklable. Very large pickles (approximately 32 MiB+, though it depends on the OS) may raise a ValueError exception.
 
 Synchronization
 ---------------
