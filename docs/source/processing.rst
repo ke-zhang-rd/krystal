@@ -183,4 +183,4 @@ By Lock
           p.start()
           p.join()
 
-This example is basically a serial running one by one. ``p.join()`` make main process with ``p`` finish``.
+This example basically is a serial running one by one. ``p.join()`` make main process with ``p`` finish``.
