@@ -58,3 +58,4 @@ Krystal Python Documentation
    vscode
    pythontutor
    rst
+   ambush
