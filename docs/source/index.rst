@@ -59,3 +59,4 @@ Krystal Python Documentation
    pythontutor
    rst
    ambush
+   open_source_support
