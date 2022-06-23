@@ -12,9 +12,4 @@ Krystal
 A python advanced tutorial
 
 * Free software: 3-clause BSD license
-* Documentation: (COMING SOON!) https://ke-zhang-rd.github.io/krystal.
-
-Features
---------
-
-* TODO
+* Documentation: https://ke-zhang-rd.github.io/krystal.
