@@ -37,7 +37,7 @@ jobs:
         run: |
             set -vxeo pipefail
             conda env list
-            pip install -r requirements.txt
+            pip install -r requirements-dev.txt
             
       - name: Build docs
         shell: bash -l {0}
