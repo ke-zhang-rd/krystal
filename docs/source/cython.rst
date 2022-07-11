@@ -13,20 +13,20 @@ You have conclude that your faster engineering logic works, optimization is next
 
 The architecture of cython orgnization
 --------------------------------------
+.. code::
 
-<PROJECT>
-  <MODULE>
-    include
-      .h
-    src
-      .cpp
-    python
-      .pxd
-      .pyx
-    tests
-      .py
-  setup.py
-
+  <PROJECT>
+    <MODULE>
+      include
+        .h
+      src
+        .cpp
+      python
+        .pxd
+        .pyx
+      tests
+        .py
+    setup.py
 
 Stay with .h and .cpp file
 --------------------------
@@ -55,7 +55,7 @@ Declare python/cython class with cdef
 
 Next we declare each method and private members
 
-.. code
+.. code::
 
   Rectangle() except +
   Rectangle(int, int, int, int) except +
