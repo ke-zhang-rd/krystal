@@ -39,7 +39,8 @@ Here we are basiclly write python code(Cython extension type) as a wrapper to wr
 
 
 Use c++ file as source
-.. code
+.. code::
+  
   cdef extern from "Rectangle.cpp":
     pass
     
