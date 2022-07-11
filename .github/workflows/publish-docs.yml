@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    if: github.repository_owner == 'bluesky'
+    if: github.repository_owner == 'krystal'
     runs-on: ubuntu-latest
     strategy:
       matrix:
