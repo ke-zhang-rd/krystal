@@ -59,4 +59,5 @@ Krystal Python Documentation
    pythontutor
    rst
    ambush
+   cython
    opensource
