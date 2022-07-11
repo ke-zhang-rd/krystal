@@ -224,5 +224,10 @@ When you need define something that need to be used later in python but its come
 numpy import vs cimport
 -----------------------
 
-When you need numpy in .pyx file.
+how to import or cimport numpy in .pyx file.
 https://stackoverflow.com/questions/20268228/cython-cimport-and-import-numpy-as-both-np
+
+
+Cython: "fatal error: numpy/arrayobject.h: No such file or directory"
+---------------------------------------------------------------------
+https://stackoverflow.com/a/14657667/10642305
