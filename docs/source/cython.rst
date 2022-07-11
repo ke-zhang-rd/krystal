@@ -123,5 +123,102 @@ make sure code below are in setup.py
   
 install package
 ---------------
-.. code
+Run command below
+.. code:: bash
+  
   $ python setup.py build_ext --inplace
+
+Practice with Eigne and Numpy
+-----------------------------
+The code below perfectly show us the logistic to mix Eigen and Numpy with Cython.
+
+.pyx file
+https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1331
+
+.. code:: python
+  
+  import numpy as np
+  cimport numpy as np
+  cimport csvd
+  
+  ...
+  
+  def CalcPointAcceleration (Model model,
+          np.ndarray[double, ndim=1, mode="c"] q,
+          np.ndarray[double, ndim=1, mode="c"] qdot,
+          np.ndarray[double, ndim=1, mode="c"] qddot,
+          unsigned int body_id,
+          np.ndarray[double, ndim=1, mode="c"] body_point_position,
+          update_kinematics=True):
+      return Vector3dToNumpy (crbdl.CalcPointAcceleration (
+              model.thisptr[0],
+              NumpyToVectorNd (q),
+              NumpyToVectorNd (qdot),
+              NumpyToVectorNd (qddot),
+              body_id,
+              NumpyToVector3d (body_point_position),
+              update_kinematics
+              ))
+
+
+1. Call NumpyToEigen-ish function
+2. Call Actuall function by cSomething.function name. This function is shown in
+  * cSomething.pxd by cdef and cdef extern from "<HEADER.h>" namespace "<NAMESPACE>":
+  * .h file
+  * .cpp file
+3. Call EigenToNumpy-ish function
+
+
+.h file
+https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/include/rbdl/Kinematics.h#L270
+
+.. code::
+  
+  Math::Vector3d CalcPointAcceleration (
+      Model &model,
+      const Math::VectorNd &Q,
+      const Math::VectorNd &QDot,
+      const Math::VectorNd &QDDot,
+      unsigned int body_id,
+      const Math::Vector3d &point_position,
+      bool update_kinematics = true
+      );
+      
+
+.cpp file
+https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/src/Kinematics.cc#L513
+
+.. code::
+
+  Vector3d CalcPointAcceleration (
+      Model &model,
+      const VectorNd &Q,
+      const VectorNd &QDot,
+      const VectorNd &QDDot,
+      unsigned int body_id,
+      const Vector3d &point_position,
+      bool update_kinematics) {
+
+.pxd file
+https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/python/crbdl.pxd#L254
+.. code::
+  
+  cdef extern from "<rbdl/Kinematics.h>" namespace "RigidBodyDynamics":
+      cdef Vector3d CalcPointAcceleration (Model& model,
+        const VectorNd &q,
+        const VectorNd &qdot,
+        const VectorNd &qddot,
+        const unsigned int body_id,
+        const Vector3d &body_point_coordinates,
+        bool update_kinematics)
+  
+When you use cdef
+-----------------
+When you need define something that need to be used later in python but its come from cpp(in .h file and .cpp file)
+
+
+numpy import vs cimport
+-----------------------
+
+When you need numpy in .pyx file.
+https://stackoverflow.com/questions/20268228/cython-cimport-and-import-numpy-as-both-np
