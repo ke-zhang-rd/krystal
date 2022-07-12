@@ -93,7 +93,7 @@ In the python class that we are about to write, you need use cdef to define a py
 which has a c object as an attribute
 
   * declare it by c class which was cimport just above. This declaration usually take place in class attribute
-  location.
+    location.
   
   .. code
       cdef Rectangle c_rect
@@ -231,3 +231,13 @@ https://stackoverflow.com/questions/20268228/cython-cimport-and-import-numpy-as-
 Cython: "fatal error: numpy/arrayobject.h: No such file or directory"
 ---------------------------------------------------------------------
 https://stackoverflow.com/a/14657667/10642305
+
+
+Directive comments
+------------------
+
+The comments in cython related file are compling directives which do take effect.
+Ref:
+https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#how-to-set-directives
+The directive is prefered to setup in setup.py by this
+https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#how-to-set-directives
