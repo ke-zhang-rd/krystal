@@ -241,3 +241,18 @@ Ref:
 https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#how-to-set-directives
 The directive is prefered to setup in setup.py by this
 https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#how-to-set-directives
+
+
+def vs cdef vs cpdef
+--------------------
+
+cdef is basiclly define a function that only workable inside package. it cannot be used by python directly. If you wanna use it by python directly, aka
+do something like below
+
+.. code:: python
+  
+  from pkg.pyx_module import function_defined_inside_pyx
+  function_defined_inside_pyx(...)
+
+The function_defined_inside_pyx has to be defined by cpdef.
+  
