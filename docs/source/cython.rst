@@ -256,3 +256,6 @@ do something like below
 
 The function_defined_inside_pyx has to be defined by cpdef.
   
+Cannot find Eign/Core
+---------------------
+https://github.com/opencv/opencv/issues/14868
