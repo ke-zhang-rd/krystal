@@ -60,4 +60,5 @@ Krystal Python Documentation
    rst
    ambush
    cython
+   githubactions
    opensource
