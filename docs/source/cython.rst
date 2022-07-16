@@ -169,8 +169,11 @@ https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1331
 
 1. Call NumpyToEigen-ish function
 2. Call Actuall function by cSomething.function name. This function is shown in
+
   * cSomething.pxd by cdef and cdef extern from "<HEADER.h>" namespace "<NAMESPACE>":
+  
   * .h file
+  
   * .cpp file
 3. Call EigenToNumpy-ish function
 
