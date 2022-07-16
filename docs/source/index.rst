@@ -62,3 +62,4 @@ Krystal Python Documentation
    cython
    githubactions
    opensource
+   opspace
