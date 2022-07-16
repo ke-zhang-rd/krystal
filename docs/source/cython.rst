@@ -99,14 +99,16 @@ which has a c object as an attribute
       cdef Rectangle c_rect
   
   * In __cinit__ magic method, construct c object as a attribute of python class.
-  .. code
+  
+  .. code::
   
     def __cinit__(self, int x0, int y0, int x1, int y1):
       self.c_rect = Rectangle(x0, y0, x1, y1)
 
 Next, you just need to rewrite all method you need by calling c object methods, like
   
-  .. code
+  .. code::
+  
     def get_area(self):
       return self.c_rect.getArea()
       
