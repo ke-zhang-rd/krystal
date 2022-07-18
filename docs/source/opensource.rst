@@ -3,9 +3,9 @@
 =====================================================
 
 多年前，Apple 2在出售的时候附赠原理图(Schematics)。面对Amazon的竞争，
-`MongoDB <https://github.com/mongodb/mongo>`_选择了完全开源的策略。国内完全
+`MongoDB <https://github.com/mongodb/mongo>`_ 选择了完全开源的策略。国内完全
 开源的神经搜索(neural search)公司 `Jina <https://github.com/jina-ai/jina>`_
-实现了3000W美金的融资。在此历史和背景下，本文简要阐述open source在盈利(for-proft)
+实现了3000W美金的融资。在此历史和背景下，本文简要阐述Open source在盈利(for-proft)
 机构的利弊井提出一种推进方案。
 
 诚如开源的字面意思，友商也会同样获得开源的信息。然而，通过选择性的开源，或是开源次级先进
@@ -93,7 +93,8 @@ Google保持了在云计算领域的话语权和竞争力。
 更直接收入
 ~~~~~~~~~~
 通过开源直接谋求捐赠。许多基金会或是社区，因各种因素的考量，愿意以捐赠的形式资助开源项目，类似组
-织有Numfocus, Chan Zuckerberg Initiative等。项目同时可以直援接受公众捐赠。
+织有 `Numfocus <https://numfocus.org/>`_, `Chan Zuckerberg Initiative 
+<https://chanzuckerberg.com/>`_ 等。项目同时可以直援接受公众捐赠。
 
 
 写在最后
