@@ -4,7 +4,7 @@
 
 
 Apple 2在出售的时候附赠原理图(Schematics)。面对Amazon的竞争，MongoDB选择了完全
-开源的策略。国内完全开源的神经搜索(neural search)公司Jina实现了3000W美金的融资。在此
+开源的策略。国内完全开源的神经搜索(neural search)公司 `Jina<https://github.com/jina-ai/jina>`_ 实现了3000W美金的融资。在此
 历史和背景下，本文简要阐述open source在盈利(for-proft)机构的利弊井提出一种推进方案。
 
 弊
