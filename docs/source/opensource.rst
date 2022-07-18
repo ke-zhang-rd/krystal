@@ -2,20 +2,15 @@
 关于开源在盈利(for-profit)机构的讨论
 =====================================================
 
+多年前，Apple 2在出售的时候附赠原理图(Schematics)。面对Amazon的竞争，
+`MongoDB <https://github.com/mongodb/mongo>`_选择了完全开源的策略。国内完全
+开源的神经搜索(neural search)公司 `Jina <https://github.com/jina-ai/jina>`_
+实现了3000W美金的融资。在此历史和背景下，本文简要阐述open source在盈利(for-proft)
+机构的利弊井提出一种推进方案。
 
-Apple 2在出售的时候附赠原理图(Schematics)。面对Amazon的竞争，MongoDB选择了完全
-开源的策略。国内完全开源的神经搜索(neural search)公司 `Jina<https://github.com/jina-ai/jina>`_ 实现了3000W美金的融资。在此
-历史和背景下，本文简要阐述open source在盈利(for-proft)机构的利弊井提出一种推进方案。
-
-弊
---
-诚如开源的字面意思，友商也会同样获得开源的信息。然而，通过选择性的开源，或是开源次级先进的
-内容，保留最先进的内容，可使得该局限性可控。
-
-
-
-利
---
+诚如开源的字面意思，友商也会同样获得开源的信息。然而，通过选择性的开源，或是开源次级先进
+的内容，保留最先进的内容，可使得该局限性可控。而开源带来了诸多显见或是隐含的好处是下文着
+重讨论的。
 
 
 商誉(Goodwill)
