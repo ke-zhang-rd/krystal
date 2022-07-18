@@ -3,19 +3,27 @@ How operational space define a robot
 ====================================
 
 
+*"The mistake that advanced engineer easy to make is optimizing the things that shouldn't exist".*
 
-"The mistake that advanced engineer easy to make is optimizing the things that shouldn't exist". So, when there is a proposal about making a
+So, when there is a proposal about making a
 robot. The very first question is where is this robot gonna work, in kinematics, which space does operational space exist in, in mathametical,
-which group does robot are gonna operated in.
+which group is pose operated in. Preemptively, a comparasion between operational space dimension and reality operational dimension need to be
+discussed.
 
 Here are several examples:
 
-Vacuume cleaning robot.
-In most case, it runs on 100m^2 2D space so its operation space is R3 which are x, y and theta(orientation). So if we wanna has a fully-actuated
-robot
+**Car**
 
-Manipulator
-It need to control the 6 dimentions in operational space(3 position and 3 orientation) to finish tasks. So a reasonal design wournd be a 6 actuator.
+It runs on 2D space so its operation space is R3 which are x, y and theta(orientation). So if we wanna has a fully-actuated robot,
+we need 3 actuator at least. However, a under-actuated robot might also works. In fact, that's the case in reality.
+
+**Manipulator**
+
+It need to control the 6 dimentions in operational space(3 position and 3 orientation) to finish tasks. So a reasonal design would be a 6 actuators.
+
+**Tripod Head**
+
+
 
 The reason why extra actuator/motor, aka over-actuated usually not a good choice in reality, especially in business world. Lets check gain and loss
 
