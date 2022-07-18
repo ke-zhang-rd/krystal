@@ -2,8 +2,6 @@
 How operational space define a robot
 ====================================
 
-How to organize a robot development
-如何组织机器人开发
 
 
 "The mistake that advanced engineer easy to make is optimizing the things that shouldn't exist". So, when there is a proposal about making a
