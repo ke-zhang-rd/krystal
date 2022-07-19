@@ -77,7 +77,7 @@
 
 更直接收入
 -----------
-通过开源直接谋求捐赠。许多基金会或是社区，因各种因素的考量，愿意以捐赠的形式资助开源项目，类似组织有 `Numfocus <https://numfocus.org/>`_, `Chan Zuckerberg Initiative <https://chanzuckerberg.com/>`_ 等。项目同时也可以直接接受公众捐赠。
+通过开源直接谋求捐赠，许多基金会或是社区，因各种因素的考量，愿意以捐赠的形式资助开源项目，类似组织有 `Numfocus <https://numfocus.org/>`_, `Chan Zuckerberg Initiative <https://chanzuckerberg.com/>`_ 等。项目同时也可以直接接受公众捐赠。
 
 
 写在最后
