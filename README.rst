@@ -11,5 +11,6 @@ Krystal
 
 A python advanced tutorial
 
+* `Documentation <https://ke-zhang-rd.github.io/krystal>`_
 * Free software: 3-clause BSD license
-* Documentation: https://ke-zhang-rd.github.io/krystal.
+
