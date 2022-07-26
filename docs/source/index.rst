@@ -60,6 +60,7 @@ Krystal Python Documentation
    rst
    ambush
    cython
+   cpp_plus_python
    githubactions
    opensource
    opspace
