@@ -265,3 +265,7 @@ The function_defined_inside_pyx has to be defined by cpdef.
 Cannot find Eign/Core
 ---------------------
 https://github.com/opencv/opencv/issues/14868
+
+How do I wrap a C class with cython
+-----------------------------------
+https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
