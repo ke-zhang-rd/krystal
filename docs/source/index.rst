@@ -62,3 +62,4 @@ Krystal Python Documentation
    cython
    cpp_plus_python
    githubactions
+   wheel
