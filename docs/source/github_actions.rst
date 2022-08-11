@@ -30,3 +30,9 @@ https://github.com/peaceiris/actions-gh-pages
 shell: bash -l {0}
 
 https://stackoverflow.com/a/69070805/10642305
+
+
+syntax
+------
+
+https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
