@@ -61,5 +61,5 @@ Krystal Python Documentation
    ambush
    cython
    cpp_plus_python
-   githubactions
+   github_actions
    wheel
