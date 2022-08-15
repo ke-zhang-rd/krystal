@@ -2,12 +2,6 @@
 Buiding Package: What, Why and How
 ==================================
 
-setuptools
-----------
-
-
-d
-
 
 
 Why build python package is hard
@@ -19,9 +13,30 @@ There may be a time in your development career where you need to author a packag
 Look build for windows and mac is eaiser by PEP513 https://peps.python.org/pep-0513/
 
 
+How to include c++ files(header, source and libraries)
+------------------------------------------------------
 
+WARNING
 
+Note that when using setuptools, you should import it before Cython, otherwise, both might disagree about the class to use here.
 
+Method 1
+~~~~~~~~
+
+Use *include_path* of *cythonize* and by using C level API like 
+
+.. code:: python
+
+  include_path = [numpy.get_include()]
+
+Note you need this only if you need cimport numpy
+
+Method 2
+~~~~~~~~
+
+Use Extension method of setuptools to get the c++ files including
+
+ include_dirs, libraries, and library_dirs 
 
 
 
