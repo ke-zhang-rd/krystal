@@ -2,7 +2,6 @@
 setuptools
 ==========
 
-
 entrypoints
 -----------
 
