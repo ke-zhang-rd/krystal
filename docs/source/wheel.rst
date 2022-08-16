@@ -36,6 +36,8 @@ Look build for windows and mac is eaiser by PEP513 https://peps.python.org/pep-0
 How to include c++ files(header, source and libraries)
 ------------------------------------------------------
 
+This is covered in here https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#configuring-the-c-build
+
 Those files should be listed in setup.py, usually in Extension method of setuptools.
 *#include <Python.h>* should be added as mentioned here https://docs.python.org/3/c-api/intro.html
 However, to maintain the c++ files independent which could still be used in pure c++ enviroment. The *#include <Python.h>*  might be
