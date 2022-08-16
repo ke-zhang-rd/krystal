@@ -136,3 +136,16 @@ $ python setup.py sdist
 
 
 A user perspective
+
+
+cibuildwheel
+------------
+
+all builds are running on same CENTOS container. So any dependency you installed are shared by all builds. One build match one wheel, something
+like a linux_cp39, linux_cp310 ...
+
+before-all: running once before all builds 
+
+
+before-build: runing for each build
+
