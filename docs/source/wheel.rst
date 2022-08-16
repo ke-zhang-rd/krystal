@@ -2,6 +2,26 @@
 Buiding Package: What, Why and How
 ==================================
 
+What actually happens when a package has been determined to install
+-------------------------------------------------------------------
+
+It goes to pypi server and search if there is any distribution available. There are two types of distribution
+
+* source distribution
+* build distribution
+
+source distribution is nothing but a tarball file which has everything included inside. build distribuition is aka wheel/whl file which are usually
+platform dependent but faster in performance.
+
+
+
+
+
+What are wheels
+---------------
+https://realpython.com/python-wheels/
+
+
 
 
 Why build python package is hard
@@ -15,6 +35,9 @@ Look build for windows and mac is eaiser by PEP513 https://peps.python.org/pep-0
 
 How to include c++ files(header, source and libraries)
 ------------------------------------------------------
+
+It should be included in setup.py, usually in Extension method of setuptools.
+
 
 WARNING
 
@@ -34,21 +57,25 @@ Note you need this only if you need cimport numpy
 Method 2
 ~~~~~~~~
 
-Use Extension method of setuptools to get the c++ files including
-
- include_dirs, libraries, and library_dirs 
-
+Use Extension method of setuptools to get the c++ files including, sources, include_dirs, libraries, and library_dirs.
+A general example of all those files config example could be found https://github.com/numpy/numpy/blob/b62c541463a9c7ed011436311ff6df9408db6651/site.cfg.example
 
 
-
-What is source distribution
-
-What is wheel distribution
-
-
+  * sources (list[str]) – list of source filenames, relative to the distribution root (where the setup script lives),
+    in Unix form (slash-separated) for portability. Source files may be C, C++, SWIG (.i), platform-specific resource
+    files, or whatever else is recognized by the “build_ext” command as source for a Python extension.
+  
+  * include_dirs: This is the header files that customized by yourself. This usually achieved by a method
+    *get_include* of your own package. That means you need add this method to your package so that it would
+    be easier to get the relative location of set
+    A example of numpy is: https://github.com/numpy/numpy/blob/main/numpy/lib/utils.py#L19-L45
+    Documentation is: https://numpy.org/devdocs/reference/generated/numpy.get_include.html
+  
+  * library_dirs (list[str]) – list of directories to search for C/C++ libraries at link time
+  
+  * libraries (list[str]) – list of library names (not filenames or paths) to link against
 
 How does wheel join your packaging distribution
-
 
 The tar.gz tarball that pip retrieves is a source distribution, or sdist, rather than a wheel. In some ways, a sdist is the opposite of a wheel.
 
