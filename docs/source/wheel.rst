@@ -78,7 +78,45 @@ A general example of all those files config example could be found https://githu
   
   * libraries (list[str]) – list of library names (not filenames or paths) to link against
 
+A example of *setup.py*
+
+.. code:: python
+
+  from setuptools import Extension, setup
+  from Cython.Build import cythonize
+
+  extensions = [
+      Extension("primes", ["primes.pyx"],
+          include_dirs=[...],
+          libraries=[...],
+          library_dirs=[...]),
+      # Everything but primes.pyx is included here.
+      Extension("*", ["*.pyx"],
+          include_dirs=[...],
+          libraries=[...],
+          library_dirs=[...]),
+  ]
+  setup(
+      name="My hello app",
+      ext_modules=cythonize(extensions),
+      zip_safe=False
+  )
+
+Notice:
+
+If your options are static (for example you do not need to call a tool like pkg-config to determine them) you can also provide them directly in your .pyx or .pxd source file using a special comment block at the start of the file:
+
+.. code:: python
+
+  # distutils: libraries = spam eggs
+  # distutils: include_dirs = /opt/food/include
+
+Note also that if you use setuptools instead of distutils, the default action when running python setup.py install is to create a zipped egg file which will not work with cimport for pxd files when you try to use them from a dependent package. To prevent this, include zip_safe=False in the arguments to setup().
+
+
+
 How does wheel join your packaging distribution
+-----------------------------------------------
 
 The tar.gz tarball that pip retrieves is a source distribution, or sdist, rather than a wheel. In some ways, a sdist is the opposite of a wheel.
 
