@@ -115,7 +115,7 @@ If your options are static (for example you do not need to call a tool like pkg-
 
 Note also that if you use setuptools instead of distutils, the default action when running python setup.py install is to create a zipped egg file which will not work with cimport for pxd files when you try to use them from a dependent package. To prevent this, include zip_safe=False in the arguments to setup().
 
-Notice there are more details in setuptools `<Building Extension Modules>_https://setuptools.pypa.io/en/latest/userguide/ext_modules.html` and 
+Notice there are more details in setuptools [Building Extension Modules](https://setuptools.pypa.io/en/latest/userguide/ext_modules.html) and  
 
 How does wheel join your packaging distribution
 -----------------------------------------------
