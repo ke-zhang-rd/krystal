@@ -269,3 +269,8 @@ https://github.com/opencv/opencv/issues/14868
 How do I wrap a C class with cython
 -----------------------------------
 https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
+
+
+.. warning::
+  Important! Do not name the .pyx file the same as your .cpp file!
+
