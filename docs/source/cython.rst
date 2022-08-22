@@ -137,6 +137,9 @@ Run command below
   
   $ python setup.py build_ext --inplace
 
+Also you could config *setup.cfg* by instruction here
+https://docs.python.org/3/distutils/configfile.html
+
 Practice with C and Python community: Eigne and Numpy
 =====================================================
 
