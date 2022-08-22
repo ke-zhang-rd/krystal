@@ -2,13 +2,11 @@
 cython101
 =========
 
-The reason why you need cython. In my practice, in most case, you don't need it, there are several case that
-cython might be a really good option.
+If you are thinking whether you need cython, in most case, you don't need it, there are
+several case that cython might be a really good option.
 
-
-You really care about running time instead of engineering time.
-
-You have conclude that your faster engineering logic works, optimization is next step.
+  * You really care about running time instead of engineering time.
+  * You have conclude that your engineering logic no matter the language you use do works, optimization is next step.
 
 
 The architecture of cython orgnization
@@ -39,6 +37,7 @@ Here we are basiclly write python code(Cython extension type) as a wrapper to wr
 
 
 Use c++ file as source
+
 .. code::
   
   cdef extern from "Rectangle.cpp":
