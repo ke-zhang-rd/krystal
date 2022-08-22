@@ -272,4 +272,7 @@ https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
 
 
 .. warning::
-Important! Do not name the .pyx file the same as your .cpp file! When the cythonize function is called later, a new .cpp file with the same name as your .pyx file is generated. If you name both your original .cpp and your .pyx file the same, your .cpp file will be overwritten! Which is bad.
+
+  Important! Do not name the .pyx file the same as your .cpp file! When the cythonize function is
+  called later, a new .cpp file with the same name as your .pyx file is generated. If you name both
+  your original .cpp and your .pyx file the same, your .cpp file will be overwritten! Which is bad.
