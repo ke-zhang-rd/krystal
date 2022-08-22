@@ -10,8 +10,8 @@ several case that cython might be a really good option.
   * You have conclude that your engineering logic no matter the language you use do works, optimization is next step.
 
 
-The architecture of cython orgnization
-======================================
+The architecture of a cython project
+====================================
 
 .. code::
 
@@ -30,42 +30,9 @@ The architecture of cython orgnization
 
 Stay with .h and .cpp file
 --------------------------
-.h and .cpp files are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
-
-  
-construct .pxd file
--------------------
-Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .h file.
+The.h files under *include* and .cpp files under *src* are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
 
 
-Use c++ file as source
-
-.. code::
-  
-  cdef extern from "Rectangle.cpp":
-    pass
-    
-Note that when you use cdef extern from, the path that you specify is relative to the current file,
-
-Declare python/cython class with cdef 
-
-.. code
-  cdef extern from "Rectangle.h" namespace "shapes":
-    cdef cppclass Rectangle:
-
-
-Next we declare each method and private members
-
-.. code::
-
-  Rectangle() except +
-  Rectangle(int, int, int, int) except +
-  int x0, y0, x1, y1
-  int getArea()
-  void getSize(int* width, int* height)
-  void move(int, int)
-  
-expcept + here is make sure that python will raise the exception of c++ error
 
 
 
@@ -113,7 +80,41 @@ Next, you just need to rewrite all method you need by calling c object methods, 
     def get_area(self):
       return self.c_rect.getArea()
       
-      
+.pxd file
+---------
+* Here we are basiclly write Cython code(Cython extension type) as a wrapper to wrap the logic of .h file.
+* The role of .pxd file is like a shared header file of cython code for convinent of writing .pyx file.
+
+Use c++ file as source
+
+.. code::
+  
+  cdef extern from "Rectangle.cpp":
+    pass
+    
+Note that when you use *cdef extern from*, the path that you specify is relative to the current file,
+
+Declare python/cython class with cdef 
+
+.. code
+  cdef extern from "Rectangle.h" namespace "shapes":
+    cdef cppclass Rectangle:
+
+
+Next we declare each method and private members
+
+.. code::
+
+  Rectangle() except +
+  Rectangle(int, int, int, int) except +
+  int x0, y0, x1, y1
+  int getArea()
+  void getSize(int* width, int* height)
+  void move(int, int)
+  
+expcept + here is make sure that python will raise the exception of c++ error
+
+
 setup.py
 --------
 make sure code below are in setup.py
@@ -137,6 +138,22 @@ Run command below
 
 Practice with C and Python community: Eigne and Numpy
 =====================================================
+
+How to get Eigen library
+------------------------
+
+How to get numpy package
+------------------------
+
+
+How to get Cpp std libray
+-------------------------
+https://cython.readthedocs.io/en/latest/src/userguide/wrapping_CPlusPlus.html?highlight=Rectangle#standard-library
+
+
+
+
+
 The code below perfectly show us the logistic to mix Eigen and Numpy with Cython.
 
 .pyx file
