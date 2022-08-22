@@ -22,19 +22,19 @@ The architecture of cython orgnization
       src
         .cpp
       python
-        .pxd
         .pyx
+        .pxd
       tests
         .py
     setup.py
 
 Stay with .h and .cpp file
-==========================
+--------------------------
 .h and .cpp files are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
 
   
 construct .pxd file
-===================
+-------------------
 Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .h file.
 
 
@@ -71,7 +71,7 @@ expcept + here is make sure that python will raise the exception of c++ error
 
 
 construct .pyx file
-===================
+-------------------
 
 Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .cpp file.
 
@@ -115,7 +115,7 @@ Next, you just need to rewrite all method you need by calling c object methods, 
       
       
 setup.py
-========
+--------
 make sure code below are in setup.py
 
 .. code::
@@ -135,8 +135,8 @@ Run command below
   
   $ python setup.py build_ext --inplace
 
-Practice with Eigne and Numpy
-=============================
+Practice with C and Python community: Eigne and Numpy
+=====================================================
 The code below perfectly show us the logistic to mix Eigen and Numpy with Cython.
 
 .pyx file
