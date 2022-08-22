@@ -129,9 +129,10 @@ make sure code below are in setup.py
   ext_modules = cythonize('example_cython.pyx'),
   ...)
   
-install package
+Install package
 ===============
 Run command below
+
 .. code:: bash
   
   $ python setup.py build_ext --inplace
@@ -146,18 +147,16 @@ How to get numpy package
 ------------------------
 
 
-How to get Cpp std libray
+How to get cpp std libray
 -------------------------
 https://cython.readthedocs.io/en/latest/src/userguide/wrapping_CPlusPlus.html?highlight=Rectangle#standard-library
 
+A code here also work as good examples on how to declare C++ classes.
 
+The code below perfectly show us the logistic to mix Eigen and Numpy with Cython. It trys call a *CalcPointAcceleration* from python which transfers all variables to cpp and use some cpp source code with Eigen do real math calculation and then transfer variables back to Numpy.
 
-
-
-The code below perfectly show us the logistic to mix Eigen and Numpy with Cython.
-
-.pyx file
-https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1331
+.pyx file is in
+https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1873
 
 .. code:: python
   
@@ -184,17 +183,16 @@ https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1331
               update_kinematics
               ))
 
+If we look close of return line, from inside to outside:
 
-1. Call NumpyToEigen-ish function
-2. Call Actuall function by cSomething.function name. This function is shown in
+1. Call NumpyToEigen-ish function, here it call *NumpyToVectorNd*
+2. Call Actuall function by *crbdl.function* name. This *function* is shown in
 
-  * cSomething.pxd by cdef and cdef extern from "<HEADER.h>" namespace "<NAMESPACE>":
-  
+  * crbdl.pxd by cdef and cdef extern from "<HEADER.h>" namespace "<NAMESPACE>":
   * .h file
-  
   * .cpp file
 
-3. Call EigenToNumpy-ish function
+3. Call EigenToNumpy-ish function, here it call *Vector2dToNumpy*
 
 
 .h file
@@ -229,6 +227,7 @@ https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/src/K
 
 .pxd file
 https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/python/crbdl.pxd#L254
+
 .. code::
   
   cdef extern from "<rbdl/Kinematics.h>" namespace "RigidBodyDynamics":
@@ -239,7 +238,7 @@ https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/pytho
         const unsigned int body_id,
         const Vector3d &body_point_coordinates,
         bool update_kinematics)
-  
+
 When you use cdef
 =================
 When you need define something that need to be used later in python but its come from cpp(in .h file and .cpp file)
