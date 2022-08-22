@@ -1,6 +1,7 @@
-=========
+**************************
 cython101
-=========
+**************************
+
 
 If you are thinking whether you need cython, in most case, you don't need it, there are
 several case that cython might be a really good option.
@@ -10,7 +11,8 @@ several case that cython might be a really good option.
 
 
 The architecture of cython orgnization
---------------------------------------
+======================================
+
 .. code::
 
   <PROJECT>
@@ -27,12 +29,12 @@ The architecture of cython orgnization
     setup.py
 
 Stay with .h and .cpp file
---------------------------
+==========================
 .h and .cpp files are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
 
   
 construct .pxd file
--------------------
+===================
 Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .h file.
 
 
@@ -69,7 +71,7 @@ expcept + here is make sure that python will raise the exception of c++ error
 
 
 construct .pyx file
--------------------
+===================
 
 Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .cpp file.
 
@@ -113,7 +115,7 @@ Next, you just need to rewrite all method you need by calling c object methods, 
       
       
 setup.py
---------
+========
 make sure code below are in setup.py
 
 .. code::
@@ -127,14 +129,14 @@ make sure code below are in setup.py
   ...)
   
 install package
----------------
+===============
 Run command below
 .. code:: bash
   
   $ python setup.py build_ext --inplace
 
 Practice with Eigne and Numpy
------------------------------
+=============================
 The code below perfectly show us the logistic to mix Eigen and Numpy with Cython.
 
 .pyx file
@@ -222,24 +224,24 @@ https://github.com/rbdl/rbdl/blob/242bf36fbae13ef2b67414e23844f59f97d24ea1/pytho
         bool update_kinematics)
   
 When you use cdef
------------------
+=================
 When you need define something that need to be used later in python but its come from cpp(in .h file and .cpp file)
 
 
 numpy import vs cimport
------------------------
+=======================
 
 how to import or cimport numpy in .pyx file.
 https://stackoverflow.com/questions/20268228/cython-cimport-and-import-numpy-as-both-np
 
 
 Cython: "fatal error: numpy/arrayobject.h: No such file or directory"
----------------------------------------------------------------------
+=====================================================================
 https://stackoverflow.com/a/14657667/10642305
 
 
 Directive comments
-------------------
+==================
 
 The comments in cython related file are compling directives which do take effect.
 Ref:
@@ -249,7 +251,7 @@ https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilati
 
 
 def vs cdef vs cpdef
---------------------
+====================
 
 cdef is basiclly define a function that only workable inside package. it cannot be used by python directly. If you wanna use it by python directly, aka
 do something like below
@@ -262,11 +264,11 @@ do something like below
 The function_defined_inside_pyx has to be defined by cpdef.
   
 Cannot find Eign/Core
----------------------
+=====================
 https://github.com/opencv/opencv/issues/14868
 
 How do I wrap a C class with cython
------------------------------------
+===================================
 https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
 
 
