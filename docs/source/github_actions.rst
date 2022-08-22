@@ -36,3 +36,8 @@ syntax
 ------
 
 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+
+How to disable actions to save minutes
+--------------------------------------
+
+https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow
