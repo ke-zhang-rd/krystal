@@ -6,7 +6,7 @@ cython101
 If you are thinking whether you need cython, in most case, you don't need it, there are
 several case that cython might be a really good option.
 
-  * You really care about running time instead of engineering time.
+  * You care more about running time instead of engineering time.
   * You have conclude that your engineering logic no matter the language you use do works, optimization is next step.
 
 
@@ -35,11 +35,6 @@ The architecture of a cython project
   your original .cpp and your .pyx file the same, your .cpp file will be overwritten! Which is bad.
   
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_.
-  
-
-
-
-
 
 Stay with .h and .cpp file
 --------------------------
@@ -150,8 +145,24 @@ Run command below
   
   $ python setup.py build_ext --inplace
 
-Also you could config *setup.cfg* by instruction here
+Use setup.cfg to make things easy
+---------------------------------
+
+You could config *setup.cfg* by instruction here
 https://docs.python.org/3/distutils/configfile.html
+
+For example, the running code above could be configured by *setup.cfg*
+
+.. code::
+  
+  [build_ext]
+  inplace=1
+  
+and you could just simply run
+
+.. code:: bash
+  
+  $ python setup.py build_ext
 
 Practice with C and Python community: Eigne and Numpy
 =====================================================
