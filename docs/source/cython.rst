@@ -317,211 +317,80 @@ How do I wrap a C class with cython
 ===================================
 https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
 
-rectangle.cpp
+
+
+FAQ
+===
+
+1. 
+
+Something like warning below
 
 .. code::
 
-	#include <iostream>
-	#include "rectangle.h"
+	./cppTypes.h:17:16: warning: alias declarations are a C++11 extension [-Wc++11-extensions]
+	using RotMat = typename Eigen::Matrix<T, 3, 3>;
 
-	namespace shapes {
+could be solved by setting up *language* of *Extension*
+					    
+.. code::
+	
+	language="c++"
 
-		// Default constructor
-		Rectangle::Rectangle () {}
-
-		// Overloaded constructor
-		Rectangle::Rectangle (int x0, int y0, int x1, int y1) {
-			this->x0 = x0;
-			this->y0 = y0;
-			this->x1 = x1;
-			this->y1 = y1;
-	    data << x0, y0, x1, y1;
-	    std::cout << "data:" << std::endl;
-	    std::cout << data << std::endl;
-		}
-
-		// Destructor
-		Rectangle::~Rectangle () {}
-
-		// Return the area of the rectangle
-		int Rectangle::getArea () {
-			// return (this->x1 - this->x0) * (this->y1 - this->y0);
-	    return (data[2] - data[0] ) * (data[3] - data[1]);
-		}
-
-		// Get the size of the rectangle.
-		// Put the size in the pointer args
-		void Rectangle::getSize (int *width, int *height) {
-			(*width) = x1 - x0;
-			(*height) = y1 - y0;
-		}
-
-		// Move the rectangle by dx dy
-		void Rectangle::move (int dx, int dy) {
-			this->x0 += dx;
-			this->y0 += dy;
-			this->x1 += dx;
-			this->y1 += dy;
-		}
-
-	  Vec4f cal(Vec4f d) {
-	    Vec4f res;
-	    float tmp = (d[0] + d[1] + d[2] + d[3]) / 4.0;
-	    res << tmp, tmp, tmp, tmp;
-	    return res;
-	  }
-	}
-
-
-
-rectangle.h
+in setup.py
 
 .. code::
 
-	#ifndef RECTANGLE_H
-	#define RECTANGLE_H
+	...
+	setup(
+	    ext_modules=cythonize(Extension("rect",
+					    sources = ["rect.pyx"],
+					    includedirs=[numpy.get_include()],
+					    language="c++"))
+	)
 
-	#include <Eigen/Dense>
-	#include "cppTypes.h"
+2.
 
-	namespace shapes {
-	  class Rectangle {
-	    public:
-	      int x0, y0, x1, y1;
-	      float var;
-	      Rectangle();
-	      Rectangle(int x0, int y0, int x1, int y1);
-	      ~Rectangle();
-	      int getArea();
-	      void getSize(int* width, int* height);
-	      void move(int dx, int dy);
-	      float getAverage();
-	    private:
-	      Vec4<int> data;
-	  };
-	}
+Something like error below
 
-	#endif
+.. code::
+	
+	rect.cpp:973:10: fatal error: 'numpy/arrayobject.h' file not found
+	#include "numpy/arrayobject.h"
+		 ^~~~~~~~~~~~~~~~~~~~~
+	1 error generated.
+	
+could be solved by *include_dirs* in *Extension*
+	
+.. code::
 
-rectangle.pxd
+	include_dirs=[numpy.get_include()],
+
+in setup.py
 
 .. code::
 
-	cdef extern from "cppTypes.h":
-	    cdef cppclass Vec4f:
-		Vec4f ()
-		int rows()
-		int cols()
-		float& operator[](int)
-		float* data()
+	...
+	setup(
+	    ext_modules=cythonize(Extension("rect",
+					    sources = ["rect.pyx"],
+					    include_dirs=[numpy.get_include()],
+					    language="c++"))
+	)
 
-	cdef extern from "rectangle.cpp":
-	  pass
-
-	# Declare the class with cdef
-	cdef extern from "rectangle.h" namespace "shapes":
-	  cdef cppclass Rectangle:
-	    Rectangle() except +
-	    Rectangle(int, int, int, int) except +
-	    int x0, y0, x1, y1
-	    int getArea()
-	    void getSize(int* width, int* height)
-	    void move(int, int)
-
-	  cdef Vec4f cal(Vec4f) except +
-
-rect.cpp
+Notice: Please double check the spelling of **include_dirs**.
+If you misspell it, there will be only a not highlight warning before fatal error of *'numpy/arrayobject.h' file not found* and it is very easy to miss.
+In this case the whole output looks like
 
 .. code::
 
-	# distutils: language = c++
-
-	cimport numpy as np
-	from rectangle cimport Rectangle
-	cimport rectangle
-
-	# Create a Cython extension type which holds a C++ instance
-	# as an attribute and create a bunch of forwarding methods
-	# Python extension type.
-	cdef class PyRectangle:
-	    cdef Rectangle c_rect  # Hold a C++ instance which we're wrapping
-
-	    def __cinit__(self, int x0, int y0, int x1, int y1):
-		self.c_rect = Rectangle(x0, y0, x1, y1)
-
-	    def get_area(self):
-		return self.c_rect.getArea()
-
-	    def get_size(self):
-		cdef int width, height
-		self.c_rect.getSize(&width, &height)
-		return width, height
-
-	    def move(self, dx, dy):
-		self.c_rect.move(dx, dy)
-
-
-	cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
-	  cdef rectangle.Vec4f cx
-	  for i in range(4):
-	    cx[i] = x[i]
-
-	  return cx
-
-	cdef np.ndarray[double] Vector4fToNumpy (rectangle.Vec4f cx):
-	    result = np.ndarray ((cx.rows()), dtype="float")
-	    for i in range (cx.rows()):
-		result[i] = cx[i]
-
-	    return result
-
-	cpdef cal(arr):
-	  return Vector4fToNumpy(rectangle.cal(NumpyToVector4f(arr)))
-
-tt.py
-
-.. code:: python
-
-	import rect
-	import numpy as np
-
-	x0, y0, x1, y1 = 1, 2, 3, 4
-	rect_obj = rect.PyRectangle(x0, y0, x1, y1)
-	print(rect_obj.get_area())
-
-
-	arr = np.array([1.0, 2.0, 3.0, 4.0], dtype='float')
-	print(rect.cal(arr))
-
-setup.py
-
-.. code:: python
-
-	import rect
-	import numpy as np
-
-	x0, y0, x1, y1 = 1, 2, 3, 4
-	rect_obj = rect.PyRectangle(x0, y0, x1, y1)
-	print(rect_obj.get_area())
-
-
-	arr = np.array([1.0, 2.0, 3.0, 4.0], dtype='float')
-	print(rect.cal(arr))
-	(base) *master ke@krystal:~/cy $ cat setup.py
-	from setuptools import setup
-	from Cython.Build import cythonize
-
-
-	# ext_modules = [Extension("rect.pyx", ["rectangle.cpp"], language='c++',)]
-
-
-	setup(ext_modules=cythonize("rect.pyx"))
-
-setup.cfg
-
-.. code::
-
-	[build_ext]
-	inplace=1
-
-
+	<CONDA_ENV_PATH>/lib/python3.10/site-packages/setuptools/_distutils/dist.py:262: UserWarning: Unknown distribution option: 'TYPO_OF_include_dirs'
+	  warnings.warn(msg)
+	running build_ext
+	building '<EXTENSION>' extension
+	clang ...
+	<EXTENSION>.cpp:973:10: fatal error: 'numpy/arrayobject.h' file not found
+	#include "numpy/arrayobject.h"
+		 ^~~~~~~~~~~~~~~~~~~~~
+	1 error generated.
+	error: command '/usr/bin/clang' failed with exit code 1
