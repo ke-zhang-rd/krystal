@@ -403,4 +403,92 @@ rectangle.h
 
 	#endif
 
+rectangle.pxd
 
+.. code::
+
+	cdef extern from "cppTypes.h":
+	    cdef cppclass Vec4f:
+		Vec4f ()
+		int rows()
+		int cols()
+		float& operator[](int)
+		float* data()
+
+	cdef extern from "rectangle.cpp":
+	  pass
+
+	# Declare the class with cdef
+	cdef extern from "rectangle.h" namespace "shapes":
+	  cdef cppclass Rectangle:
+	    Rectangle() except +
+	    Rectangle(int, int, int, int) except +
+	    int x0, y0, x1, y1
+	    int getArea()
+	    void getSize(int* width, int* height)
+	    void move(int, int)
+
+	  cdef Vec4f cal(Vec4f) except +
+
+rect.cpp
+
+.. code::
+
+	# distutils: language = c++
+
+	cimport numpy as np
+	from rectangle cimport Rectangle
+	cimport rectangle
+
+	# Create a Cython extension type which holds a C++ instance
+	# as an attribute and create a bunch of forwarding methods
+	# Python extension type.
+	cdef class PyRectangle:
+	    cdef Rectangle c_rect  # Hold a C++ instance which we're wrapping
+
+	    def __cinit__(self, int x0, int y0, int x1, int y1):
+		self.c_rect = Rectangle(x0, y0, x1, y1)
+
+	    def get_area(self):
+		return self.c_rect.getArea()
+
+	    def get_size(self):
+		cdef int width, height
+		self.c_rect.getSize(&width, &height)
+		return width, height
+
+	    def move(self, dx, dy):
+		self.c_rect.move(dx, dy)
+
+
+	cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
+	  cdef rectangle.Vec4f cx
+	  for i in range(4):
+	    cx[i] = x[i]
+
+	  return cx
+
+	cdef np.ndarray[double] Vector4fToNumpy (rectangle.Vec4f cx):
+	    result = np.ndarray ((cx.rows()), dtype="float")
+	    for i in range (cx.rows()):
+		result[i] = cx[i]
+
+	    return result
+
+	cpdef cal(arr):
+	  return Vector4fToNumpy(rectangle.cal(NumpyToVector4f(arr)))
+
+tt.py
+
+.. code:: python
+
+	import rect
+	import numpy as np
+
+	x0, y0, x1, y1 = 1, 2, 3, 4
+	rect_obj = rect.PyRectangle(x0, y0, x1, y1)
+	print(rect_obj.get_area())
+
+
+	arr = np.array([1.0, 2.0, 3.0, 4.0], dtype='float')
+	print(rect.cal(arr))
