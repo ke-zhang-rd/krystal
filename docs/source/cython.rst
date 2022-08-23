@@ -212,7 +212,7 @@ https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1873
 
 If we look close of return line, from inside to outside:
 
-1. Call NumpyToEigen-ish function, here it call *NumpyToVectorNd*
+1. Call NumpyToEigen-ish function, here it call `NumpyToVectorNd <https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L533>`_
 2. Call Actuall function by *crbdl.function* name. This *function* is shown in
 
   * crbdl.pxd by cdef and cdef extern from "<HEADER.h>" namespace "<NAMESPACE>":
