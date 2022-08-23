@@ -304,7 +304,7 @@ do something like below
   from pkg.pyx_module import function_defined_inside_pyx
   function_defined_inside_pyx(...)
 
-The function_defined_inside_pyx has to be defined by cpdef.
+The function_defined_inside_pyx has to be defined by *cpdef*.
   
 Cannot find Eign/Core
 =====================
