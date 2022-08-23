@@ -492,3 +492,27 @@ tt.py
 
 	arr = np.array([1.0, 2.0, 3.0, 4.0], dtype='float')
 	print(rect.cal(arr))
+
+setup.py
+
+.. code:: python
+
+	import rect
+	import numpy as np
+
+	x0, y0, x1, y1 = 1, 2, 3, 4
+	rect_obj = rect.PyRectangle(x0, y0, x1, y1)
+	print(rect_obj.get_area())
+
+
+	arr = np.array([1.0, 2.0, 3.0, 4.0], dtype='float')
+	print(rect.cal(arr))
+	(base) *master ke@krystal:~/cy $ cat setup.py
+	from setuptools import setup
+	from Cython.Build import cythonize
+
+
+	# ext_modules = [Extension("rect.pyx", ["rectangle.cpp"], language='c++',)]
+
+
+	setup(ext_modules=cythonize("rect.pyx"))
