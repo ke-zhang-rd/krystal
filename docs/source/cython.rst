@@ -516,3 +516,12 @@ setup.py
 
 
 	setup(ext_modules=cythonize("rect.pyx"))
+
+setup.cfg
+
+.. code::
+
+	[build_ext]
+	inplace=1
+
+
