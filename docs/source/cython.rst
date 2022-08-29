@@ -101,9 +101,6 @@ Next, you just need to rewrite all method you need by calling c object methods, 
 
 Use c++ file as source
 
-.. code::
-  
-
 Declare python/cython class with cdef 
 
 .. code
