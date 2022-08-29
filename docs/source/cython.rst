@@ -122,14 +122,24 @@ Next we declare each method and private members
 expcept + here is make sure that python will raise the exception of c++ error
 
 
+
+Install package
+===============
+
 setup.py
 --------
 make sure code below are in setup.py
 
 .. literalinclude:: ../../examples/cython/setup.py
-  
-Install package
-===============
+
+Here the meaning of argument
+
+* *name*: A architecture name that seperated by '.'(dot), dot is not meaning of file type
+* sources: A list of source file that not being *cdef* in *.pxd* file
+
+
+
+
 Run command below
 
 .. code:: bash
