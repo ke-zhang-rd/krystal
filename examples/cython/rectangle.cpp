@@ -37,32 +37,22 @@ namespace shapes {
 		this->x1 += dx;
 		this->y1 += dy;
 	}
-
-	Vec4d ccal(Vec4d d) {
-		Vec4d res;
-		double tmp = (d[0] + d[1] + d[2] + d[3]) / 4.0;
-		res << tmp, tmp, tmp, tmp;
-		std::cout << "inside shapes namespace" << std::endl;
-		return res;
-	}
-	int var = 3;
-	
-	Vec4f ccalf(Vec4f d) {
-		Vec4f res;
-		float tmp = (d[0] + d[1] + d[2] + d[3]) / 4.0;
-		res << tmp, tmp, tmp, tmp;
-		std::cout << "inside shapes namespace" << std::endl;
-		return res;
-	}
 }
 
+
 namespace optimization {
-	Vec4d ccal(Vec4d d) {
+	Vec4d ccompute_d(Vec4d vec) {
 		Vec4d res;
-		double tmp = (d[0] + d[1] + d[2] + d[3]) / 4.0;
+		double tmp = (vec[0] + vec[1] + vec[2] + vec[3]) / 4.0;
 		res << tmp, tmp, tmp, tmp;
 		std::cout << "inside optimization namespace" << std::endl;
 		return res;
 	}
-	int var = 5;
+	Vec4f ccompute_f(Vec4f vec) {
+		Vec4f res;
+		float tmp = (vec[0] + vec[1] + vec[2] + vec[3]) / 4.0;
+		res << tmp, tmp, tmp, tmp;
+		std::cout << "inside optimization namespace" << std::endl;
+		return res;
+	}
 }

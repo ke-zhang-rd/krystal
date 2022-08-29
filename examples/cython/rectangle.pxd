@@ -14,8 +14,10 @@ cdef extern from "cppTypes.h":
         float& operator[](int)
         float* data()
 
+
 cdef extern from "rectangle.cpp":
     pass
+
 
 # Declare the class with cdef
 cdef extern from "rectangle.h" namespace "shapes":
@@ -27,12 +29,8 @@ cdef extern from "rectangle.h" namespace "shapes":
         void getSize(int* width, int* height)
         void move(int, int)
 
-    cdef Vec4d ccal(Vec4d) except +
-    cdef Vec4f ccalf(Vec4f) except +
-    cdef int var
 
 cdef extern from "rectangle.h" namespace "optimization":
   
-    cdef Vec4d ccal(Vec4d) except +
-    cdef Vec4f ccalf(Vec4f) except +
-    cdef int var
+    cdef Vec4d ccompute_d(Vec4d) except +
+    cdef Vec4f ccompute_f(Vec4f) except +

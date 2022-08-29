@@ -42,9 +42,8 @@ cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
 
     return result
 
-cpdef cal(arr):
-    print(rectangle.var) 
-    return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))
+cpdef compute_d(arr):
+    return Vector4dToNumpy(rectangle.ccompute_d(NumpyToVector4d(arr)))
 
 cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
   cdef rectangle.Vec4f cx
@@ -60,5 +59,5 @@ cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
 
     return result
 
-cpdef calf(arr):
-    return Vector4fToNumpy(rectangle.ccalf(NumpyToVector4f(arr)))
+cpdef compute_f(arr):
+    return Vector4fToNumpy(rectangle.ccompute_f(NumpyToVector4f(arr)))
