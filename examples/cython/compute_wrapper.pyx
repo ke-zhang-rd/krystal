@@ -36,7 +36,7 @@ cdef rectangle.Vec4d NumpyToVector4d(np.ndarray['double', ndim=1, mode="c"] x):
   return cx
 
 cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
-    result = np.ndarray ((cx.rows()), dtype='float')
+    result = np.ndarray ((cx.rows()), dtype='double')
     for i in range (cx.rows()):
         result[i] = cx[i]
 
@@ -54,7 +54,7 @@ cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
   return cx
 
 cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
-    result = np.ndarray ((cx.rows()), dtype='f4')
+    result = np.ndarray ((cx.rows()), dtype='float')
     for i in range (cx.rows()):
         result[i] = cx[i]
 
