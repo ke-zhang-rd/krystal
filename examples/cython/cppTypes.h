@@ -30,6 +30,7 @@ using Vec4 = typename Eigen::Matrix<T, 4, 1>;
 
 
 using Vec4d = typename Eigen::Matrix<double, 4, 1>;
+using Vec4f = typename Eigen::Matrix<float, 4, 1>;
 
 
 // 6x1 Vector

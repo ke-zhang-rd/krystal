@@ -36,7 +36,7 @@ cdef rectangle.Vec4d NumpyToVector4d(np.ndarray['double', ndim=1, mode="c"] x):
   return cx
 
 cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
-    result = np.ndarray ((cx.rows()), dtype="float")
+    result = np.ndarray ((cx.rows()), dtype='float')
     for i in range (cx.rows()):
         result[i] = cx[i]
 
@@ -45,3 +45,20 @@ cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
 cpdef cal(arr):
     print(rectangle.var) 
     return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))
+
+cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
+  cdef rectangle.Vec4f cx
+  for i in range(4):
+    cx[i] = x[i]
+
+  return cx
+
+cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
+    result = np.ndarray ((cx.rows()), dtype='f4')
+    for i in range (cx.rows()):
+        result[i] = cx[i]
+
+    return result
+
+cpdef calf(arr):
+    return Vector4fToNumpy(rectangle.ccalf(NumpyToVector4f(arr)))

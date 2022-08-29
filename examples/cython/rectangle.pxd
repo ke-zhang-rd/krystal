@@ -1,16 +1,18 @@
 cdef extern from "cppTypes.h":
     cdef cppclass Vec4d:
-        Vec4f ()
+        Vec4d ()
         int rows()
         int cols()
         double& operator[](int)
         double* data()
 
-
-cdef extern from "rectangle.h" namespace "optimization":
-  
-    cdef Vec4d ccal(Vec4d) except +
-    cdef int var
+cdef extern from "cppTypes.h":
+    cdef cppclass Vec4f:
+        Vec4f ()
+        int rows()
+        int cols()
+        float& operator[](int)
+        float* data()
 
 cdef extern from "rectangle.cpp":
     pass
@@ -26,4 +28,11 @@ cdef extern from "rectangle.h" namespace "shapes":
         void move(int, int)
 
     cdef Vec4d ccal(Vec4d) except +
+    cdef Vec4f ccalf(Vec4f) except +
+    cdef int var
+
+cdef extern from "rectangle.h" namespace "optimization":
+  
+    cdef Vec4d ccal(Vec4d) except +
+    cdef Vec4f ccalf(Vec4f) except +
     cdef int var

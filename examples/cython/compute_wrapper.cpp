@@ -668,12 +668,12 @@ static CYTHON_INLINE float __PYX_NAN() {
     /* NumPy API declarations from "numpy/__init__.pxd" */
     
 #include "cppTypes.h"
+#include "rectangle.cpp"
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
 #include "rectangle.h"
-#include "rectangle.cpp"
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -1759,7 +1759,11 @@ static PyTypeObject *__pyx_ptype_15compute_wrapper_PyRectangle = 0;
 static Vec4d __pyx_f_15compute_wrapper_NumpyToVector4d(PyArrayObject *); /*proto*/
 static PyArrayObject *__pyx_f_15compute_wrapper_Vector4dToNumpy(Vec4d); /*proto*/
 static PyObject *__pyx_f_15compute_wrapper_cal(PyObject *, int __pyx_skip_dispatch); /*proto*/
+static Vec4f __pyx_f_15compute_wrapper_NumpyToVector4f(PyArrayObject *); /*proto*/
+static PyArrayObject *__pyx_f_15compute_wrapper_Vector4fToNumpy(Vec4f); /*proto*/
+static PyObject *__pyx_f_15compute_wrapper_calf(PyObject *, int __pyx_skip_dispatch); /*proto*/
 static __Pyx_TypeInfo __Pyx_TypeInfo_double = { "double", NULL, sizeof(double), { 0 }, 0, 'R', 0, 0 };
+static __Pyx_TypeInfo __Pyx_TypeInfo_float = { "float", NULL, sizeof(float), { 0 }, 0, 'R', 0, 0 };
 #define __Pyx_MODULE_NAME "compute_wrapper"
 extern int __pyx_module_is_main_compute_wrapper;
 int __pyx_module_is_main_compute_wrapper = 0;
@@ -1770,6 +1774,7 @@ static PyObject *__pyx_builtin_range;
 static PyObject *__pyx_builtin_ImportError;
 static const char __pyx_k_dx[] = "dx";
 static const char __pyx_k_dy[] = "dy";
+static const char __pyx_k_f4[] = "f4";
 static const char __pyx_k_x0[] = "x0";
 static const char __pyx_k_x1[] = "x1";
 static const char __pyx_k_y0[] = "y0";
@@ -1804,6 +1809,7 @@ static PyObject *__pyx_n_s_dtype;
 static PyObject *__pyx_n_s_dx;
 static PyObject *__pyx_n_s_dy;
 static PyObject *__pyx_n_s_end;
+static PyObject *__pyx_n_s_f4;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_n_s_float;
 static PyObject *__pyx_n_s_getstate;
@@ -1831,6 +1837,7 @@ static PyObject *__pyx_pf_15compute_wrapper_11PyRectangle_6move(struct __pyx_obj
 static PyObject *__pyx_pf_15compute_wrapper_11PyRectangle_8__reduce_cython__(CYTHON_UNUSED struct __pyx_obj_15compute_wrapper_PyRectangle *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_15compute_wrapper_11PyRectangle_10__setstate_cython__(CYTHON_UNUSED struct __pyx_obj_15compute_wrapper_PyRectangle *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_15compute_wrapper_cal(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_arr); /* proto */
+static PyObject *__pyx_pf_15compute_wrapper_2calf(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_arr); /* proto */
 static PyObject *__pyx_tp_new_15compute_wrapper_PyRectangle(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__2;
@@ -2454,7 +2461,7 @@ static Vec4d __pyx_f_15compute_wrapper_NumpyToVector4d(PyArrayObject *__pyx_v_x)
  *   return cx
  * 
  * cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):             # <<<<<<<<<<<<<<
- *     result = np.ndarray ((cx.rows()), dtype="float")
+ *     result = np.ndarray ((cx.rows()), dtype='float')
  *     for i in range (cx.rows()):
  */
 
@@ -2477,7 +2484,7 @@ static PyArrayObject *__pyx_f_15compute_wrapper_Vector4dToNumpy(Vec4d __pyx_v_cx
   /* "compute_wrapper.pyx":39
  * 
  * cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
- *     result = np.ndarray ((cx.rows()), dtype="float")             # <<<<<<<<<<<<<<
+ *     result = np.ndarray ((cx.rows()), dtype='float')             # <<<<<<<<<<<<<<
  *     for i in range (cx.rows()):
  *         result[i] = cx[i]
  */
@@ -2500,7 +2507,7 @@ static PyArrayObject *__pyx_f_15compute_wrapper_Vector4dToNumpy(Vec4d __pyx_v_cx
 
   /* "compute_wrapper.pyx":40
  * cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
- *     result = np.ndarray ((cx.rows()), dtype="float")
+ *     result = np.ndarray ((cx.rows()), dtype='float')
  *     for i in range (cx.rows()):             # <<<<<<<<<<<<<<
  *         result[i] = cx[i]
  * 
@@ -2511,7 +2518,7 @@ static PyArrayObject *__pyx_f_15compute_wrapper_Vector4dToNumpy(Vec4d __pyx_v_cx
     __pyx_v_i = __pyx_t_6;
 
     /* "compute_wrapper.pyx":41
- *     result = np.ndarray ((cx.rows()), dtype="float")
+ *     result = np.ndarray ((cx.rows()), dtype='float')
  *     for i in range (cx.rows()):
  *         result[i] = cx[i]             # <<<<<<<<<<<<<<
  * 
@@ -2540,7 +2547,7 @@ static PyArrayObject *__pyx_f_15compute_wrapper_Vector4dToNumpy(Vec4d __pyx_v_cx
  *   return cx
  * 
  * cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):             # <<<<<<<<<<<<<<
- *     result = np.ndarray ((cx.rows()), dtype="float")
+ *     result = np.ndarray ((cx.rows()), dtype='float')
  *     for i in range (cx.rows()):
  */
 
@@ -2582,8 +2589,9 @@ static PyObject *__pyx_f_15compute_wrapper_cal(PyObject *__pyx_v_arr, CYTHON_UNU
  * cpdef cal(arr):
  *     print(rectangle.var)             # <<<<<<<<<<<<<<
  *     return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))
+ * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(shapes::var); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 46, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(optimization::var); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(1, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2592,11 +2600,13 @@ static PyObject *__pyx_f_15compute_wrapper_cal(PyObject *__pyx_v_arr, CYTHON_UNU
  * cpdef cal(arr):
  *     print(rectangle.var)
  *     return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))             # <<<<<<<<<<<<<<
+ * 
+ * cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
  */
   __Pyx_XDECREF(__pyx_r);
   if (!(likely(((__pyx_v_arr) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_arr, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(1, 47, __pyx_L1_error)
   try {
-    __pyx_t_2 = optimization::ccal(__pyx_f_15compute_wrapper_NumpyToVector4d(((PyArrayObject *)__pyx_v_arr)));
+    __pyx_t_2 = shapes::ccal(__pyx_f_15compute_wrapper_NumpyToVector4d(((PyArrayObject *)__pyx_v_arr)));
   } catch(...) {
     __Pyx_CppExn2PyErr();
     __PYX_ERR(1, 47, __pyx_L1_error)
@@ -2658,6 +2668,306 @@ static PyObject *__pyx_pf_15compute_wrapper_cal(CYTHON_UNUSED PyObject *__pyx_se
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_AddTraceback("compute_wrapper.cal", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "compute_wrapper.pyx":49
+ *     return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))
+ * 
+ * cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):             # <<<<<<<<<<<<<<
+ *   cdef rectangle.Vec4f cx
+ *   for i in range(4):
+ */
+
+static Vec4f __pyx_f_15compute_wrapper_NumpyToVector4f(PyArrayObject *__pyx_v_x) {
+  Vec4f __pyx_v_cx;
+  long __pyx_v_i;
+  __Pyx_LocalBuf_ND __pyx_pybuffernd_x;
+  __Pyx_Buffer __pyx_pybuffer_x;
+  Vec4f __pyx_r;
+  __Pyx_RefNannyDeclarations
+  long __pyx_t_1;
+  Py_ssize_t __pyx_t_2;
+  int __pyx_t_3;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("NumpyToVector4f", 0);
+  __pyx_pybuffer_x.pybuffer.buf = NULL;
+  __pyx_pybuffer_x.refcount = 0;
+  __pyx_pybuffernd_x.data = NULL;
+  __pyx_pybuffernd_x.rcbuffer = &__pyx_pybuffer_x;
+  {
+    __Pyx_BufFmt_StackElem __pyx_stack[1];
+    if (unlikely(__Pyx_GetBufferAndValidate(&__pyx_pybuffernd_x.rcbuffer->pybuffer, (PyObject*)__pyx_v_x, &__Pyx_TypeInfo_float, PyBUF_FORMAT| PyBUF_C_CONTIGUOUS, 1, 0, __pyx_stack) == -1)) __PYX_ERR(1, 49, __pyx_L1_error)
+  }
+  __pyx_pybuffernd_x.diminfo[0].strides = __pyx_pybuffernd_x.rcbuffer->pybuffer.strides[0]; __pyx_pybuffernd_x.diminfo[0].shape = __pyx_pybuffernd_x.rcbuffer->pybuffer.shape[0];
+
+  /* "compute_wrapper.pyx":51
+ * cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
+ *   cdef rectangle.Vec4f cx
+ *   for i in range(4):             # <<<<<<<<<<<<<<
+ *     cx[i] = x[i]
+ * 
+ */
+  for (__pyx_t_1 = 0; __pyx_t_1 < 4; __pyx_t_1+=1) {
+    __pyx_v_i = __pyx_t_1;
+
+    /* "compute_wrapper.pyx":52
+ *   cdef rectangle.Vec4f cx
+ *   for i in range(4):
+ *     cx[i] = x[i]             # <<<<<<<<<<<<<<
+ * 
+ *   return cx
+ */
+    __pyx_t_2 = __pyx_v_i;
+    __pyx_t_3 = -1;
+    if (__pyx_t_2 < 0) {
+      __pyx_t_2 += __pyx_pybuffernd_x.diminfo[0].shape;
+      if (unlikely(__pyx_t_2 < 0)) __pyx_t_3 = 0;
+    } else if (unlikely(__pyx_t_2 >= __pyx_pybuffernd_x.diminfo[0].shape)) __pyx_t_3 = 0;
+    if (unlikely(__pyx_t_3 != -1)) {
+      __Pyx_RaiseBufferIndexError(__pyx_t_3);
+      __PYX_ERR(1, 52, __pyx_L1_error)
+    }
+    (__pyx_v_cx[__pyx_v_i]) = (*__Pyx_BufPtrCContig1d(float *, __pyx_pybuffernd_x.rcbuffer->pybuffer.buf, __pyx_t_2, __pyx_pybuffernd_x.diminfo[0].strides));
+  }
+
+  /* "compute_wrapper.pyx":54
+ *     cx[i] = x[i]
+ * 
+ *   return cx             # <<<<<<<<<<<<<<
+ * 
+ * cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
+ */
+  __pyx_r = __pyx_v_cx;
+  goto __pyx_L0;
+
+  /* "compute_wrapper.pyx":49
+ *     return Vector4dToNumpy(rectangle.ccal(NumpyToVector4d(arr)))
+ * 
+ * cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):             # <<<<<<<<<<<<<<
+ *   cdef rectangle.Vec4f cx
+ *   for i in range(4):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  { PyObject *__pyx_type, *__pyx_value, *__pyx_tb;
+    __Pyx_PyThreadState_declare
+    __Pyx_PyThreadState_assign
+    __Pyx_ErrFetch(&__pyx_type, &__pyx_value, &__pyx_tb);
+    __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
+  __Pyx_ErrRestore(__pyx_type, __pyx_value, __pyx_tb);}
+  __Pyx_WriteUnraisable("compute_wrapper.NumpyToVector4f", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  goto __pyx_L2;
+  __pyx_L0:;
+  __Pyx_SafeReleaseBuffer(&__pyx_pybuffernd_x.rcbuffer->pybuffer);
+  __pyx_L2:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "compute_wrapper.pyx":56
+ *   return cx
+ * 
+ * cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):             # <<<<<<<<<<<<<<
+ *     result = np.ndarray ((cx.rows()), dtype='f4')
+ *     for i in range (cx.rows()):
+ */
+
+static PyArrayObject *__pyx_f_15compute_wrapper_Vector4fToNumpy(Vec4f __pyx_v_cx) {
+  PyObject *__pyx_v_result = NULL;
+  int __pyx_v_i;
+  PyArrayObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  int __pyx_t_4;
+  int __pyx_t_5;
+  int __pyx_t_6;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("Vector4fToNumpy", 0);
+
+  /* "compute_wrapper.pyx":57
+ * 
+ * cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
+ *     result = np.ndarray ((cx.rows()), dtype='f4')             # <<<<<<<<<<<<<<
+ *     for i in range (cx.rows()):
+ *         result[i] = cx[i]
+ */
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_cx.rows()); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_n_s_f4) < 0) __PYX_ERR(1, 57, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5numpy_ndarray), __pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 57, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_v_result = __pyx_t_3;
+  __pyx_t_3 = 0;
+
+  /* "compute_wrapper.pyx":58
+ * cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
+ *     result = np.ndarray ((cx.rows()), dtype='f4')
+ *     for i in range (cx.rows()):             # <<<<<<<<<<<<<<
+ *         result[i] = cx[i]
+ * 
+ */
+  __pyx_t_4 = __pyx_v_cx.rows();
+  __pyx_t_5 = __pyx_t_4;
+  for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
+    __pyx_v_i = __pyx_t_6;
+
+    /* "compute_wrapper.pyx":59
+ *     result = np.ndarray ((cx.rows()), dtype='f4')
+ *     for i in range (cx.rows()):
+ *         result[i] = cx[i]             # <<<<<<<<<<<<<<
+ * 
+ *     return result
+ */
+    __pyx_t_3 = PyFloat_FromDouble((__pyx_v_cx[__pyx_v_i])); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 59, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    if (unlikely(__Pyx_SetItemInt(__pyx_v_result, __pyx_v_i, __pyx_t_3, int, 1, __Pyx_PyInt_From_int, 0, 1, 1) < 0)) __PYX_ERR(1, 59, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  }
+
+  /* "compute_wrapper.pyx":61
+ *         result[i] = cx[i]
+ * 
+ *     return result             # <<<<<<<<<<<<<<
+ * 
+ * cpdef calf(arr):
+ */
+  __Pyx_XDECREF(((PyObject *)__pyx_r));
+  if (!(likely(__Pyx_TypeTest(__pyx_v_result, __pyx_ptype_5numpy_ndarray)))) __PYX_ERR(1, 61, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_v_result);
+  __pyx_r = ((PyArrayObject *)__pyx_v_result);
+  goto __pyx_L0;
+
+  /* "compute_wrapper.pyx":56
+ *   return cx
+ * 
+ * cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):             # <<<<<<<<<<<<<<
+ *     result = np.ndarray ((cx.rows()), dtype='f4')
+ *     for i in range (cx.rows()):
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("compute_wrapper.Vector4fToNumpy", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_result);
+  __Pyx_XGIVEREF((PyObject *)__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "compute_wrapper.pyx":63
+ *     return result
+ * 
+ * cpdef calf(arr):             # <<<<<<<<<<<<<<
+ *     return Vector4fToNumpy(rectangle.ccalf(NumpyToVector4f(arr)))
+ */
+
+static PyObject *__pyx_pw_15compute_wrapper_3calf(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static PyObject *__pyx_f_15compute_wrapper_calf(PyObject *__pyx_v_arr, CYTHON_UNUSED int __pyx_skip_dispatch) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  Vec4f __pyx_t_1;
+  PyObject *__pyx_t_2 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("calf", 0);
+
+  /* "compute_wrapper.pyx":64
+ * 
+ * cpdef calf(arr):
+ *     return Vector4fToNumpy(rectangle.ccalf(NumpyToVector4f(arr)))             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  if (!(likely(((__pyx_v_arr) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_arr, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(1, 64, __pyx_L1_error)
+  try {
+    __pyx_t_1 = shapes::ccalf(__pyx_f_15compute_wrapper_NumpyToVector4f(((PyArrayObject *)__pyx_v_arr)));
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(1, 64, __pyx_L1_error)
+  }
+  __pyx_t_2 = ((PyObject *)__pyx_f_15compute_wrapper_Vector4fToNumpy(__pyx_t_1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 64, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_r = __pyx_t_2;
+  __pyx_t_2 = 0;
+  goto __pyx_L0;
+
+  /* "compute_wrapper.pyx":63
+ *     return result
+ * 
+ * cpdef calf(arr):             # <<<<<<<<<<<<<<
+ *     return Vector4fToNumpy(rectangle.ccalf(NumpyToVector4f(arr)))
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_AddTraceback("compute_wrapper.calf", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* Python wrapper */
+static PyObject *__pyx_pw_15compute_wrapper_3calf(PyObject *__pyx_self, PyObject *__pyx_v_arr); /*proto*/
+static PyObject *__pyx_pw_15compute_wrapper_3calf(PyObject *__pyx_self, PyObject *__pyx_v_arr) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("calf (wrapper)", 0);
+  __pyx_r = __pyx_pf_15compute_wrapper_2calf(__pyx_self, ((PyObject *)__pyx_v_arr));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_15compute_wrapper_2calf(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_arr) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  int __pyx_lineno = 0;
+  const char *__pyx_filename = NULL;
+  int __pyx_clineno = 0;
+  __Pyx_RefNannySetupContext("calf", 0);
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_f_15compute_wrapper_calf(__pyx_v_arr, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 63, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("compute_wrapper.calf", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3791,6 +4101,7 @@ static PyTypeObject __pyx_type_15compute_wrapper_PyRectangle = {
 
 static PyMethodDef __pyx_methods[] = {
   {"cal", (PyCFunction)__pyx_pw_15compute_wrapper_1cal, METH_O, 0},
+  {"calf", (PyCFunction)__pyx_pw_15compute_wrapper_3calf, METH_O, 0},
   {0, 0, 0, 0}
 };
 
@@ -3844,6 +4155,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_dx, __pyx_k_dx, sizeof(__pyx_k_dx), 0, 0, 1, 1},
   {&__pyx_n_s_dy, __pyx_k_dy, sizeof(__pyx_k_dy), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
+  {&__pyx_n_s_f4, __pyx_k_f4, sizeof(__pyx_k_f4), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_n_s_float, __pyx_k_float, sizeof(__pyx_k_float), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},

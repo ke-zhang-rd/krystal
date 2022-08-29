@@ -46,6 +46,14 @@ namespace shapes {
 		return res;
 	}
 	int var = 3;
+	
+	Vec4f ccalf(Vec4f d) {
+		Vec4f res;
+		float tmp = (d[0] + d[1] + d[2] + d[3]) / 4.0;
+		res << tmp, tmp, tmp, tmp;
+		std::cout << "inside shapes namespace" << std::endl;
+		return res;
+	}
 }
 
 namespace optimization {
