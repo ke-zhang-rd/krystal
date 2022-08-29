@@ -126,15 +126,7 @@ setup.py
 --------
 make sure code below are in setup.py
 
-.. code::
-
-  from distutils.core import setup
-  from Cython.Build import cythonize
-
-  setup(
-  ...
-  ext_modules = cythonize('example_cython.pyx'),
-  ...)
+.. literalinclude:: ../../examples/cython/setup.py
   
 Install package
 ===============
