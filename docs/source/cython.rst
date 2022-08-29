@@ -65,9 +65,10 @@ from pxd module. If you have 'Rectangle.pxd', then
 
 In the python class that we are about to write, you need use cdef to define a python-ish class for latter use.
 
-.. code
+.. code:: python
 
-  cdef class Pyrectangle:
+	cdef class PyRectangle:
+	    cdef Rectangle c_rect  # Hold a C++ instance which we're wrapping
 
 which has a c object as an attribute
 
@@ -100,10 +101,6 @@ Use c++ file as source
 
 .. code::
   
-  cdef extern from "Rectangle.cpp":
-    pass
-    
-Note that when you use *cdef extern from*, the path that you specify is relative to the current file,
 
 Declare python/cython class with cdef 
 
