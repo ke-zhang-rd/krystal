@@ -48,8 +48,8 @@ The.h files under *include* and .cpp files under *src* are just pure/raw c++ fil
 
 
 
-construct .pyx file
--------------------
+.pyx file
+---------
 
 Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .cpp file.
 
