@@ -61,7 +61,7 @@ At the beginning, you need cimport your c class definition(It represent cpp clas
 from pxd module. If you have 'Rectangle.pxd', then
 
 .. code
-  from Rectangle cimport Rectangle
+  from <PXD_FILE_NAME> cimport <THING_DEFINED_BY_cdef>
 
 In the python class that we are about to write, you need use cdef to define a python-ish class for latter use.
 
