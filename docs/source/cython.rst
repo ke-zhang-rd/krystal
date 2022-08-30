@@ -18,6 +18,11 @@ extension is python module you write in c
 and compile to so file, Cython will just use whatever standard C compiler to comile
 python allow you import it
 
+Use cdef
+--------
+
+If something both exist in C and python, C take privilege, ex, float is C float
+
 
 
 Use cython with jupyter notebook
@@ -29,8 +34,39 @@ in the top of notebook
 %%cython
 write your code
 
+cython file names
+-----------------
+
+You don't have to use .pyx , any .py files are ok for cython
+
+setup.py ext_modules
+--------------------
+
+You could compile multiple extensions by 
+
+cythonize([".pyx", ".pyx"])
+
+cython annotation
+-----------------
+
+cython -a .pyx
 
 
+
+extern header
+-------------
+
+cdef extern from "string.h"
+
+  int strlen(char* s)
+  
+  
+strlen here is kinda of redundant, yes!. kinda
+
+* cython is welcome to more automation but it's time expensive
+* here, it's more like checking purpose to check strlen you will use 
+is matching the thing in you c header file
+* you could only declare whatever you need, not all of them
 
 
 
@@ -330,7 +366,7 @@ https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilati
 def vs cdef vs cpdef
 ====================
 
-cdef is basiclly define a function that only workable inside package. it cannot be used by python directly. If you wanna use it by python directly, aka
+**cdef** is basiclly define a function that only workable inside package. it cannot be used by python directly. It is local to current file. If you wanna use it by python directly, aka
 do something like below
 
 .. code:: python
@@ -338,8 +374,17 @@ do something like below
   from pkg.pyx_module import function_defined_inside_pyx
   function_defined_inside_pyx(...)
 
-The function_defined_inside_pyx has to be defined by *cpdef*.
-  
+The function_defined_inside_pyx has to be defined by **cpdef**.
+**cpdef** could be called by local C and externally Python
+
+Q: Why don't always use **cpdef**
+
+**cpdef** has some constrain in taking argument, it cannot take some C argument like pointers, ex float * x
+other than that, yes, you could always use cpdef.
+
+Thing to remember is always use **def** and **cpdef** to expose function to outside
+
+
 Cannot find Eign/Core
 =====================
 https://github.com/opencv/opencv/issues/14868
