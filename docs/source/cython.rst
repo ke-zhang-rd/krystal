@@ -2,6 +2,39 @@
 cython101
 **************************
 
+
+.. image:: ../images/cython_workflow.jpg
+    :width: 1000
+    :align: center
+
+
+
+
+
+
+cython language basic
+---------------------
+extension is python module you write in c
+and compile to so file, Cython will just use whatever standard C compiler to comile
+python allow you import it
+
+
+
+Use cython with jupyter notebook
+--------------------------------
+in the top of notebook
+%%load_ext cythonmagic
+
+
+%%cython
+write your code
+
+
+
+
+
+
+
 .. warning::
   
   A numpy **float** is a C **double**!
