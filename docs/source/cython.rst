@@ -76,10 +76,11 @@ The will use like flow below:
     :align: center
     
     
-    	content 	cythonize	cpp	-->compile-->
-    pyx									.so
-    	cimoprt pxd  	cpp			-->compile-->
-    	 		h			-->compile-->
+	content 	cythonize	.cpp	-->compile-->
+pyx									.so
+	cimoprt pxd  	.cpp			-->compile-->
+			.h			-->compile-->
+
 
 Stay with .h and .cpp file
 --------------------------
