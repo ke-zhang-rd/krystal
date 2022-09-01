@@ -1,11 +1,12 @@
 # distutils: language = c++
 
 cimport numpy as np
-from rectangle cimport Rectangle
+from compute_interface cimport Rectangle
+from compute_interface cimport Vec4d, Vec4f
+from compute_interface cimport ccompute_d, ccompute_f
 # rectangle is the name of .pxd from rectangle.pxd
 # Rectangle is the class name defined by cdef in rectangle.pxd 
 
-cimport rectangle
 
 # Create a Cython extension type which holds a C++ instance
 # as an attribute and create a bunch of forwarding methods
@@ -28,14 +29,14 @@ cdef class PyRectangle:
         self.c_rect.move(dx, dy)
 
 
-cdef rectangle.Vec4d NumpyToVector4d(np.ndarray['double', ndim=1, mode="c"] x):
-  cdef rectangle.Vec4d cx
+cdef Vec4d NumpyToVector4d(np.ndarray['double', ndim=1, mode="c"] x):
+  cdef Vec4d cx
   for i in range(4):
     cx[i] = x[i]
 
   return cx
 
-cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
+cdef np.ndarray[double] Vector4dToNumpy (Vec4d cx):
     result = np.ndarray ((cx.rows()), dtype='double')
     for i in range (cx.rows()):
         result[i] = cx[i]
@@ -43,16 +44,16 @@ cdef np.ndarray[double] Vector4dToNumpy (rectangle.Vec4d cx):
     return result
 
 cpdef compute_d(arr):
-    return Vector4dToNumpy(rectangle.ccompute_d(NumpyToVector4d(arr)))
+    return Vector4dToNumpy(ccompute_d(NumpyToVector4d(arr)))
 
-cdef rectangle.Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
-  cdef rectangle.Vec4f cx
+cdef Vec4f NumpyToVector4f(np.ndarray['float', ndim=1, mode="c"] x):
+  cdef Vec4f cx
   for i in range(4):
     cx[i] = x[i]
 
   return cx
 
-cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
+cdef np.ndarray[float] Vector4fToNumpy (Vec4f cx):
     result = np.ndarray ((cx.rows()), dtype='float')
     for i in range (cx.rows()):
         result[i] = cx[i]
@@ -60,4 +61,4 @@ cdef np.ndarray[float] Vector4fToNumpy (rectangle.Vec4f cx):
     return result
 
 cpdef compute_f(arr):
-    return Vector4fToNumpy(rectangle.ccompute_f(NumpyToVector4f(arr)))
+    return Vector4fToNumpy(ccompute_f(NumpyToVector4f(arr)))
