@@ -69,16 +69,11 @@ A conoventional architecture and naming rule is shown below:
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
 
 
-The will use like flow below:
+A work flow shown below:
 
-.. image:: ../images/cython_workflow.jpg
+.. image:: ../images/cython.svg
     :width: 1000
     :align: center
-
-
-A simple work flow
-
-
 
 
 Stay with .h and .cpp
