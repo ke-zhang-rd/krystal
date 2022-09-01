@@ -78,10 +78,7 @@ The will use like flow below:
 
 A simple work flow
 
-	content 	cythonize	.cpp	-->compile-->
-pyx									.so
-	cimoprt pxd  	.cpp			-->compile-->
-			.h			-->compile-->
+
 
 
 Stay with .h and .cpp
