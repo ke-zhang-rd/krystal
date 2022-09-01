@@ -5,9 +5,6 @@ cython wrapping a c++ extentsion
 The index of this document will include
 
 
-
-
-
 A general archetecture of cython project
 
 
@@ -25,7 +22,7 @@ A real world example from rble lib
   
   A numpy **float** is a C **double**!
   
-  
+
 Why
 ===
 
@@ -43,87 +40,8 @@ What
 3. Eventually, python allow you import it
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Use cdef
---------
-
-If something both exist in C and python, C take privilege, ex, float is C float
-
-
-
-Use cython with jupyter notebook
---------------------------------
-in the top of notebook
-%%load_ext cythonmagic
-
-
-%%cython
-write your code
-
-cython file names
------------------
-
-You don't have to use .pyx , any .py files are ok for cython
-
-setup.py ext_modules
---------------------
-
-You could compile multiple extensions by 
-
-cythonize([".pyx", ".pyx"])
-
-cython annotation
------------------
-
-cython -a .pyx
-
-
-
-extern header
--------------
-
-cdef extern from "string.h"
-
-  int strlen(char* s)
-  
-  
-strlen here is kinda of redundant, yes!. kinda
-
-* cython is welcome to more automation but it's time expensive
-* here, it's more like checking purpose to check strlen you will use 
-is matching the thing in you c header file
-* you could only declare whatever you need, not all of them
-
-
-
-
-
-
-
-
-
-The architecture of a python project with cython extension
-==========================================================
-
-.. image:: ../images/cython_workflow.jpg
-    :width: 1000
-    :align: center
+How: The architecture of a python project with cython extension
+===============================================================
 
 A conoventional architecture and naming rule is shown below:
 
@@ -151,20 +69,21 @@ A conoventional architecture and naming rule is shown below:
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
 
 
+The will use like flow below:
 
-
-
-
-
-
-
+.. image:: ../images/cython_workflow.jpg
+    :width: 1000
+    :align: center
+    
+    
+    	content 	cythonize	cpp	-->compile-->
+    pyx									.so
+    	cimoprt pxd  	cpp			-->compile-->
+    	 		h			-->compile-->
 
 Stay with .h and .cpp file
 --------------------------
 The.h files under *include* and .cpp files under *src* are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
-
-
-
 
 
 
@@ -521,3 +440,58 @@ In this case the whole output looks like
 		 ^~~~~~~~~~~~~~~~~~~~~
 	1 error generated.
 	error: command '/usr/bin/clang' failed with exit code 1
+	
+	
+	
+	
+	
+	
+Use cdef
+--------
+
+If something both exist in C and python, C take privilege, ex, float is C float
+
+
+
+Use cython with jupyter notebook
+--------------------------------
+in the top of notebook
+%%load_ext cythonmagic
+
+
+%%cython
+write your code
+
+cython file names
+-----------------
+
+You don't have to use .pyx , any .py files are ok for cython
+
+setup.py ext_modules
+--------------------
+
+You could compile multiple extensions by 
+
+cythonize([".pyx", ".pyx"])
+
+cython annotation
+-----------------
+
+cython -a .pyx
+
+
+
+extern header
+-------------
+
+cdef extern from "string.h"
+
+  int strlen(char* s)
+  
+  
+strlen here is kinda of redundant, yes!. kinda
+
+* cython is welcome to more automation but it's time expensive
+* here, it's more like checking purpose to check strlen you will use 
+is matching the thing in you c header file
+* you could only declare whatever you need, not all of them
