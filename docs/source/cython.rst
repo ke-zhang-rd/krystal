@@ -1,22 +1,64 @@
-**************************
-cython101
-**************************
+********************************
+cython wrapping a c++ extentsion
+********************************
 
-
-.. image:: ../images/cython_workflow.jpg
-    :width: 1000
-    :align: center
+The index of this document will include
 
 
 
 
 
+A general archetecture of cython project
 
-cython language basic
----------------------
-extension is python module you write in c
-and compile to so file, Cython will just use whatever standard C compiler to comile
-python allow you import it
+
+
+Should include as much as possible build information here
+
+
+A example from example directory
+
+
+
+A real world example from rble lib
+
+.. warning::
+  
+  A numpy **float** is a C **double**!
+  
+  
+Why
+===
+
+If you are thinking whether you need cython, in most case, you don't need it. Cython might be a good option if both conditions belwo satisfied.
+
+  * You care more about running time instead of engineering time.
+  * You have concluded that your engineering logic works in a slower language, optimization is next step.
+
+
+What
+====
+
+1. Extension is python module you write in Other language, in here we refer C/C++
+2. Cython will just use whatever standard C compiler to compile it to *.so* file
+3. Eventually, python allow you import it
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Use cdef
 --------
@@ -71,42 +113,51 @@ is matching the thing in you c header file
 
 
 
-.. warning::
-  
-  A numpy **float** is a C **double**!
-
-If you are thinking whether you need cython, in most case, you don't need it, there are
-several case that cython might be a really good option.
-
-  * You care more about running time instead of engineering time.
-  * You have conclude that your engineering logic no matter the language you use do works, optimization is next step.
 
 
-The architecture of a cython project
-====================================
+
+
+
+The architecture of a python project with cython extension
+==========================================================
+
+.. image:: ../images/cython_workflow.jpg
+    :width: 1000
+    :align: center
+
+A conoventional architecture and naming rule is shown below:
 
 .. code::
 
   <PROJECT>
     <MODULE>
       include
-        .h
+        <REAL_NAME>.h
       src
-        .cpp
+        <REAL_NAME>.cpp
       python
-        .pyx
-        .pxd
+        <REAL_NAME>_wrapper.pyx
+        <REAL_NAME>_interface.pxd
       tests
         .py
     setup.py
 
 .. warning::
 
-  Important! Do not name the .pyx file the same as your .cpp file! When the cythonize function is
-  called later, a new .cpp file with the same name as your .pyx file is generated. If you name both
-  your original .cpp and your .pyx file the same, your .cpp file will be overwritten! Which is bad.
+  Important! DO NOT name the *.pyx* file the same as your *.cpp* file! When the cythonize function is
+  called later, a new *.cpp* file with the same name as your *.pyx* file is generated. If you name both
+  your original *.cpp* and your *.pyx* file the same, your *.cpp* file will be overwritten! Which is bad.
   
-  Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_.
+  Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
+
+
+
+
+
+
+
+
+
 
 Stay with .h and .cpp file
 --------------------------
