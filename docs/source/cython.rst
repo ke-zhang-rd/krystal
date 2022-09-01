@@ -74,8 +74,8 @@ The will use like flow below:
 .. image:: ../images/cython_workflow.jpg
     :width: 1000
     :align: center
-    
-    
+
+
 	content 	cythonize	.cpp	-->compile-->
 pyx									.so
 	cimoprt pxd  	.cpp			-->compile-->
