@@ -83,20 +83,23 @@ The will use like flow below:
 
 Stay with .h and .cpp file
 --------------------------
-The.h files under *include* and .cpp files under *src* are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
+The *.h* files in *include* and *.cpp* files in *src* are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
 
 
 
 .pyx file
 ---------
 
+`compute_wrapper.pyx <../../examples/cython/compute_wrapper.pyx>`_
+
 .. literalinclude:: ../../examples/cython/compute_wrapper.pyx
 
-Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .cpp file.
+Here we are basiclly write python code(Cython extension type) as a wrapper to wrap the logic of .cpp file. When I said wrapping C function,
+I mean we define a python function and inside it, we just call our c function.
 
 In my naive understanding, this file contain rewritten python-ish code that matches your function and class
-in c++ files. 
-We write it in rect.pyx here while there is convention that is called xxx-wrapper.pyx.
+in c++ files.
+We write it in  here while there is convention that is called xxx-wrapper.pyx.
 
 At the beginning, you need cimport your c class definition(It represent cpp class in a python/cython class way)
 from pxd module. If you have 'Rectangle.pxd', then
