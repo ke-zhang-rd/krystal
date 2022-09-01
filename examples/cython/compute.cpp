@@ -1,5 +1,5 @@
 #include <iostream>
-#include "rectangle.h"
+#include "compute.h"
 
 namespace shapes {
 	// Default constructor
