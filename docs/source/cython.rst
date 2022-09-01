@@ -103,7 +103,7 @@ In my naive understanding, this file contain rewritten python-ish code that matc
 in c++ files.
 
 At the beginning, you need cimport your c class definition(It represent cpp class in a python/cython class way)
-from pxd module. If you have 'Rectangle.pxd', then
+from pxd module. If you have 'compute_interface.pxd', then
 
 .. code
   from <PXD_FILE_NAME> cimport <THING_DEFINED_BY_cdef>
@@ -183,30 +183,68 @@ Here the meaning of argument
 
 
 
-Run command below
+A minimal command run is below
 
 .. code:: bash
   
-  $ python setup.py build_ext --inplace
+  $ python setup.py build_ext
+
+However if you need run the so in current file, you need add *--inplace* flag and if you wanna force to recompile each time, you need *--force*
+
+.. code:: bash
+
+	$ python setup.py build_ext --inplace --force
+	
 
 Use setup.cfg to make things easy
 ---------------------------------
 
+There are tons of flag, so to make it easy, you could write all options and flag in a *setup.cfg*.
+
 You could config *setup.cfg* by instruction here
 https://docs.python.org/3/distutils/configfile.html
 
-For example, the running code above could be configured by *setup.cfg*
+For example, configure by *setup.cfg* in a format like
+
+.. code::
+
+	[command]
+	option=value
+	...
+
+the running code above could be configured
 
 .. code::
   
   [build_ext]
   inplace=1
+	force=1
   
-and you could just simply run
+and you could just run and the flags will add to the end automatically
 
 .. code:: bash
   
   $ python setup.py build_ext
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Practice with C and Python community: Eigne and Numpy
 =====================================================
