@@ -525,7 +525,7 @@ cdef extern from "string.h"
   
 strlen here is kinda of redundant, yes!. kinda
 
-* cython is welcome to more automation but it's time expensive
-* here, it's more like checking purpose to check strlen you will use 
-is matching the thing in you c header file
-* you could only declare whatever you need, not all of them
+	* cython is welcome to more automation but it's time expensive
+	* here, it's more like checking purpose to check strlen you will use is matching the thing in you c header file
+	* you could only declare whatever you need, not all of them
+
