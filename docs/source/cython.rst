@@ -76,20 +76,21 @@ The will use like flow below:
     :align: center
 
 
+A simple work flow
+
 	content 	cythonize	.cpp	-->compile-->
 pyx									.so
 	cimoprt pxd  	.cpp			-->compile-->
 			.h			-->compile-->
 
 
-Stay with .h and .cpp file
---------------------------
+Stay with .h and .cpp
+---------------------
 The *.h* files in *include* and *.cpp* files in *src* are just pure/raw c++ files. They should be 100% legal in a pure c++ environment.
 
 
-
-.pyx file
----------
+.pyx
+----
 
 `compute_wrapper.pyx <../../examples/cython/compute_wrapper.pyx>`_
 
@@ -100,7 +101,6 @@ I mean we define a python function and inside it, we just call our c function.
 
 In my naive understanding, this file contain rewritten python-ish code that matches your function and class
 in c++ files.
-We write it in  here while there is convention that is called xxx-wrapper.pyx.
 
 At the beginning, you need cimport your c class definition(It represent cpp class in a python/cython class way)
 from pxd module. If you have 'Rectangle.pxd', then
