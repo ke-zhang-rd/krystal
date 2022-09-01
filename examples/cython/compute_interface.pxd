@@ -15,7 +15,7 @@ cdef extern from "cppTypes.h":
         float* data()
 
 
-cdef extern from "rectangle.cpp":
+cdef extern from "compute.cpp":
     pass
 
 
