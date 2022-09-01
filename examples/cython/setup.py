@@ -11,6 +11,12 @@ setup(
                                     extra_compile_args=["-std=c++11"],
                                     define_macros=[("NPY_NO_DEPRECATED_API",
                                                     "NPY_1_7_API_VERSION")]
-                                    )
+                                    ),
+                          compiler_directives={'language_level': '3str'}
+                          # This is for eliminate warning, though it is not
+                          # very necessary.
+                          # FutureWarning: Cython directive 'language_level'
+                          # not set, using '3str' for now (Py3). This has
+                          # changed from earlier releases!
                           )
 )
