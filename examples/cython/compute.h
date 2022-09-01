@@ -20,5 +20,10 @@ namespace shapes {
       Vec4<int> data;
   };
 }
+namespace optimization {
+	
+	Vec4d ccompute_d(Vec4d vec);
+	Vec4f ccompute_f(Vec4f vec);
+}
 
 #endif
