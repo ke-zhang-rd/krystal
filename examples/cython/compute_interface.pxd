@@ -20,7 +20,7 @@ cdef extern from "rectangle.cpp":
 
 
 # Declare the class with cdef
-cdef extern from "rectangle.h" namespace "shapes":
+cdef extern from "compute.h" namespace "shapes":
     cdef cppclass Rectangle:
         Rectangle() except +
         Rectangle(int, int, int, int) except +
@@ -30,7 +30,7 @@ cdef extern from "rectangle.h" namespace "shapes":
         void move(int, int)
 
 
-cdef extern from "rectangle.h" namespace "optimization":
+cdef extern from "compute.h" namespace "optimization":
   
     cdef Vec4d ccompute_d(Vec4d) except +
     cdef Vec4f ccompute_f(Vec4f) except +
