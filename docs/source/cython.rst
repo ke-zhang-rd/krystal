@@ -1,6 +1,6 @@
-********************************
-cython wrapping a c++ extentsion
-********************************
+***************************************
+Cython: Wrap a C++ extentsion of Python
+***************************************
 
 The index of this document will include
 
