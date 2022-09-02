@@ -131,21 +131,22 @@ Next, you just need to rewrite all method you need by calling c object methods, 
       
 .pxd file
 ---------
-* Here we are basiclly write Cython code(Cython extension type) as a wrapper to wrap the logic of .h file.
-* The role of .pxd file is like a shared header file of cython code for convinent of writing .pyx file.
+The role of .pxd file is like a shared header file of cython code
+	
+	* It is a shared inclusing
+	* It give you a chance to select what you wanna declare from C external, not always all
 
-Use c++ file as source
 
-Declare python/cython class with cdef 
+Use c++ file as source. Declare python/cython class with cdef 
 
-.. code
+.. code:: cython
+
   cdef extern from "Rectangle.h" namespace "shapes":
     cdef cppclass Rectangle:
 
-
 Next we declare each method and private members
 
-.. code::
+.. code:: cython
 
   Rectangle() except +
   Rectangle(int, int, int, int) except +
@@ -154,25 +155,22 @@ Next we declare each method and private members
   void getSize(int* width, int* height)
   void move(int, int)
   
-expcept + here is make sure that python will raise the exception of c++ error
-
-
+*expcept +* here is make sure that python will raise the exception of c++ error.
 
 Install package
 ===============
 
 setup.py
 --------
+
 make sure code below are in setup.py
 
 .. literalinclude:: ../../examples/cython/setup.py
 
 Here the meaning of argument
 
-* *name*: A architecture name that seperated by '.'(dot), dot is not meaning of file type
-* sources: A list of source file that not being *cdef* in *.pxd* file
-
-
+* **name**: A architecture name that seperated by '.'(dot), dot is not meaning of file type
+* **sources**: A list of source files that not being *cdef* in *.pxd* file
 
 
 A minimal command run is below
@@ -206,12 +204,13 @@ For example, configure by *setup.cfg* in a format like
 
 the running code above could be configured
 
-.. code::
-  
-  [build_ext]
+.. code:: bash
+	
+	[build_ext]
   inplace=1
 	force=1
-  
+	
+
 and you could just run and the flags will add to the end automatically
 
 .. code:: bash
