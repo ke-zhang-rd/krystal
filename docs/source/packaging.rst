@@ -1,6 +1,6 @@
-==================================
-Buiding Package: What, Why and How
-==================================
+============================
+Packaging: What, Why and How
+============================
 
 What actually happens when a package has been determined to install
 -------------------------------------------------------------------
