@@ -58,8 +58,8 @@ Krystal Python Documentation
    pythontutor
    rst
    ambush
-   cpp_plus_python
    cython
    packaging
    setuptools
    github_actions
+   alternatives_cpp_plus_python
