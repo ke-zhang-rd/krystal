@@ -425,6 +425,20 @@ How do I wrap a C class with cython
 https://stackoverflow.com/questions/8933263/how-do-i-wrap-a-c-class-with-cython
 
 
+CI/CD a Cython Project
+======================
+
+pytest
+------
+
+The pytes isn't work well with cython, before test, you need install editable by
+
+.. code::
+	
+	python -m pip install -e .
+
+If you miss *-e*, it won't work.
+
 
 FAQ
 ===
