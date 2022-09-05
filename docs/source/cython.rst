@@ -35,7 +35,7 @@ If you are thinking whether you need cython, in most case, you don't need it. Cy
 What
 ====
 
-1. Extension is python module you write in Other language, in here we refer C/C++
+1. Extension is python module you write in other language, in here we refer C/C++
 2. Cython will just use whatever standard C compiler to compile it to *.so* file
 3. Eventually, python allow you import it
 
@@ -69,15 +69,25 @@ A conoventional architecture and naming rule is shown below:
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
 
 
-A work flow shown below:
+A work flow
+-----------
 
 .. image:: ../images/cython.svg
     :width: 1000
     :align: center
 
+Orgnize
+-------
+
 A Cython module can be split into two parts: a definition file with a .pxd suffix, containing C declarations that are to be available to other Cython modules, and an implementation file with a .pyx/.py suffix, containing everything else. When a module wants to use something declared in another module’s definition file, it imports it using the cimport statement or using special cython.cimports package.
 
 A .pxd file that consists solely of extern declarations does not need to correspond to an actual .pyx/.py file or Python module. This can make it a convenient place to put common declarations, for example declarations of functions from an external library that one wants to use in several modules.
+
+When you cimport a module called modulename, the Cython compiler searches for a file called modulename.pxd. It searches for this file along the path for include files (as specified by -I command line options or the include_path option to cythonize()), as well as sys.path.
+
+Using package_data to install .pxd files in your setup.py script allows other packages to cimport items from your module as a dependency.
+
+Also, whenever you compile a file modulename.pyx/modulename.py, the corresponding definition file modulename.pxd is first searched for along the include path (but not sys.path), and if found, it is processed before processing the .pyx file.
 
 
 Stay with .h and .cpp
@@ -135,7 +145,7 @@ Next, you just need to rewrite all method you need by calling c object methods, 
       
 .pxd file
 ---------
-The role of .pxd file is like a shared header file of cython code
+It is a definition file, the meanding of "d" in "pxd". The role of .pxd file is like a shared header file of cython code,
 	
 	* It is a shared inclusing
 	* It give you a chance to select what you wanna declare from C external, not always all
@@ -207,7 +217,6 @@ However if you need run the so in current file, you need add *--inplace* flag an
 
 	$ python setup.py build_ext --inplace --force
 	
-
 Use setup.cfg to make things easy
 ---------------------------------
 
@@ -260,12 +269,14 @@ Practice with C and Python community: Eigne and Numpy
 How to get Eigen library
 ------------------------
 
+
 How to get numpy package
 ------------------------
 
 
 How to get cpp std libray
 -------------------------
+
 https://cython.readthedocs.io/en/latest/src/userguide/wrapping_CPlusPlus.html?highlight=Rectangle#standard-library
 
 A code here also work as good examples on how to declare C++ classes.
