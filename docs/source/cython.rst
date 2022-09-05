@@ -225,7 +225,7 @@ the running code above could be configured
 .. code:: bash
 	
 	[build_ext]
-  inplace=1
+	inplace=1
 	force=1
 	
 
