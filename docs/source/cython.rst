@@ -165,7 +165,7 @@ Next we declare each method and private members
 	
 	.. code:: python
 	
-    Rectangle(int, int, int, int) except +
+		Rectangle(int, int, int, int) except +
 
 	is kinda of redundant, yes!. kinda, here is reason
 
