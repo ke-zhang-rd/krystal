@@ -136,7 +136,6 @@ The role of .pxd file is like a shared header file of cython code
 	* It is a shared inclusing
 	* It give you a chance to select what you wanna declare from C external, not always all
 
-
 Use c++ file as source. Declare python/cython class with cdef 
 
 .. code:: cython
@@ -154,7 +153,26 @@ Next we declare each method and private members
   int getArea()
   void getSize(int* width, int* height)
   void move(int, int)
-  
+
+.. note::
+	You may feel that line
+
+	.. code:: python
+		
+		cdef extern from "<HEADER>.h"
+
+ 	should be enough to inlcude whatever you need, and the line below like
+	
+	.. code:: python
+	
+    Rectangle(int, int, int, int) except +
+
+	is kinda of redundant, yes!. kinda, here is reason
+
+	* cython is welcome to more automation but based on my knowledge this has not been impolementd and it's time expensive.
+	* here, it's more like checking purpose to check function you will use is matching the thing in you c header file.
+	* you have a chance to only declare function you need , not include all of them.
+
 *expcept +* here is make sure that python will raise the exception of c++ error.
 
 Install package
@@ -514,17 +532,4 @@ cython -a .pyx
 
 
 
-extern header
--------------
-
-cdef extern from "string.h"
-
-  int strlen(char* s)
-  
-  
-strlen here is kinda of redundant, yes!. kinda
-
-	* cython is welcome to more automation but it's time expensive
-	* here, it's more like checking purpose to check strlen you will use is matching the thing in you c header file
-	* you could only declare whatever you need, not all of them
 
