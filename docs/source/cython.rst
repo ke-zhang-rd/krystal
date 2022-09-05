@@ -236,23 +236,18 @@ and you could just run and the flags will add to the end automatically
   $ python setup.py build_ext
 
 
+Use cython with jupyter notebook/ipython
+----------------------------------------
+in the top of notebook/ipython
+.. code::
+	
+	%%load_ext cythonmagic
 
+In the top your code cell or ipython
+.. code::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	%%cython
+	# write your code
 
 
 Practice with C and Python community: Eigne and Numpy
@@ -492,26 +487,10 @@ In this case the whole output looks like
 	1 error generated.
 	error: command '/usr/bin/clang' failed with exit code 1
 	
-	
-	
-	
-	
-	
 Use cdef
 --------
 
 If something both exist in C and python, C take privilege, ex, float is C float
-
-
-
-Use cython with jupyter notebook
---------------------------------
-in the top of notebook
-%%load_ext cythonmagic
-
-
-%%cython
-write your code
 
 cython file names
 -----------------
@@ -529,7 +508,3 @@ cython annotation
 -----------------
 
 cython -a .pyx
-
-
-
-
