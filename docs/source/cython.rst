@@ -150,6 +150,29 @@ It is a definition file, the meanding of "d" in "pxd". The role of .pxd file is 
 	* It is a shared inclusing
 	* It give you a chance to select what you wanna declare from C external, not always all
 
+There are multiple ways to refer the cpp source file
+
+
+* Put .cpp sources file here as argument of *sources* of Extension in setup.py
+	.. code::
+	
+		Extension(
+							...
+							sources = [..., "<SOURCE_FILE>.cpp"],
+							...
+							)
+	
+* Use directive in .pyx file,
+	.. code::
+	
+		# directive: sources = compute.cpp
+
+* Putting code inside .pxd file 
+	.. code::
+		
+		cdef extern from "compute.cpp":
+			pass
+
 Use c++ file as source. Declare python/cython class with cdef 
 
 .. code:: cython
