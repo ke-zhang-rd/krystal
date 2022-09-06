@@ -15,8 +15,13 @@ cdef extern from "cppTypes.h":
         float* data()
 
 
-cdef extern from "compute.cpp":
-    pass
+# cdef extern from "compute.cpp":
+#     pass
+# Either use code above
+# OR set "sources" argument of Extension in setup.py
+#
+# OR by using directive in .pyx file,
+#       # directive: sources = compute.cpp
 
 
 # Declare the class with cdef

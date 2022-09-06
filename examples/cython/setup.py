@@ -5,7 +5,16 @@ import numpy
 
 setup(
     ext_modules=cythonize(Extension(name="compute_wrapper",
-                                    sources=["compute_wrapper.pyx"],
+                                    sources=["compute_wrapper.pyx",
+                                             "compute.cpp"],
+                                    # Either put .cpp sources file here
+                                    # OR by using directive in .pyx file,
+                                    #       # directive: sources = compute.cpp
+                                    #
+                                    # OR by putting code inside .pxd file
+                                    #       cdef extern from "compute.cpp":
+                                    #           pass
+                                    #
                                     include_dirs=[numpy.get_include()],
                                     language="c++",
                                     extra_compile_args=["-std=c++11"],
