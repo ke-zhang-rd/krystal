@@ -157,6 +157,7 @@ Use c++ file as source. Declare python/cython class with cdef
   cdef extern from "Rectangle.h" namespace "shapes":
     cdef cppclass Rectangle:
 
+Here the *extern* is refer that the declaration of variables/function come from external.
 Next we declare each method and private members
 
 .. code:: cython
