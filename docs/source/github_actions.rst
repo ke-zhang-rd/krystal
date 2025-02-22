@@ -3,11 +3,7 @@ Github Actions
 ==============
 
 
-To access the action of github. We need 2 keys
-
-private key
-
-public key
+One of the most important job of github action is documentation automatically. This involve two reporitories. The docs repo and github.io repo. To generate keys pair, private key and public key, 
 
 Those two keys are github email related and can be acquired by cmd below
 
@@ -17,6 +13,9 @@ Those two keys are github email related and can be acquired by cmd below
 
 This command will generate two keys. One is gh-pages and the other one is gh-pages.pub.
 
+You need add private key, gh-pages to working repo secrects under repo setting > Secrets and variables > Actions. Then press "New reporitory secret". Give it a title. 
+
+You need add public key to github.io repo to under repo setting > Deploy keys. Then press add deploy key. Give it a title and paste the gh-pages.pub. check Allow write access.
 
 ssh-keygen Manual
 https://man.openbsd.org/ssh-keygen.1  
