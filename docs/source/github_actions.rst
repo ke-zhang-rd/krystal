@@ -15,6 +15,9 @@ Those two keys are github email related and can be acquired by cmd below
   
   ssh-keygen -t rsa -b 4096 -C "$(git config user.email)" -f gh-pages -N ""
 
+This command will generate two keys. One is gh-pages and the other one is gh-pages.pub.
+
+
 ssh-keygen Manual
 https://man.openbsd.org/ssh-keygen.1  
 
