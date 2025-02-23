@@ -46,7 +46,7 @@ jobs:
       - name: Publish docs
         # We pin to the SHA, not the tag, for security reasons.
         # https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions/security-hardening-for-github-actions#using-third-party-actions
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.python-version == '3.8' }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.python-version == '3.12' }}
         uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501  # v3.7.3
         with:
           deploy_key: ${{ secrets.KRYSTAL_TO_GITIO_PRIVATE}}
