@@ -2,7 +2,7 @@
 Github Actions
 ==============
 
-
+Github Action make your work after commit smoothlly.
 One of the most important job of github action is documentation automatically. This involve two reporitories. The docs repo and github.io repo. To generate keys pair, private key and public key, 
 
 Those two keys are github email related and can be acquired by cmd below
@@ -18,6 +18,7 @@ You need add private key, gh-pages to working repo secrects under repo setting >
 You need add public key to github.io repo to under repo setting > Deploy keys. Then press add deploy key. Give it a title and paste the gh-pages.pub. check Allow write access.
 
 ssh-keygen Manual
+
 https://man.openbsd.org/ssh-keygen.1  
 
 
