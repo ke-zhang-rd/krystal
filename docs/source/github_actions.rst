@@ -33,19 +33,19 @@ You need add public key to github.io repo to under repo setting > Deploy keys. T
 
 
 
-.. code:: language
+.. code:: shell
 
-      - name: Publish docs
-        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.python-version == '3.12' }}
-        uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501  # v3.7.3
-        with:
-          deploy_key: ${{ secrets.PRIVATE_KEY}}
-          publish_branch: BRANCH_NAME
-          publish_dir: ./docs/build/html
-          external_repository: USER_NAME/USER_NAME.github.io
-          destination_dir: ${{ env.REPOSITORY_NAME }}
-          keep_files: true  # Keep old files.
-          force_orphan: false  # Keep git history.
+  - name: Publish docs
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.python-version == '3.12' }}
+      uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501  # v3.7.3
+      with:
+        deploy_key: ${{ secrets.PRIVATE_KEY}}
+        publish_branch: BRANCH_NAME
+        publish_dir: ./docs/build/html
+        external_repository: USER_NAME/USER_NAME.github.io
+        destination_dir: ${{ env.REPOSITORY_NAME }}
+        keep_files: true  # Keep old files.
+        force_orphan: false  # Keep git history.
 
 You need make sure secrets.PRIVATE_KEY match the private key name in your github docs repo setting under repo setting > Secrets and variables > Actions
 
