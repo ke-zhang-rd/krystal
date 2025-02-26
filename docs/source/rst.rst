@@ -54,3 +54,9 @@ subsubrst
 .. note::
 
    ``code`` is a reStructuredText directive. ``code-block`` is a Sphinx directive. The ``code-block`` has a different set of options to the ``code`` directive.
+
+External link syntax:
+    "`TEXT <EXTERNAL_LINK_ADDRESS>`_ " 
+
+for example,
+    `google <www.gooogle.com>`_ need use "`google <www.gooogle.com>`_ "
