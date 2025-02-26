@@ -32,6 +32,25 @@ You need add private key, gh-pages to working repo secrects under repo setting >
 You need add public key to github.io repo to under repo setting > Deploy keys. Then press add deploy key. Give it a title and paste the gh-pages.pub. check Allow write access.
 
 
+
+.. code:: language
+
+      - name: Publish docs
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && matrix.python-version == '3.12' }}
+        uses: peaceiris/actions-gh-pages@bbdfb200618d235585ad98e965f4aafc39b4c501  # v3.7.3
+        with:
+          deploy_key: ${{ secrets.PRIVATE_KEY}}
+          publish_branch: BRANCH_NAME
+          publish_dir: ./docs/build/html
+          external_repository: USER_NAME/USER_NAME.github.io
+          destination_dir: ${{ env.REPOSITORY_NAME }}
+          keep_files: true  # Keep old files.
+          force_orphan: false  # Keep git history.
+
+You need make sure secrets.PRIVATE_KEY match the private key name in your github docs repo setting under repo setting > Secrets and variables > Actions
+
+You need make sure the `publish_branch` name match the name of io repo which could be setting in `Pages`, `Build and deployment` > `Branch`
+
 ssh-keygen Manual
 
 https://man.openbsd.org/ssh-keygen.1  
