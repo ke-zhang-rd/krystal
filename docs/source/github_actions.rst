@@ -51,6 +51,12 @@ You need make sure secrets.PRIVATE_KEY match the private key name in your github
 
 You need make sure the `publish_branch` name match the name of io repo which could be setting in `Pages`, `Build and deployment` > `Branch`
 
+.. image:: ../images/screen_shot_screts_action.png
+    :width: center
+    :align: center
+
+
+
 ssh-keygen Manual
 
 https://man.openbsd.org/ssh-keygen.1  
