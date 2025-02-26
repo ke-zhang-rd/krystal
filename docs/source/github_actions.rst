@@ -51,7 +51,7 @@ You need make sure secrets.PRIVATE_KEY match the private key name in your github
 
 You need make sure the `publish_branch` name match the name of io repo which could be setting in `Pages`, `Build and deployment` > `Branch`
 
-.. image:: ../images/screen_shot_scrects_action.png
+.. image:: ../images/screen_shot_secrets_action.png
     :width: 1000
     :align: center
 
