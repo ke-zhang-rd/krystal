@@ -42,10 +42,10 @@ In most case, you want to have a black box running in C level performance but co
 3. Eventually, python allow you import it
 
 
-How: The architecture of a python project with cython extension
+How: the architecture of a python project with cython extension
 ===============================================================
 
-A conoventional architecture and naming rule is shown below:
+A conoventional architecture and naming rule are shown below:
 
 .. code::
 
@@ -71,8 +71,7 @@ A conoventional architecture and naming rule is shown below:
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
 
 
-Organization
-------------
+Compile flow
 
 .. image:: ../images/cython.svg
     :width: 1000
@@ -98,7 +97,7 @@ The *.h* files in *include* and *.cpp* files in *src* are just pure/raw c++ file
 .pyx
 ----
 
-`compute_wrapper.pyx <../../examples/cython/compute_wrapper.pyx>`_
+compute_wrapper.pyx
 
 .. literalinclude:: ../../examples/cython/compute_wrapper.pyx
 
@@ -308,7 +307,7 @@ A code here also work as good examples on how to declare C++ classes.
 The code below perfectly show us the logistic to mix Eigen and Numpy with Cython. It trys call a *CalcPointAcceleration* from python which transfers all variables to cpp and use some cpp source code with Eigen do real math calculation and then transfer variables back to Numpy.
 
 .pyx file is in
-https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1873
+https://github.com/rbdl/rbdl/blob/master/python/rbdl-wrapper.pyx#L1905
 
 .. code:: python
   
