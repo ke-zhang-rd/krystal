@@ -72,10 +72,13 @@ A conoventional architecture and naming rule are shown below:
 
 
 Compile flow
+------------
 
 .. image:: ../images/cython.svg
     :width: 1000
     :align: center
+
+
 
 
 A Cython module can be split into two parts: a definition file with a .pxd suffix, containing C declarations that are to be available to other Cython modules, and an implementation file with a .pyx/.py suffix, containing everything else. When a module wants to use something declared in another module’s definition file, it imports it using the cimport statement or using special cython.cimports package.

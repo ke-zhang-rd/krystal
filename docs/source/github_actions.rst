@@ -5,17 +5,16 @@ Github Actions
 Github Action make your work after commit smoothlly. There are many github actions available under github action markets.
 
 
-A github action example: documentation
---------------------------------------
-
-One of the most important job of github action is documentation automatically. This section will introduce github action by deploy a documentation publish action.
-
-This documentation deployment and publish action could be find in  `peaceiris/action-gh-pages <https://github.com/peaceiris/actions-gh-pages>`_.
+Example: documentation
+----------------------
 
 This involve two reporitories:
 
     * docs repo, which is usually in github.com/USER_NAME/repo
     * depolyment repo which is in USER_NAME.github.io/repo.
+
+This documentation deployment and publish action could be find in  `peaceiris/action-gh-pages <https://github.com/peaceiris/actions-gh-pages>`_.
+
 
 To generate keys pair, private key and public key, 
 Those two keys are github email related and can be acquired by cmd below
