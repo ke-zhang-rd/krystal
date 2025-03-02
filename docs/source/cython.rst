@@ -64,7 +64,7 @@ A conoventional architecture and naming rule are shown below:
 
 .. warning::
 
-  Important! DO NOT name the *.pyx* file the same as your *.cpp* file! When the cythonized function is
+  DO NOT name the *.pyx* file the same as your *.cpp* file! When the cythonized function is
   called later, a new *.cpp* file with the same name as your *.pyx* file is generated. If you name both
   your original *.cpp* and your *.pyx* file the same, your *.cpp* file will be overwritten which is bad.
   
