@@ -26,17 +26,19 @@ A real world example from rble lib
 Why
 ===
 
-If you are thinking whether you need cython, in most case, you don't need it. Cython might be a good option if both conditions belwo satisfied.
+If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if both both of the following conditions are met.
 
   * You care more about running time instead of engineering time.
-  * You have concluded that your engineering logic works in a slower language, optimization is next step.
+  * You have already concluded that your engineering logic works in a slower language(python), optimization is next step.
 
 
 What
 ====
 
-1. Extension is python module you write in other language, in here we refer C/C++
-2. Cython will just use whatever standard C compiler to compile it to *.so* file
+In most case, you want to have a black box running in C level performance but could be called by pure python syntax.
+
+1. This black box is called python extension. A Extension is a python module written in other language. Here is with C/C++. You are writting a Cython extension.
+2. Cython will just use standard C compiler to compile it to *.so* file
 3. Eventually, python allow you import it
 
 
@@ -62,22 +64,20 @@ A conoventional architecture and naming rule is shown below:
 
 .. warning::
 
-  Important! DO NOT name the *.pyx* file the same as your *.cpp* file! When the cythonize function is
+  Important! DO NOT name the *.pyx* file the same as your *.cpp* file! When the cythonized function is
   called later, a new *.cpp* file with the same name as your *.pyx* file is generated. If you name both
-  your original *.cpp* and your *.pyx* file the same, your *.cpp* file will be overwritten! Which is bad.
+  your original *.cpp* and your *.pyx* file the same, your *.cpp* file will be overwritten which is bad.
   
   Though there is tldr `solution <https://cython.readthedocs.io/en/latest/src/userguide/external_C_code.html#resolving-naming-conflicts-c-name-specifications>`_ if you really need to name them exactly same.
 
 
-A work flow
------------
+Organization
+------------
 
 .. image:: ../images/cython.svg
     :width: 1000
     :align: center
 
-Orgnize
--------
 
 A Cython module can be split into two parts: a definition file with a .pxd suffix, containing C declarations that are to be available to other Cython modules, and an implementation file with a .pyx/.py suffix, containing everything else. When a module wants to use something declared in another module’s definition file, it imports it using the cimport statement or using special cython.cimports package.
 
