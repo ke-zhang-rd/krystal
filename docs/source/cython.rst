@@ -213,8 +213,8 @@ Next we declare each method and private members
 
 *expcept +* here is make sure that python will raise the exception of c++ error.
 
-Install package
-===============
+Install your extension package
+==============================
 
 setup.py
 --------
@@ -287,8 +287,8 @@ In the top your code cell or ipython
 	# write your code
 
 
-Practice with C and Python community: Eigne and Numpy
-=====================================================
+A popular example in C++ and Python community: Eigen and Numpy
+==============================================================
 
 How to get Eigen library
 ------------------------
