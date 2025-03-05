@@ -26,10 +26,10 @@ A real world example from rble lib
 Why
 ===
 
-If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if both both of the following conditions are met.
+If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if both of the following conditions are met.
 
-  * You care more about running time instead of engineering time.
-  * You have already concluded that your engineering logic works in a slower language(python), optimization is next step.
+  * You care more about running time than aggregate engineering time.
+  * You have already concluded that your engineering logic works in python, optimization is next step.
 
 
 What

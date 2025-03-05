@@ -48,13 +48,16 @@ You need add public key to github.io repo to under repo setting > Deploy keys. T
 
 You need make sure secrets.PRIVATE_KEY match the private key name in your github docs repo setting under repo setting > Secrets and variables > Actions
 
-You need make sure the `publish_branch` name match the name of io repo which could be setting in `Pages`, `Build and deployment` > `Branch`
 
 .. image:: ../images/screen_shot_secrets_action.png
     :width: 1000
     :align: center
 
+You need make sure the `publish_branch` name match the name of io repo which could be setting in `Pages`, `Build and deployment` > `Branch`
 
+.. image:: ../images/pages_deploy_branch.png
+    :width: 1000
+    :align: center
 
 ssh-keygen Manual
 
