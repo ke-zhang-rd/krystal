@@ -3,22 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. container:: twocol
-
-    .. container:: leftside
-
-        .. toctree::
-           :maxdepth: 1 
-
-           philosophy
-
-    .. container:: rightside
-
-        .. toctree::
-           :maxdepth: 1 
-
-           philosophy
-
+Krystal Python
+==============
 
 .. toctree::
    :maxdepth: 1 
@@ -62,6 +48,9 @@
    asyncio
    future
    concurrentfuture
+   packaging
+   cython
+   github_actions
    pytest
    pdb
    searchmethod
@@ -70,10 +59,7 @@
    vscode
    pythontutor
    ambush
-   cython
-   packaging
    setuptools
-   github_actions
    alternatives_cpp_plus_python
    conda
    rst
