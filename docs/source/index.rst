@@ -60,6 +60,5 @@ Krystal Python
    pythontutor
    ambush
    setuptools
-   alternatives_cpp_plus_python
    conda
    rst
