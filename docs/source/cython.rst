@@ -26,7 +26,7 @@ A real world example from rble lib
 Why
 ===
 
-If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if both of the following conditions are met.
+If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if the following conditions are met.
 
   * Your project is already in python world.
   * The aggregate running time of your code are more important than engineering time.
