@@ -20,7 +20,7 @@ Function
   def foo(a, b, c=False, d = None):
       ...
 
-will become
+could become more readable in
   
 .. code:: python
   
