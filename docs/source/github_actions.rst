@@ -2,7 +2,7 @@
 Github Actions
 ==============
 
-Github Action make your work smoothlly after push code to github. There are many github actions available under github action `markets <https://github.com/marketplace?type=actions>_ `.
+Github Action make your work smoothlly after push code to github. There are many github actions available under github action `markets <https://github.com/marketplace?type=actions>`_.
 
 
 Example: documentation
