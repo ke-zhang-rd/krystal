@@ -20,7 +20,7 @@ A real world example from rble lib
 
 .. warning::
   
-  A numpy **float** is a C **double**!
+  A numpy default **float** is **float64** which is a C **double**!
   
 
 Why
