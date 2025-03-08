@@ -44,6 +44,9 @@ Abstractly, cython realize a black box which run C inside it but could be called
 How
 ===
 
+Architecture
+------------
+
 A architecture and conventional naming of a python project with cython extension
 
 .. code::
