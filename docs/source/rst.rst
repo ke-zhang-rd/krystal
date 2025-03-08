@@ -60,3 +60,13 @@ External link syntax:
 
 for example,
     `google <www.gooogle.com>`_ need use '`google <www.gooogle.com>`_ '
+
+
+=====  =====  =======
+A      B      A and B
+=====  =====  =======
+False  False  False
+True   False  False
+False  True   False
+True   True   True
+=====  =====  =======
