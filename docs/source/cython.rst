@@ -1,6 +1,6 @@
-***************************************
-Cython: Wrap a C++ extentsion of Python
-***************************************
+****************************************
+Cython: Wrap a C++ extentsion for Python
+****************************************
 
 The index of this document will include
 
@@ -28,14 +28,14 @@ Why
 
 If you are thinking whether you need cython, in most case, you don't. Cython might be a good option if both of the following conditions are met.
 
-  * You care more about running time than aggregate engineering time.
-  * You have already concluded that your engineering logic works in python, optimization is next step.
-
+  * Your project is already in python world.
+  * The aggregate running time of your code are more important than engineering time.
+  * The logic of project works in python, optimization of performance is next step.
 
 What
 ====
 
-In most case, you want to have a black box running in C level performance but could be called by pure python syntax.
+Abstractly, cython realize a black box which run C inside it but could be called by pure python syntax.
 
 1. This black box is called python extension. A Extension is a python module written in other language. Here is with C/C++. You are writting a Cython extension.
 2. Cython will just use standard C compiler to compile it to *.so* file
