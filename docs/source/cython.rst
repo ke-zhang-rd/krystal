@@ -1,6 +1,6 @@
-****************************************
-Cython: Wrap a C++ extentsion for Python
-****************************************
+*************************
+Cython: Use C++ in Python
+*************************
 
 The index of this document will include
 
@@ -52,6 +52,7 @@ The simplest way of installing Cython is by using pip::
     $ pip install Cython
 
 
+
 Architecture
 ------------
 
@@ -89,8 +90,6 @@ Compile flow
     :align: center
 
 
-
-
 A Cython module can be split into two parts: a definition file with a .pxd suffix, containing C declarations that are to be available to other Cython modules, and an implementation file with a .pyx/.py suffix, containing everything else. When a module wants to use something declared in another module’s definition file, it imports it using the cimport statement or using special cython.cimports package.
 
 A .pxd file that consists solely of extern declarations does not need to correspond to an actual .pyx/.py file or Python module. This can make it a convenient place to put common declarations, for example declarations of functions from an external library that one wants to use in several modules.
@@ -101,6 +100,8 @@ Using package_data to install .pxd files in your setup.py script allows other pa
 
 Also, whenever you compile a file modulename.pyx/modulename.py, the corresponding definition file modulename.pxd is first searched for along the include path (but not sys.path), and if found, it is processed before processing the .pyx file.
 
+Anatomy
+-------
 
 Stay with .h and .cpp
 ---------------------
