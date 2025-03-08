@@ -3,16 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-=================  ===================
-A                  B
-=================  ===================
-.. toctree::       .. toctree::     
-   :maxdepth: 1       :maxdepth: 1
+.. container:: twocol
 
-   philosophy         philosophy
+    .. container:: leftside
 
-=================  ===================
+        .. toctree::
+           :maxdepth: 1 
 
+           philosophy
+
+    .. container:: rightside
+
+        .. toctree::
+           :maxdepth: 1 
+
+           philosophy
 
 
 .. toctree::
