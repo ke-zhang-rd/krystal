@@ -44,6 +44,14 @@ Abstractly, cython realize a black box which run C inside it but could be called
 How
 ===
 
+Install Cython
+--------------
+
+The simplest way of installing Cython is by using pip::
+
+    $ pip install Cython
+
+
 Architecture
 ------------
 
