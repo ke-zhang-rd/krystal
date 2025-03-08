@@ -41,11 +41,10 @@ Abstractly, cython realize a black box which run C inside it but could be called
 2. Cython will just use standard C compiler to compile it to *.so* file
 3. Eventually, python allow you import it
 
+How
+===
 
-How: the architecture of a python project with cython extension
-===============================================================
-
-A conoventional architecture and naming rule are shown below:
+A architecture and conventional naming of a python project with cython extension
 
 .. code::
 
