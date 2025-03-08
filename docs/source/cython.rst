@@ -259,8 +259,7 @@ Use setup.cfg to make things easy
 
 There are tons of flag, so to make it easy, you could write all options and flag in a *setup.cfg*.
 
-You could config *setup.cfg* by instruction here
-https://docs.python.org/3/distutils/configfile.html
+You could config *setup.cfg* by instruction `here <https://docs.python.org/3.11/distutils/configfile.html>`_.
 
 For example, configure by *setup.cfg* in a format like
 
