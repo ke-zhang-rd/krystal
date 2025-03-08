@@ -52,14 +52,14 @@ Krystal Python Documentation
    pdb
    searchmethod
    inspect
-   conda
    argparse
    vscode
    pythontutor
-   rst
    ambush
    cython
    packaging
    setuptools
    github_actions
    alternatives_cpp_plus_python
+   conda
+   rst
