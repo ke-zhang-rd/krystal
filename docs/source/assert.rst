@@ -2,6 +2,6 @@
 assert
 ======
 
-DO NOT USE ``assert`` in production code! 
+DO NOT USE ``assert`` in production.
 
-``assert`` statements will be ignored if Python is run in optimization mode.
+``assert`` statements will be ignored if Python runs in optimization mode.
