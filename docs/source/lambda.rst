@@ -2,7 +2,7 @@
 lambda
 ======
 
-``lambda`` exapression is just a syntax suger for normal function definition.
+``lambda`` exapression is just a syntax suger for regular function definition.
 
 .. code:: python
 

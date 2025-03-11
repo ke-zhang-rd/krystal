@@ -69,7 +69,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'Krystal Python'
-copyright = '2020, Ke Zhang'
+copyright = '2025, Ke Zhang'
 author = 'Ke Zhang'
 
 # The version info for the project you're documenting, acts as replacement for
