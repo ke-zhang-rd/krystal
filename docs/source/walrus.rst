@@ -2,7 +2,7 @@
 Walrus operator
 ===============
 
-The reason why ``:=`` it's called *walrus*:
+The reason why ``:=`` is called *walrus*:
 
 .. image:: ../images/walrus.png
     :width: 400
