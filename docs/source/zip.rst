@@ -7,10 +7,10 @@ zip
 
     zip(*iterables)
 
-| The true name of ``zip`` is **transpose**.
-| When you want to choose certain index of each element in ``iterables`` and group them together, you need ``zip``. Somehow, I feel this is transpose operation.
+| The real name of ``zip`` is **transpose**.
+| If you try to choose certain indices of each element in ``iterables`` and group them together, you need ``zip``. It is transpose operation.
 
-If you think arguments of zip as a matrix, each argument is a row. Then ``[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]`` looks like
+Thinking arguments of zip as a matrix, each argument is a row. Then ``[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]`` looks like
 
 .. code:: python
 
@@ -36,7 +36,7 @@ If you think arguments of zip as a matrix, each argument is a row. Then ``[0, 1,
 
 **Example:** inversive
 
-Transpose is inversive which meaning :math:`({A^T})^T = A`. Below is an example showing this feather of ``zip``:
+Transpose is inversive which means :math:`({A^T})^T = A`. Here is an example showing this feather of ``zip``:
 
 .. code:: python
 
@@ -47,5 +47,5 @@ Transpose is inversive which meaning :math:`({A^T})^T = A`. Below is an example 
 .. note:: 
 
    * ``zip`` takes ``*iterables`` as arguments which are argument seperated by comma.
-   * The star in ``zip(*zip(...`` unpack zip object to iterable
-   * list() is needed to explicit get zip result.
+   * The star in ``zip(*zip(...`` unpack zip object to iterable.
+   * ``list()`` is needed to explicit get zip result.
