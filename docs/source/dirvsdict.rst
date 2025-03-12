@@ -36,4 +36,4 @@ dir vs __dict__
 
 .. note::
 
-    Here ``obj.var`` assignment make ``var`` becomes an instance attribute.
+    Here the assignment of ``obj.var`` make ``var`` becomes an instance attribute.
