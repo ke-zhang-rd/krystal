@@ -13,10 +13,10 @@ Krystal Python
    annotation
    assert
    lambda
-   dunder
    comparision
    zip
    comprehension
+   dunder
    variables
    walrus
    copy
