@@ -9,7 +9,7 @@ for/else clause could be useful when you go through iterable for searching purpo
 
 **Example:**
 
-.. code:: python
+.. code::
 
   ls = [1, 2, 3]
 
