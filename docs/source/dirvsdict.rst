@@ -31,7 +31,7 @@ dir vs __dict__
 
     >>> obj.var = 3
     >>> obj.__dict__
-    {'a': 'a', 'p': 3}
+    {'attr': 'value', 'var': 3}
 
 
 .. note::
