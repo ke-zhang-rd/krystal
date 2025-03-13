@@ -2,8 +2,6 @@
 import
 ======
 
-import wtf
-----------
 
 When you use ``import``, python first checks ``sys.modules`` to see if the *module/pkg* has been imported already. 
 
