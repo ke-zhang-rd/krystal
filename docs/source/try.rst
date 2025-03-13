@@ -2,7 +2,8 @@
 try, except, else and finally
 =============================
 
-**Syntax**
+Syntax
+------
 
 .. code:: python
 
@@ -17,8 +18,7 @@ try, except, else and finally
       always execute this one at the end
       OR execute on the way of return/out
 
-The ``finally`` clause is also executed **on the way out**.
-The return value is determined by the first return statement executed. If return in ``try`` or ``else``, since the ``finally`` clause always being executed **on the way out**, it will jump to ``finally`` clause(``finally`` clause **hijack** ``return`` process). If ``finally`` clause has return statement, this statement will be excuated and as return value.
+The ``finally`` clause is always executed **on the way out**. If there isn't explict return, ``finally`` will execute at the very end. The return value is determined by the first return statement executed. If return in ``try`` or ``else``, since the ``finally`` clause always being executed **on the way out**, it will jump to ``finally`` clause (``finally`` clause **hijack** ``return`` process). If ``finally`` clause has return statement, this statement will be excuated and as return value.
 
 **Example**: without explict return
 
