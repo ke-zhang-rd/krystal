@@ -3,8 +3,7 @@ Starred expression
 ==================
 
 
-You may see ``*args`` and ``**kwargs`` in many places and was wondering what ``args`` and  ``kwargs`` were.
-``args`` is always a iterable and ``kwargs`` is always a dict. 
+``*args`` and ``**kwargs`` are legendary name for iterable and dict. 
 
 **Example: Uncertain arguments:**
 
