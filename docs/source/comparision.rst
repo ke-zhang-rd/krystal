@@ -27,3 +27,4 @@ So the expression below is legal.
   >>> 1 < 2 > 0 < 3 < 4 > 2 < 3
   True
 
+**This feature is welcomed for readability.**
