@@ -14,7 +14,7 @@ Syntax
   # Still called by
   >>> foo()
 
-``@`` is a syntax sugar. The **true meaning** of syntax is: 
+``@`` is a syntax sugar. Under the hood, it is: 
 
 .. code:: python
   
@@ -26,7 +26,7 @@ Syntax
 
   This syntax sugar assignment is executed during decorated function definition not on function call.
 
-Decorator doesn't mean to change name, ``foo`` is still ``foo``. So the thing below ``@dec`` is the input of decorator. In above example, it accepts a **func** and return a **new func**. Decorator also accept arguments.
+Decorator doesn't change function name, ``foo`` is still ``foo``. So the thing below ``@dec`` is the input of decorator. In above example, it accepts a **func** and return a **new func**. Decorator also accept arguments.
 
 .. code:: python
   
@@ -36,7 +36,7 @@ Decorator doesn't mean to change name, ``foo`` is still ``foo``. So the thing be
   
   >>> func()
 
-True meaning is:
+It could be translated to:
 
 .. code:: python
 
@@ -45,7 +45,7 @@ True meaning is:
 
   >>> func()
 
-It reveals the logic under the hood is calculating function call ``dec(a=something)`` first which returns the true decorator.
+It reveals the logic under the hood is calculating function call ``dec(a=something)`` first which returns the new decorator for later process.
 
 Chained decorators
 ------------------
@@ -57,7 +57,7 @@ Chained decorators
   def func(...):
     ...
 
-Again, this will translate to thing below during ``func()`` definition. So intuitively, the rule is parsing the inside decorator first and then outside.
+Again, this will translate to thing below during ``func()`` definition. Intuitively, the rule is parsing the inside decorator first and then outside.
 
 .. code:: python
 
@@ -66,7 +66,7 @@ Again, this will translate to thing below during ``func()`` definition. So intui
 Write a decorator
 -----------------
 
-When you try to write a decorator ``dec``, Let's assume: **it accepts a func and returns a func**. So initially, it should looks like:
+When writing a decorator ``dec``, Let's assume: **it accepts a func and returns a func**. So initially, it should looks like:
 
 .. code:: python
 
@@ -84,9 +84,9 @@ When you try to write a decorator ``dec``, Let's assume: **it accepts a func and
           ...
       return newfunc
 
-Since we return ``newfunc`` and ``newfunc`` is the function we will use later, this reveals two considerations:
+Since we return ``newfunc`` and ``newfunc`` is the function we will use later, this raise two considerations:
 
-1. ``newfunc`` is a wrapper(comeing from root meaning of decorator) of ``func``, so ``func`` usually is called inside ``newfunc``.
+1. ``newfunc`` is a wrapper(from the iteral meaning of decorator) of ``func``, so ``func`` usually is called inside ``newfunc``.
 2. Keep in mind ``newfunc`` is the function returned at the end. In definition, ``newfunc`` need to pass any arguments it accepts to ``func``. So ``*args`` and ``**kwargs`` should be used.
 
 #1 makes it look like:
@@ -101,7 +101,7 @@ Since we return ``newfunc`` and ``newfunc`` is the function we will use later, t
           ...
       return newfunc
 
-#2 makes it looks like:
+Address #2:
 
 .. code:: python
 
@@ -276,7 +276,7 @@ I hope you already understand the very beginning statement, decorator is nothing
 How to drive your boss crazy
 ----------------------------
 
-This is **LEGAL** in Python 3.9:
+This is **LEGAL** in Python 3.13:
 
 .. code:: python
 
