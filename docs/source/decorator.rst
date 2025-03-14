@@ -271,7 +271,7 @@ Finally, I put simplest decorator here for comparasion.
   # newfunc
   # func3 2 3
 
-I hope you already understand the very beginning statement, decorator is nothing more than ``X = dec(X)``.
+Again, decorator is nothing more than the literal meaning of word decorator and it even makes sense visually, it decorates others by ``X = dec(X)``.
 
 Don't use this code
 -------------------
