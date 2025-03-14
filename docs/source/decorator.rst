@@ -273,8 +273,8 @@ Finally, I put simplest decorator here for comparasion.
 
 I hope you already understand the very beginning statement, decorator is nothing more than ``X = dec(X)``.
 
-How to drive your boss crazy
-----------------------------
+Crazy code
+----------
 
 This is **LEGAL** in Python 3.13:
 
