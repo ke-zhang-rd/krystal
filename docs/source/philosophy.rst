@@ -2,6 +2,6 @@
 Philosophy
 ==========
 
+* This is an **intermediate+** documentation. you need at least python 101.
 * TLDR
-* Great, you just violate rule #1. This is an **intermediate+** documentation. Before reading it, you need at least python 101.
 
