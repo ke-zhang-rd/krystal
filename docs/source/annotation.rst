@@ -3,6 +3,9 @@ Typing and annotation
 =====================
 
 Any variable could be annotated by ``:`` operator like:
+
+Variable
+--------
   
 .. code:: python
  
