@@ -29,7 +29,7 @@ could become more readable in
 
 .. note::
 
-   When we use default value without annotation in function, **no space** around ``=`` is recommended. However, it is recommended when you use annotation. Check `PEP8 <https://www.python.org/dev/peps/pep-0008/#other-recommendations>`_ and `PEP3107 <https://www.python.org/dev/peps/pep-3107/#syntax>`_.
+   When using default value without annotation in function, **no space** around ``=`` is recommended. However, it is recommended when using annotation. Check `PEP8 <https://www.python.org/dev/peps/pep-0008/#other-recommendations>`_ and `PEP3107 <https://www.python.org/dev/peps/pep-3107/#syntax>`_.
   
 Class
 -----
