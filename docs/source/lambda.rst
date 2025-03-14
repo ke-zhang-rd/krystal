@@ -8,7 +8,7 @@ lambda
 
     func = lambda n: op(n)
 
-could be translate to: 
+could be translated to: 
 
 .. code:: python
 
@@ -19,7 +19,7 @@ Packing exapression is legal in lambda expression.
 
 .. code:: python
 
-    lambda *args: op(args)
+    func = lambda *args: op(args)
 
 could be translate to: 
 
@@ -55,4 +55,4 @@ could be translate to:
 
 .. note:: 
 
-    In last example, as I said ``lambda`` is just a syntax suger. Like function, ``lambda`` also accept ``*x`` as arguments when you are not sure the number of arguments. Here ``x`` is unpacked to a tuple.
+    As mentioned above,``lambda`` nothing but a syntax suger. So ``lambda`` could also accept ``*x`` as arguments, like regular function, when the number of arguments cannot be determined. Here ``x`` is unpacked to a tuple.
