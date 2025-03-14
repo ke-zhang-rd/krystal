@@ -186,7 +186,7 @@ Class decorator is nothing more. If a function’s decorator is a function that 
 Make any callable become a decorator
 ------------------------------------
 
-Let's go back to the beginning of decorator syntax, ``func = dec(func)``. Here ``dec`` has to be callable, clearly function is callable, so in above example decorator is a *function*/*class* that accepts X and return a new-X. However, pure function is not the only callable thing. When construct a instance, You use *CLASS* in a callable way.
+Decorator syntax is nothing more than ``x = dec(x)``. ``dec`` has to be callable, clearly function is callable, so in above example decorator is a *function*/*class* that accepts X and return a new-X. However, pure function is not the only callable thing. When construct a instance, You use *CLASS* in a callable way.
 
 .. code:: python
 
@@ -271,7 +271,7 @@ Finally, I put simplest decorator here for comparasion.
   # newfunc
   # func3 2 3
 
-Again, decorator is nothing more than the literal meaning of word decorator and it even makes sense visually, it decorates others by ``X = dec(X)``.
+Again, decorator is nothing more than the literal meaning of word decorator and it even makes sense visually, it decorates others by ``x = dec(x)``.
 
 Don't use this code
 -------------------
