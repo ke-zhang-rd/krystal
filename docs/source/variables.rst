@@ -44,6 +44,8 @@ Understanding Python variables and Memory Management
 
 Have you ever noticed any difference between variables in Python and C? For example, when you do an assignment like the following in C, it actually creates a block of memory space so that it can hold the value for that variable
 
+**In C++**
+
 .. code:: python
 
   int a = 1;
@@ -71,7 +73,10 @@ Assigning one variable to another makes a copy of the value and put that value i
 .. image:: ../images/b2box.png
 .. image:: ../images/a2box.png
 
-But in Python variables work more like tags unlike the boxes you have seen before. When you do an assignment in Python, it tags the value with the variable name.
+
+**In Python**
+
+Variables work more like tags unlike the boxes you have seen before. When you do an assignment in Python, it tags the value with the variable name.
 
 .. code:: python
 
