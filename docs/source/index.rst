@@ -16,9 +16,8 @@ Krystal Python
    comparision
    zip
    comprehension
-   dunder
-   variables
    walrus
+   variables
    copy
    mutabledefault
    dirvsdict
@@ -31,6 +30,7 @@ Krystal Python
    itertools
    map_filter_reduce
    container
+   dunder
    decorator
    dataclass
    decoratormethod
