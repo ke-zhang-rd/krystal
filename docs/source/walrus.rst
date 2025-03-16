@@ -21,7 +21,7 @@ The academic name of walrus is *assignment expression*. In computer science, an 
     if res:
         something
 
-could be improved to
+could be simplified to
 
 .. code:: python
     
@@ -38,7 +38,7 @@ could be improved to
             break     
         something
 
-could be improved to
+could be simplified to
 
 .. code:: python
 
@@ -51,7 +51,7 @@ could be improved to
 
     results = [(x, f(x), x/f(x)) for x in input_data if f(x) > 0]
 
-could be improved to
+could be simplified to
 
 .. code:: python
 
